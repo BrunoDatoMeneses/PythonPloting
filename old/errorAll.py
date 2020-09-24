@@ -190,7 +190,7 @@ def run(log):
 
 
 
-    FIG.fig(x_values_neighborhoods, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_neighborhoods, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     CONTEXT_SIZE="0_03" #######################################################################################################################################################
 
@@ -355,7 +355,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_neighborhoods, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_neighborhoods, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
 
 
@@ -620,7 +620,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     CONTEXT_SIZE="0_03" ######################################################################################################################################################
 
@@ -882,5 +882,5 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 

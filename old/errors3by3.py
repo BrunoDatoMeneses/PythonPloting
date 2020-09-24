@@ -115,7 +115,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_neighborhoods, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_neighborhoods, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
 
     jointsString = "joints_102030"
@@ -198,7 +198,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_neighborhoods, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_neighborhoods, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     CONTEXT_SIZE="0_03" #######################################################################################################################################################
 
@@ -281,7 +281,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_neighborhoods, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_neighborhoods, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
 
     jointsString = "joints_102030"
@@ -365,7 +365,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_neighborhoods, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_neighborhoods, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
 
 
@@ -511,7 +511,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request632, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request632, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     x_values_request102030=[]
     y_values102030 = []
@@ -636,7 +636,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request102030, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request102030, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     CONTEXT_SIZE="0_03" ######################################################################################################################################################
 
@@ -771,7 +771,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request632, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request632, y_values632, error_values236, labelsString632, xlabel, ylabel, colors632, markers632, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     jointsString = "joints_102030"
     x_values_request102030=[]
@@ -904,7 +904,7 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request102030, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request102030, y_values102030, error_values102030, labelsString102030, xlabel, ylabel, colors102030, markers102030, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
 
     jointsString = "joints_2030"
     x_values_request2030=[]
@@ -996,4 +996,4 @@ def run(log):
     ]))
 
 
-    FIG.fig(x_values_request2030, y_values2030, error_values2030, labelsString102030, xlabel, ylabel, colors102030, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_request2030, y_values2030, error_values2030, labelsString102030, xlabel, ylabel, colors102030, markers, 'Error_' + CONTEXT_SIZE + "_" + jointsString + "_" + figlabel, logScale)

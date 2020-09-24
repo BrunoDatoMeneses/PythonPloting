@@ -69,7 +69,7 @@ def run(log):
 
     ]))
 
-    FIG.fig(x_values_dimensions, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + jointsString + "_" + figlabel, logScale)
+    FIG.figWithDeviation(x_values_dimensions, y_values, error_values, labelsString, xlabel, ylabel, colors, markers, 'Error_' + jointsString + "_" + figlabel, logScale)
 
 
 

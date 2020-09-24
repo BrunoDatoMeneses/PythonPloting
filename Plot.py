@@ -19,7 +19,7 @@ def plot(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yS
         yDeviationValues.append(np.array(yDeviationValueList))
 
 
-    FIG.fig(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_"+xString, logScale)
+    FIG.figWithDeviation(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logScale)
 
 
 def plot2(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains):
@@ -37,7 +37,7 @@ def plot2(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, y
         yDeviationValues.append(np.array(yDeviationValueList))
 
 
-    FIG.fig2(xValues, yValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_"+xString, logScale)
+    FIG.fig(xValues, yValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logScale)
 
 
 def getValuesFromFiles(deviationString, xString, yString, dicoConstrains):

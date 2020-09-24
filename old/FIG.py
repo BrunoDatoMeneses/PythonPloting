@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def fig(xArrays,yArrays,errorArrays,labelsString, xlabelString, yLabelString, colors, markers, figureName, logScale):
+def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logScale):
 
 
     ls = 'dotted'
@@ -38,7 +38,7 @@ def fig(xArrays,yArrays,errorArrays,labelsString, xlabelString, yLabelString, co
     # plt.show()
 
 
-def fig2(xArrays,yArrays,labelsString, xlabelString, yLabelString, colors, markers, figureName, logScale):
+def fig(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logScale):
 
 
 
