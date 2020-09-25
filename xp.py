@@ -33,5 +33,5 @@ if __name__ == "__main__":
                                     for neighborhoodLearning in isNeighborhoodLearning:
 
                                         arguments = joint + " " + learning + " " + exploitation + " " + control + " " + episode + " " + precision + " " + neighborhoodSize + " " + orientation + " " + neighborhoodLearning
-                                        os.system("java -jar run.jar "+ arguments)
+                                        os.system("java -jar ellsa.jar "+ arguments)
                                         print("")
