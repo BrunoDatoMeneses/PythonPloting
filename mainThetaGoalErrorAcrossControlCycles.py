@@ -23,4 +23,4 @@ constrains = [{"precisionRange": "0.02", "learningCycles": "200", "exploitatingC
 
 
 
-Plot.plot(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains)
+Plot.plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains)

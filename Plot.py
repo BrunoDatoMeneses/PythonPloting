@@ -4,7 +4,7 @@ import csv
 
 from old import FIG
 
-def plot(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains):
+def plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains):
 
     xValues = []
     yValues = []
@@ -22,7 +22,7 @@ def plot(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yS
     FIG.figWithDeviation(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logScale)
 
 
-def plot2(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains):
+def plot(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains):
 
     xValues = []
     yValues = []
