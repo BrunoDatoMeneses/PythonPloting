@@ -10,7 +10,7 @@ learningCycles = "200"
 exploitationCycles = "50"
 precisionRange = "###"
 episodes = "15"
-controlCycles = "10"
+controlCycles = "20"
 isOrientationGoal = "false"
 isLearnFromNeighbors = "true"
 
@@ -21,7 +21,7 @@ figParamsString = "Rg_" +  precisionRange + "_Lrn_" + learningCycles +"_Exp_" + 
 # colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange']
 # markers = ['o','D','v','s']
 figVaryingParamString = "precisionRange"
-labels = ['2%','4%','6%']
+labels = ['0.02','0.04','0.06']
 colors = ['tab:red', 'tab:blue', 'tab:green']
 markers = ['o','D','v']
 # figVaryingParamString = "learningCycles"
@@ -41,7 +41,7 @@ xlabel = 'Joints (#)'
 ylabel = 'Mean Error from Goal (%)'
 logScale = True
 xString = "joints"
-yString = "goalXYErrorAverage"
+yString = "endogenousLearningSituationsAverage"
 deviationString = "goalXYErrorDeviationAverage"
 
 

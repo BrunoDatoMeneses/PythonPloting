@@ -6,7 +6,7 @@ import csv
 
 #transpose.transposeFiles()
 
-learningCycles = "200"
+learningCycles = "50"
 exploitationCycles = "50"
 precisionRange = "0.04"
 episodes = "15"
@@ -22,6 +22,10 @@ colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange']
 markers = ['o','D','v','s']
 #figVaryingParamString = "precisionRange"
 # labels = ['0.02','0.04','0.06']
+# colors = ['tab:red', 'tab:blue', 'tab:green']
+# markers = ['o','D','v']
+#figVaryingParamString = "learningCycles"
+# labels = ['50','100','200']
 # colors = ['tab:red', 'tab:blue', 'tab:green']
 # markers = ['o','D','v']
 #figVaryingParamString = "isLearnFromNeighbors"

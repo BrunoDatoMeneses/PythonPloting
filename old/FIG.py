@@ -22,7 +22,7 @@ def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, 
     # tidy up the figure
     # ax.set_xlim((0, 5.5))
     # ax.set_ylim((0, 15.0))
-    # ax.set_title('0.01')
+    # ax.set_title(figureName)
     plt.grid()
 
 
@@ -58,8 +58,8 @@ def fig(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, mark
 
     # tidy up the figure
     # ax.set_xlim((0, 5.5))
-    #ax.set_ylim((0, 10.0))
-    # ax.set_title('0.01')
+    # ax.set_ylim((0, 10.0))
+    # ax.set_title(figureName)
     plt.grid()
 
 

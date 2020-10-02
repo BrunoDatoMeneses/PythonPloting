@@ -4,6 +4,31 @@ import csv
 
 from old import FIG
 
+
+
+def plotWithDeviation2(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constraints1, constraints2):
+
+    xValues = []
+    yValues = []
+    yDeviationValues = []
+
+
+
+    for dicoConstrains in constraints1:
+        xValueList, yDeviationValueList, yValueList = getValuesFromFiles(deviationString, xString, yString, dicoConstrains)
+        xValues.append(np.array(xValueList))
+        yValues.append(np.array(yValueList))
+        yDeviationValues.append(np.array(yDeviationValueList))
+
+    for dicoConstrains in constraints2:
+        xValueList, yDeviationValueList, yValueList = getValuesFromFiles(deviationString, xString, yString, dicoConstrains)
+        xValues.append(np.array(xValueList))
+        yValues.append(np.array(yValueList))
+        yDeviationValues.append(np.array(yDeviationValueList))
+
+
+    FIG.figWithDeviation(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logScale)
+
 def plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constrains):
 
     xValues = []
@@ -13,6 +38,7 @@ def plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logScale
 
 
     for dicoConstrains in constrains:
+        print(dicoConstrains)
         xValueList, yDeviationValueList, yValueList = getValuesFromFiles(deviationString, xString, yString, dicoConstrains)
         xValues.append(np.array(xValueList))
         yValues.append(np.array(yValueList))
