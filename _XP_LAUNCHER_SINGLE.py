@@ -13,13 +13,13 @@ if __name__ == "__main__":
     # isNeighborhoodLearning = ["true", "false"]
 
     neighborhoods = ["2"]
-    joints = ["6"]
+    joints = ["100","10"]
     learningCycles = ["200"]
     exploitationCycles = ["50"]
-    episodes = ["1"]
-    controlCycles = ["1"]
-    precisionRanges = ["6"]
-    isOrientationGoal = ["false"]
+    episodes = ["2"]
+    controlCycles = ["5"]
+    precisionRanges = ["4"]
+    isOrientationGoal = ["true"]
     isNeighborhoodLearning = ["true"]
 
     for neighborhoodSize in neighborhoods:
@@ -33,5 +33,5 @@ if __name__ == "__main__":
                                     for neighborhoodLearning in isNeighborhoodLearning:
 
                                         arguments = joint + " " + learning + " " + exploitation + " " + control + " " + episode + " " + precision + " " + neighborhoodSize + " " + orientation + " " + neighborhoodLearning
-                                        os.system("java -jar AMOEBA-parent.jar "+ arguments)
+                                        os.system("java -jar ELLSA.jar "+ arguments)
                                         print("")
