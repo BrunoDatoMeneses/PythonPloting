@@ -1,4 +1,4 @@
-import Plot
+import _PLOT
 from Utils import transpose
 
 import os
@@ -35,7 +35,8 @@ markers = ['p','X','*','o','s','v']
 figName = "XYGoal-Across_" + figVaryingParamString +"_"+figParamsString
 xlabel = 'Joints (#)'
 ylabel = 'Mean Error from Goal (%)'
-logScale = True
+logXScale = True
+logYScale = False
 xString = "joints"
 yString = "goalXYErrorAverage"
 deviationString = "goalXYErrorDeviationAverage"
@@ -54,4 +55,4 @@ constraints2 = [{"precisionRange": precisionRange, "learningCycles": "50", "expl
 
 
 
-Plot.plotWithDeviation2(labels, colors, markers, figName, xlabel, ylabel, logScale, xString, yString, deviationString, constraints1, constraints2)
+_PLOT.plotWithDeviation2(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constraints1, constraints2, 1, 1)
