@@ -10,7 +10,7 @@ if __name__ == "__main__":
     episodes = "15"
     exploitationCycles = "50"
 
-    # Varying parameters in the article
+    # Varying experimental parameters in the article
     joints = "3"
     learningCycles = "200"
     propagationCycles = "5"
