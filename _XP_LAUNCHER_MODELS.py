@@ -7,13 +7,12 @@ if __name__ == "__main__":
     dimensions = ["2",'3','4','5','10']
     configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
-    learningCycles = ["50"]
-    exploitationCycles = ["10"]
-    #episodes = ["2","5","10","20"]
-    episodes = ["1"]
+    learningCycles = ["250","500","1000","2000","5000","10000","20000"]
+    exploitationCycles = ["250"]
+    episodes = ["5","10","20","50"]
 
     # Neighborhood
-    precisionRanges = ["0.08"]
+    precisionRanges = ["0.04", "0.06", "0.08" ,"0.10"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.25"]
     regressionPerformances = ["1"]
@@ -23,14 +22,14 @@ if __name__ == "__main__":
     selfLearning = ["false"]
 
     # NCS
-    setConflictDetection = ["true"]
-    setConcurrenceDetection = ["true"]
-    setVoidDetection = ["true"]
+    setConflictDetection = ["true","false"]
+    setConcurrenceDetection = ["true","false"]
+    setVoidDetection = ["true","false"]
     setSubVoidDetection = ["false"]
-    setFrontierRequest = ["true"]
-    setSelfModelRequest = ["true"]
-    setFusionResolution = ["true"]
-    setRestructureResolution = ["true"]
+    setFrontierRequest = ["true","false"]
+    setSelfModelRequest = ["true","false"]
+    setFusionResolution = ["true","false"]
+    setRestructureResolution = ["true","false"]
 
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
@@ -42,7 +41,7 @@ if __name__ == "__main__":
     # Other
 
     models = ["SquareFixed"]
-    setbootstrapCycles = ["10"]
+    setbootstrapCycles = ["10","50","100","200"]
 
     for dimension,configFile in zip(dimensions,configFiles):
         for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges,
