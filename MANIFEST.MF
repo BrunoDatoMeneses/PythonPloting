@@ -1,2 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: experiments.roboticDistributedArm.RobotLaunchExampleMassiveXPWithArgs
+
+Main-Class: experiments.nDimensionsLaunchers.LaunchExampleXPWithArgs
