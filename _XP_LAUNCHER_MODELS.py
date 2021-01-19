@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     learningCycles = ["250","500","1000","2000","5000","10000","20000"]
     exploitationCycles = ["250"]
-    episodes = ["5","10","20","50"]
+    episodes = ["10","20","50"]
 
     # Neighborhood
     precisionRanges = ["0.04", "0.06", "0.08" ,"0.10"]
@@ -22,14 +22,24 @@ if __name__ == "__main__":
     selfLearning = ["false"]
 
     # NCS
-    setConflictDetection = ["true","false"]
-    setConcurrenceDetection = ["true","false"]
-    setVoidDetection = ["true","false"]
+
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
+    setVoidDetection = ["true"]
     setSubVoidDetection = ["false"]
-    setFrontierRequest = ["true","false"]
-    setSelfModelRequest = ["true","false"]
-    setFusionResolution = ["true","false"]
-    setRestructureResolution = ["true","false"]
+    setFrontierRequest = ["true"]
+    setSelfModelRequest = ["true"]
+    setFusionResolution = ["true"]
+    setRestructureResolution = ["true"]
+
+    # setConflictDetection = ["true","false"]
+    # setConcurrenceDetection = ["true","false"]
+    # setVoidDetection = ["true","false"]
+    # setSubVoidDetection = ["false"]
+    # setFrontierRequest = ["true","false"]
+    # setSelfModelRequest = ["true","false"]
+    # setFusionResolution = ["true","false"]
+    # setRestructureResolution = ["true","false"]
 
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
