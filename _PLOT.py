@@ -147,7 +147,8 @@ def plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logXScal
     _FIG.figWithDeviation(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logXScale, logYScale)
 
 
-def plotWithDeviationWithFillBetween(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, xModificationCoef, yModificationCoef):
+
+def plotWithDeviationWithFillBetween(labels, colors, intervalColors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, xModificationCoef, yModificationCoef, size):
 
     xValues = []
     yValues = []
@@ -163,7 +164,26 @@ def plotWithDeviationWithFillBetween(labels, colors, markers, figName, xlabel, y
         yDeviationValues.append(np.array(yDeviationValueList))
 
 
-    _FIG.figWithDeviationFillBetween(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logXScale, logYScale)
+    _FIG.figWithDeviationFillBetween(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName + "_" + yString + "_DependingOn_" + xString +"-D", logXScale, logYScale, size)
+
+def plotWitMinMaxWithFillBetween(labels, colors, intervalColors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, minString, maxString, constrains, xModificationCoef, yModificationCoef, size):
+
+    xValues = []
+    yValues = []
+    yMinValues = []
+    yMaxValues = []
+
+
+    for dicoConstrains in constrains:
+        print(dicoConstrains)
+        xValueList, yMinValuesList, yMaxValuesList, yValueList = getValuesFromFiles2(minString, maxString, xString, yString, dicoConstrains, xModificationCoef, yModificationCoef)
+        xValues.append(np.array(xValueList))
+        yValues.append(np.array(yValueList))
+        yMinValues.append(np.array(yMinValuesList))
+        yMaxValues.append(np.array(yMaxValuesList))
+
+
+    _FIG.figWithMinMax(xValues, yValues, yMinValues, yMaxValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName + "_" + yString + "_DependingOn_" + xString +"-M", logXScale, logYScale, size)
 
 def plot(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, xModificationCoef, yModificationCoef):
 
@@ -213,6 +233,39 @@ def getValuesFromFiles(deviationString, xString, yString, dicoConstrains, xModif
                     yValueList.append(float(row[yString])*yModificationCoef)
                     yDeviationValueList.append(float(row[deviationString])*yModificationCoef)
     return xValueList, yDeviationValueList, yValueList
+
+def getValuesFromFiles2(minString,maxString, xString, yString, dicoConstrains, xModificationCoef, yModificationCoef):
+    dicoFiles = {}
+    xValueList = []
+    yValueList = []
+    yMinValueList = []
+    yMaxValueList = []
+    for root, dirs, files in os.walk("TFiles"):
+
+        for filename in files:
+            with open("TFILES/" + filename) as csvfile:
+                csv_reader = csv.DictReader(csvfile, delimiter=';')
+                for row in csv_reader:
+
+                    test = True
+                    for k, v in dicoConstrains.items():
+                        test = test and (row[k]==v)
+
+                    if(test):
+                        dicoFiles[float(row[xString])] = filename
+
+        for joint, filename in sorted(dicoFiles.items(), key=lambda t: t[0]):
+
+
+
+            with open("TFILES/" + filename) as csvfile:
+                csv_reader = csv.DictReader(csvfile, delimiter=';')
+                for row in csv_reader:
+                    xValueList.append(float(row[xString])*xModificationCoef)
+                    yValueList.append(float(row[yString])*yModificationCoef)
+                    yMinValueList.append(float(row[minString])*yModificationCoef)
+                    yMaxValueList.append(float(row[maxString]) * yModificationCoef)
+    return xValueList, yMinValueList, yMaxValueList, yValueList
 
 
 def getMeanValuesFromFiles(deviationString1, deviationString2, xString, yString1, yString2, dicoConstrains, xModificationCoef, yModificationCoef):
