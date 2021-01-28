@@ -4,8 +4,8 @@ import os
 if __name__ == "__main__":
 
 
-    dimensions = ['2','3','4','5','10']
-    configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+    # dimensions = ['2','3','4','5','10']
+    # configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
     dimensions = ['2']
     configFiles = ["twoDimensionsLauncher"]
