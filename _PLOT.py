@@ -144,7 +144,7 @@ def plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logXScal
         yDeviationValues.append(np.array(yDeviationValueList))
 
 
-    _FIG.figWithDeviation(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logXScale, logYScale)
+    _FIG.figWithDeviation(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, markers, figName, logXScale, logYScale)
 
 
 
@@ -164,7 +164,7 @@ def plotWithDeviationWithFillBetween(labels, colors, intervalColors, markers, fi
         yDeviationValues.append(np.array(yDeviationValueList))
 
 
-    _FIG.figWithDeviationFillBetween(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName + "_" + yString + "_DependingOn_" + xString +"-D", logXScale, logYScale, size)
+    _FIG.figWithDeviationFillBetween(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName +"-D", logXScale, logYScale, size)
 
 def plotWitMinMaxWithFillBetween(labels, colors, intervalColors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, minString, maxString, constrains, xModificationCoef, yModificationCoef, size):
 
@@ -183,7 +183,7 @@ def plotWitMinMaxWithFillBetween(labels, colors, intervalColors, markers, figNam
         yMaxValues.append(np.array(yMaxValuesList))
 
 
-    _FIG.figWithMinMax(xValues, yValues, yMinValues, yMaxValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName + "_" + yString + "_DependingOn_" + xString +"-M", logXScale, logYScale, size)
+    _FIG.figWithMinMax(xValues, yValues, yMinValues, yMaxValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName  +"-M", logXScale, logYScale, size)
 
 def plot(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, xModificationCoef, yModificationCoef):
 
@@ -216,8 +216,11 @@ def getValuesFromFiles(deviationString, xString, yString, dicoConstrains, xModif
                 for row in csv_reader:
 
                     test = True
-                    for k, v in dicoConstrains.items():
-                        test = test and (row[k]==v)
+                    for constrainString, constrainValue in dicoConstrains.items():
+                        if(constrainString==xString):
+                            test = test and ( constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                        else:
+                            test = test and (row[constrainString]==constrainValue)
 
                     if(test):
                         dicoFiles[float(row[xString])] = filename
@@ -248,8 +251,11 @@ def getValuesFromFiles2(minString,maxString, xString, yString, dicoConstrains, x
                 for row in csv_reader:
 
                     test = True
-                    for k, v in dicoConstrains.items():
-                        test = test and (row[k]==v)
+                    for constrainString, constrainValue in dicoConstrains.items():
+                        if (constrainString == xString):
+                            test = test and (constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                        else:
+                            test = test and (row[constrainString] == constrainValue)
 
                     if(test):
                         dicoFiles[float(row[xString])] = filename

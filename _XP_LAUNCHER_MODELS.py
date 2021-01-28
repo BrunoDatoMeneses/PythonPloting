@@ -75,12 +75,16 @@ if __name__ == "__main__":
 
             fileName = dimension + "_"
             arguments = dimension + " " + configFile + " "
+            argumentsList = [dimension, configFile]
             for arg in iteration:
                 arguments += arg + " "
                 fileName += arg + "_"
+                argumentsList.append(arg)
 
-            print(arguments)
+            print(arguments, "ARGS SIZE : " + str(len(argumentsList)+1))
+
             arguments += fileName
+            argumentsList.append(fileName)
 
             os.system("java -jar ELLSA.jar " + arguments)
             print("")

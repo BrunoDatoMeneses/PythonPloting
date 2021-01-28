@@ -39,39 +39,32 @@ nbOfNeighborForContexCreationWithouOracle = "50000"
 
 figPrefix = "SquareFix_"
 figEndName = "-AllNCS"
+# figVaryingParamString = "learningCycles"
+# labels = ["250","500","1000","2000","5000","10000","20000"]
 figVaryingParamString = "learningCycles"
 labels = ["250","500","1000","2000","5000","10000","20000"]
-colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown','tab:pink']
-intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat','pink']
-markers = ['o','D','v','s','P','p','*']
-# labels = ["500","1000","2000","5000","10000","20000"]
-# colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown']
-# intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat']
-# markers = ['o','D','v','s','P','p']
 
-# labels = ["1000"]
-# colors = ['tab:red']
-# intervalColors = ['lightcoral']
-# markers = ['o']
 
-# learningCycles = "250_500_1000_2000_5000_10000_20000"
+colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown']
+intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat']
+markers = ['o','D','v','s','P','p']
 learningCycles="#"
 for label in labels:
     learningCycles+= label + "_"
-episodes = "#"
-xKey = "episodes"
+dimension = "#"
+xKey = "dimension"
 
-xlabel = 'Episodes'
-ylabel = 'Prediction Error'
+xlabel = 'Dimension'
+ylabel = 'Number of Agents'
 logXScale = False
 logYScale = False
-xString = "episodes"
-xStringLimitation = (0,200)
-yString = "predictionError_Average"
-labelString = ""
-deviationString = "predictionErrorDeviation_Average"
-minString = "predictionError_Min"
-maxString = "predictionError_Max"
+xString = "dimension"
+xStringLimitation = (0,10)
+yString = "nbAgents_Average"
+labelString = " dimensions"
+deviationString = "nbAgents_Deviation"
+minString = "nbAgents_Min"
+maxString = "nbAgents_Max"
 
 PARAMS = {"dimension":dimension,"learningCycles":learningCycles,"exploitatingCycles":exploitatingCycles,"episodes":episodes,
           "precisionRange":precisionRange,"neighborhoodSize":neighborhoodSize,"influenceRatio":influenceRatio,

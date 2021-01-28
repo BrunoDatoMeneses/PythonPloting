@@ -56,13 +56,17 @@ if __name__ == "__main__":
                                models, setbootstrapCycles):
 
         arguments = dimensions[0] + " " + configFiles[0] + " "
+        argumentsList = [dimensions[0], configFiles[0]]
         fileName = ""
         for arg in iteration:
             arguments += arg + " "
             fileName += arg + "_"
+            argumentsList.append(arg)
 
-        print(arguments)
+        print(arguments, "ARGS SIZE : " + str(len(argumentsList)+1))
+
         arguments+=fileName
+        argumentsList.append(fileName)
 
         os.system("java -jar ELLSA.jar " + arguments)
         print("")

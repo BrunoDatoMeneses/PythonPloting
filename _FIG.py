@@ -46,6 +46,7 @@ def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xla
     fig, ax = plt.subplots(figsize=(size[0], size[1]))
 
 
+
     for x,y,error,labelString,color, intervalColor, marker in zip(xArrays,yArrays,errorArrays,labelsString, colors, intervalColors, markers):
 
 

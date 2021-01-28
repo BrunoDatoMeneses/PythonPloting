@@ -39,39 +39,37 @@ nbOfNeighborForContexCreationWithouOracle = "50000"
 
 figPrefix = "SquareFix_"
 figEndName = "-AllNCS"
-figVaryingParamString = "learningCycles"
-labels = ["250","500","1000","2000","5000","10000","20000"]
-colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown','tab:pink']
-intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat','pink']
-markers = ['o','D','v','s','P','p','*']
-# labels = ["500","1000","2000","5000","10000","20000"]
-# colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown']
-# intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat']
-# markers = ['o','D','v','s','P','p']
+# figVaryingParamString = "learningCycles"
+# labels = ["250","500","1000","2000","5000","10000","20000"]
+figVaryingParamString = "dimension"
+labels = ["2","3","4","5"]
 
-# labels = ["1000"]
-# colors = ['tab:red']
-# intervalColors = ['lightcoral']
-# markers = ['o']
 
-# learningCycles = "250_500_1000_2000_5000_10000_20000"
-learningCycles="#"
+
+dimension="#"
 for label in labels:
-    learningCycles+= label + "_"
-episodes = "#"
-xKey = "episodes"
+    dimension+= label + "_"
 
-xlabel = 'Episodes'
-ylabel = 'Prediction Error'
-logXScale = False
+
+
+xlabel = 'Learning Cycles'
+ylabel = 'Number of Agents'
+
+xString = "learningCycles"
+learningCycles = (0,10000)
+yString = "nbAgents_Average"
+labelString = " dimensions"
+deviationString = "nbAgents_Deviation"
+minString = "nbAgents_Min"
+maxString = "nbAgents_Max"
+
+logXScale = True
 logYScale = False
-xString = "episodes"
-xStringLimitation = (0,200)
-yString = "predictionError_Average"
-labelString = ""
-deviationString = "predictionErrorDeviation_Average"
-minString = "predictionError_Min"
-maxString = "predictionError_Max"
+
+
+colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown']
+intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat']
+markers = ['o','D','v','s','P','p']
 
 PARAMS = {"dimension":dimension,"learningCycles":learningCycles,"exploitatingCycles":exploitatingCycles,"episodes":episodes,
           "precisionRange":precisionRange,"neighborhoodSize":neighborhoodSize,"influenceRatio":influenceRatio,
@@ -89,7 +87,7 @@ PARAMS_STRINGS = ["dimension","learningCycles","exploitatingCycles","episodes","
 
 
 figParamsString = "_D_" + PARAMS.get("dimension") + \
-                  "_L_" + PARAMS.get("learningCycles") + \
+                  "_L_" + str(PARAMS.get("learningCycles")) + \
                   "_Ex_ " + PARAMS.get("exploitatingCycles") + \
                   "_Ep_ " + PARAMS.get("episodes") + \
                   "_R_" + str(int(100*float(PARAMS.get("precisionRange")))) + \
@@ -101,7 +99,7 @@ figParamsString = "_D_" + PARAMS.get("dimension") + \
                   "_Bt_" + PARAMS.get("bootstrapCycle")
 
 
-figName = figPrefix + yString + "-"+ figParamsString + figEndName
+figName = figPrefix + yString + "_DepOn_" + xString + "-"+ figParamsString + figEndName
 
 
 
