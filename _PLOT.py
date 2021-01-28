@@ -202,6 +202,22 @@ def plot(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale,
 
     _FIG.fig(xValues, yValues, labels, xlabel, ylabel, colors, markers, figName + "_" + yString + "_DependingOn_" + xString, logXScale, logYScale)
 
+def plot3(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, xModificationCoef, yModificationCoef, size):
+
+    xValues = []
+    yValues = []
+    yDeviationValues = []
+
+
+
+    for dicoConstrains in constrains:
+        xValueList, yDeviationValueList, yValueList = getValuesFromFiles(deviationString, xString, yString, dicoConstrains, xModificationCoef, yModificationCoef)
+        xValues.append(np.array(xValueList))
+        yValues.append(np.array(yValueList))
+        yDeviationValues.append(np.array(yDeviationValueList))
+
+
+    _FIG.fig3(xValues, yValues, labels, xlabel, ylabel, colors, markers, figName, logXScale, logYScale, size)
 
 def getValuesFromFiles(deviationString, xString, yString, dicoConstrains, xModificationCoef, yModificationCoef):
     dicoFiles = {}

@@ -159,6 +159,45 @@ def fig(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, mark
     plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
     # plt.show()
 
+def fig3(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logXScale, logYScale, size):
+
+
+
+
+    ls = 'dotted'
+    fig, ax = plt.subplots(figsize=size)
+
+
+    for x,y,labelString,color,marker in zip(xArrays,yArrays,labelsString, colors, markers):
+
+
+        ax.errorbar(x, y, marker=marker, markersize=8, linestyle=ls, label=labelString, color = color)
+
+
+
+
+
+    # tidy up the figure
+    # ax.set_xlim((0, 5.5))
+    # ax.set_ylim((0, 10.0))
+    # ax.set_title(figureName)
+    plt.grid()
+
+
+
+    ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
+    ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
+    plt.legend()
+    if (logXScale):
+        plt.xscale("log")
+        figureName += "_xlog"
+    if (logYScale):
+        plt.yscale("log")
+        figureName += "_ylog"
+
+    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    # plt.show()
+
 
 
 

@@ -21,7 +21,7 @@ influenceRatio = "0.25"
 isActiveLearning = "true"
 isSelfLearning = "false"
 errorMargin = "1.0"
-bootstrapCycle = "10"
+bootstrapCycle = "15"
 
 isConflictNCS = "true"
 isConcurenceNCS = "true"
@@ -43,36 +43,32 @@ figEndName = "-AllNCS"
 # labels = ["250","500","1000","2000","5000","10000","20000"]
 # figVaryingParamString = "dimension"
 # labels = ["2"]
-# figVaryingParamString = "precisionRange"
-# labels = ["0.04","0.06","0.08","0.1"]
-figVaryingParamString = "dimension"
-labels = ["2","3","4","5","10"]
+figVaryingParamString = "precisionRange"
+labels = ["0.04","0.06","0.08","0.1"]
 
 
-labelString = " dimensions"
-dimension="#"
+labelString = "precisionRange "
+precisionRange="#"
 labelStrings = []
 
 for label in labels:
-    # precisionRange+=  str(int(100*float(label))) + "_"
-    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    dimension += label + "_"
-    labelStrings.append(label + labelString )
+    precisionRange+=  str(int(100*float(label))) + "_"
+    labelStrings.append(labelString + str(int(100*float(label))) + " %")
 
 
 
 
 xlabel = 'Learning Cycles'
-ylabel = 'Number of Agents'
+ylabel = 'Execution Time (s)'
 
 xString = "learningCycles"
 learningCycles = (0,10000)
 
-yString = "nbAgents_Average"
+yString = "meanTime"
 
-deviationString = "nbAgents_Deviation"
-minString = "nbAgents_Min"
-maxString = "nbAgents_Max"
+deviationString = "meanTime"
+# minString = "nbAgents_Min"
+# maxString = "nbAgents_Max"
 
 logXScale = True
 logYScale = False
@@ -130,9 +126,10 @@ for label in labels:
 
 
 
-_PLOT.plotWithDeviationWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, False, logYScale, xString, yString, deviationString, constrains, 1, 1, figSize)
-_PLOT.plotWitMinMaxWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, False, logYScale, xString, yString, minString, maxString, constrains, 1, 1, figSize)
-_PLOT.plotWithDeviationWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, True, logYScale, xString, yString, deviationString, constrains, 1, 1, figSize)
-_PLOT.plotWitMinMaxWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, True, logYScale, xString, yString, minString, maxString, constrains, 1, 1, figSize)
+# _PLOT.plotWithDeviationWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, False, logYScale, xString, yString, deviationString, constrains, 1, 1, figSize)
+# _PLOT.plotWitMinMaxWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, False, logYScale, xString, yString, minString, maxString, constrains, 1, 1, figSize)
+# _PLOT.plotWithDeviationWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, True, logYScale, xString, yString, deviationString, constrains, 1, 1, figSize)
+# _PLOT.plotWitMinMaxWithFillBetween(labelStrings, colors, intervalColors, markers, figName, xlabel, ylabel, True, logYScale, xString, yString, minString, maxString, constrains, 1, 1, figSize)
 
-#_PLOT.plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, 1, 1)
+_PLOT.plot3(labelStrings, colors, markers, figName, xlabel, ylabel, True, logYScale, xString, yString, deviationString, constrains, 1, 1, figSize)
+_PLOT.plot3(labelStrings, colors, markers, figName, xlabel, ylabel, False, logYScale, xString, yString, deviationString, constrains, 1, 1, figSize)
