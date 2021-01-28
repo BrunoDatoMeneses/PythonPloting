@@ -4,12 +4,15 @@ import os
 if __name__ == "__main__":
 
 
-    dimensions = ["2",'3','4','5','10']
+    dimensions = ['2','3','4','5','10']
     configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+
+    dimensions = ['2']
+    configFiles = ["twoDimensionsLauncher"]
 
     learningCycles = ["250","500","1000","2000","5000","10000","20000"]
     exploitationCycles = ["250"]
-    episodes = ["10","20","50"]
+    episodes = ["10"]
 
     # Neighborhood
     precisionRanges = ["0.04", "0.06", "0.08" ,"0.10"]
@@ -47,24 +50,27 @@ if __name__ == "__main__":
     setLearnFromNeighbors = ["false"]
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["50000"]
+    setCreationFromNeighbor = ["true"]
 
     # Other
 
     models = ["SquareFixed"]
-    setbootstrapCycles = ["10","50","100","200"]
+    setbootstrapCycles = ["15"]
 
     for dimension,configFile in zip(dimensions,configFiles):
         for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges,
-                                       neighborhoodMultiplicators,
-                                       externalInfluenceRatios, regressionPerformances, activeLearning, selfLearning,
-                                       setConflictDetection, setConcurrenceDetection, setVoidDetection,
-                                       setSubVoidDetection,
-                                       setFrontierRequest, setSelfModelRequest, setFusionResolution,
-                                       setRestructureResolution,
-                                       setDream, setDreamCycleLaunch,
-                                       setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors,
-                                       nbOfNeighborForContexCreationWithouOracle,
-                                       models, setbootstrapCycles):
+                                           neighborhoodMultiplicators,
+                                           externalInfluenceRatios, regressionPerformances, activeLearning,
+                                           selfLearning,
+                                           setConflictDetection, setConcurrenceDetection, setVoidDetection,
+                                           setSubVoidDetection,
+                                           setFrontierRequest, setSelfModelRequest, setFusionResolution,
+                                           setRestructureResolution,
+                                           setDream, setDreamCycleLaunch,
+                                           setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors,
+                                           nbOfNeighborForContexCreationWithouOracle,
+                                           setCreationFromNeighbor,
+                                           models, setbootstrapCycles):
 
 
             fileName = dimension + "_"

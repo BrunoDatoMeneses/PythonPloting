@@ -32,12 +32,14 @@ if __name__ == "__main__":
     setFusionResolution = ["true"]
     setRestructureResolution = ["true"]
 
+
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
     setLearnFromNeighbors = ["false"]
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["50000"]
+    setCreationFromNeighbor = ["true"]
 
     # Other
 
@@ -50,6 +52,7 @@ if __name__ == "__main__":
                                setFrontierRequest, setSelfModelRequest, setFusionResolution, setRestructureResolution,
                                setDream, setDreamCycleLaunch,
                                setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors, nbOfNeighborForContexCreationWithouOracle,
+                               setCreationFromNeighbor,
                                models, setbootstrapCycles):
 
         arguments = dimensions[0] + " " + configFiles[0] + " "
