@@ -43,8 +43,31 @@ if __name__ == "__main__":
 
     # Other
 
-    models = ["SquareFixed"]
+    models = ["squareFixed"]
     setbootstrapCycles = ["10"]
+
+    exogenousLearningWeight = ["0.1"]
+    endogenousLearningWeight = ["0.1"]
+
+    LEARNING_WEIGHT_ACCURACY = ["1.0"]
+    LEARNING_WEIGHT_PROXIMITY = ["0.0"]
+    LEARNING_WEIGHT_EXPERIENCE = ["1.0"]
+    LEARNING_WEIGHT_GENERALIZATION = ["1.0"]
+
+    EXPLOITATION_WEIGHT_PROXIMITY = ["1.0"]
+    EXPLOITATION_WEIGHT_EXPERIENCE = ["1.0"]
+    EXPLOITATION_WEIGHT_GENERALIZATION = ["1.0"]
+
+    perceptionsGenerationCoefficient = ["0.1"]
+    modelSimilarityThreshold = ["0.001"]
+
+    maxRangeRadiusCoefficient = ["2.0"]
+    rangeSimilarityCoefficient = ["0.375"]
+    minimumRangeCoefficient = ["0.25"]
+
+    isAllContextSearchAllowedForLearning = ["true"]
+    isAllContextSearchAllowedForExploitation = ["true"]
+    probabilityOfRangeAmbiguity = ["0.1"]
 
     for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges, neighborhoodMultiplicators,
                                externalInfluenceRatios, regressionPerformances, activeLearning, selfLearning,
@@ -53,23 +76,44 @@ if __name__ == "__main__":
                                setDream, setDreamCycleLaunch,
                                setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors, nbOfNeighborForContexCreationWithouOracle,
                                setCreationFromNeighbor,
-                               models, setbootstrapCycles):
+                               models, setbootstrapCycles,
+                               exogenousLearningWeight, endogenousLearningWeight,
+                               LEARNING_WEIGHT_ACCURACY, LEARNING_WEIGHT_PROXIMITY, LEARNING_WEIGHT_EXPERIENCE,
+                               LEARNING_WEIGHT_GENERALIZATION,
+                               EXPLOITATION_WEIGHT_PROXIMITY, EXPLOITATION_WEIGHT_EXPERIENCE,
+                               EXPLOITATION_WEIGHT_GENERALIZATION,
+                               perceptionsGenerationCoefficient, modelSimilarityThreshold,
+                               maxRangeRadiusCoefficient, rangeSimilarityCoefficient, minimumRangeCoefficient,
+                               isAllContextSearchAllowedForLearning, isAllContextSearchAllowedForExploitation,
+                               probabilityOfRangeAmbiguity
+                               ):
 
         arguments = dimensions[0] + " " + configFiles[0] + " "
         argumentsList = [dimensions[0], configFiles[0]]
-        fileName = ""
+
+        fileName = dimensions[0] + "_"
+
         for arg in iteration:
             arguments += arg + " "
-            fileName += arg + "_"
+            if arg == "true":
+                fileName += "t" + "_"
+            elif arg == "false":
+                fileName += "f" + "_"
+            else:
+                fileName += arg + "_"
+
             argumentsList.append(arg)
 
-        print(arguments, "ARGS SIZE : " + str(len(argumentsList)+1))
+        print(arguments, "ARGS SIZE : " + str(len(argumentsList) + 1))
+        print(fileName)
 
-        arguments+=fileName
+        arguments += fileName
         argumentsList.append(fileName)
 
-        os.system("java -jar ELLSA.jar " + arguments)
+        os.system("java -jar Jars/ELLSA.jar " + arguments)
         print("")
+
+
 
     # arguments = dimensions + " " \
     #             + learningCycles + " " \

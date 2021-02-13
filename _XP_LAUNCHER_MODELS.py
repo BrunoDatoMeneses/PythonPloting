@@ -3,21 +3,24 @@ import os
 
 if __name__ == "__main__":
 
+    # dimensions = ['2', '3', '4', '5']
+    # configFiles = ["twoDimensionsLauncher", "threeDimensionsLauncher", "fourDimensionsLauncher",
+    #                "fiveDimensionsLauncher"]
 
-    # dimensions = ['2','3','4','5','10']
-    # configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+    dimensions = ['2','3','4','5','10']
+    configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
-    dimensions = ['4','5','10']
-    configFiles = ["fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+    # dimensions = ['4','5','10']
+    # configFiles = ["fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
-    learningCycles = ["2000","5000","10000"]
+    learningCycles = ["50","100","250","500","1000","2000","5000","10000"]
     exploitationCycles = ["250"]
     episodes = ["10"]
 
     # Neighborhood
     precisionRanges = ["0.10"]
     neighborhoodMultiplicators = ["2"]
-    externalInfluenceRatios = ["0.25"]
+    externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1"]
 
     # Learning
@@ -54,8 +57,46 @@ if __name__ == "__main__":
 
     # Other
 
-    models = ["SquareFixed"]
+# // PARAMS.model = "multi";
+# // PARAMS.model = "disc";
+# // PARAMS.model = "square";
+# // PARAMS.model = "squareFixed";
+# // PARAMS.model = "triangle";
+# // PARAMS.model = "gaussian";
+# // PARAMS.model = "polynomial";
+# // PARAMS.model = "gaussianCos2";
+# // PARAMS.model = "cosX";
+# // PARAMS.model = "cosSinX";
+# // PARAMS.model = "rosenbrock";
+# // PARAMS.model = "squareSplitTriangle";
+# // PARAMS.model = "squareSplitFixed";
+
+    models = ["squareFixed"]
     setbootstrapCycles = ["10"]
+
+    exogenousLearningWeight= ["0.1"]
+    endogenousLearningWeight = ["0.1"]
+
+    LEARNING_WEIGHT_ACCURACY = ["1.0"]
+    LEARNING_WEIGHT_PROXIMITY = ["0.0"]
+    LEARNING_WEIGHT_EXPERIENCE = ["1.0"]
+    LEARNING_WEIGHT_GENERALIZATION = ["1.0"]
+
+    EXPLOITATION_WEIGHT_PROXIMITY = ["1.0"]
+    EXPLOITATION_WEIGHT_EXPERIENCE = ["1.0"]
+    EXPLOITATION_WEIGHT_GENERALIZATION = ["1.0"]
+
+    perceptionsGenerationCoefficient = ["0.1"]
+    modelSimilarityThreshold = ["0.001"]
+
+    maxRangeRadiusCoefficient = ["2.0"]
+    rangeSimilarityCoefficient = ["0.375"]
+    minimumRangeCoefficient = ["0.25"]
+
+    isAllContextSearchAllowedForLearning = ["true","false"]
+    isAllContextSearchAllowedForExploitation = ["true","false"]
+    probabilityOfRangeAmbiguity = ["0.1"]
+
 
     for dimension,configFile in zip(dimensions,configFiles):
         for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges,
@@ -70,7 +111,15 @@ if __name__ == "__main__":
                                            setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors,
                                            nbOfNeighborForContexCreationWithouOracle,
                                            setCreationFromNeighbor,
-                                           models, setbootstrapCycles):
+                                           models, setbootstrapCycles,
+                                           exogenousLearningWeight, endogenousLearningWeight,
+                                           LEARNING_WEIGHT_ACCURACY, LEARNING_WEIGHT_PROXIMITY, LEARNING_WEIGHT_EXPERIENCE, LEARNING_WEIGHT_GENERALIZATION,
+                                           EXPLOITATION_WEIGHT_PROXIMITY, EXPLOITATION_WEIGHT_EXPERIENCE, EXPLOITATION_WEIGHT_GENERALIZATION,
+                                           perceptionsGenerationCoefficient, modelSimilarityThreshold,
+                                           maxRangeRadiusCoefficient, rangeSimilarityCoefficient, minimumRangeCoefficient,
+                                           isAllContextSearchAllowedForLearning, isAllContextSearchAllowedForExploitation,
+                                           probabilityOfRangeAmbiguity
+                                           ):
 
 
             fileName = dimension + "_"
@@ -78,7 +127,13 @@ if __name__ == "__main__":
             argumentsList = [dimension, configFile]
             for arg in iteration:
                 arguments += arg + " "
-                fileName += arg + "_"
+                if arg == "true":
+                    fileName += "t" + "_"
+                elif arg == "false":
+                    fileName += "f" + "_"
+                else:
+                    fileName += arg + "_"
+
                 argumentsList.append(arg)
 
             print(arguments, "ARGS SIZE : " + str(len(argumentsList)+1))
@@ -86,5 +141,5 @@ if __name__ == "__main__":
             arguments += fileName
             argumentsList.append(fileName)
 
-            os.system("java -jar ELLSA.jar " + arguments)
+            os.system("java -jar Jars/ELLSA.jar " + arguments)
             print("")

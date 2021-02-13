@@ -46,7 +46,7 @@ figEndName = "-AllNCS"
 # figVaryingParamString = "precisionRange"
 # labels = ["0.04","0.06","0.08","0.1"]
 figVaryingParamString = "dimension"
-labels = ["2","3","4","5","10"]
+labels = ["2","3","4","5"]
 
 
 labelString = " dimensions"
@@ -66,7 +66,7 @@ xlabel = 'Learning Cycles'
 ylabel = 'Number of Agents'
 
 xString = "learningCycles"
-learningCycles = (0,10000)
+learningCycles = (0,11000)
 
 yString = "nbAgents_Average"
 
@@ -74,8 +74,8 @@ deviationString = "nbAgents_Deviation"
 minString = "nbAgents_Min"
 maxString = "nbAgents_Max"
 
-logXScale = True
-logYScale = False
+logXScale = False
+logYScale = True
 
 
 colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown']
