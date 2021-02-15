@@ -10,3 +10,12 @@ def transposeFiles():
             with open("Files/"+filename) as f, open("TFiles/T_"+filename, 'w') as fw:
                 writer(fw, delimiter=';').writerows(zip(*reader(f, delimiter=';')))
 
+def rename():
+
+    for file in os.listdir("Files"):
+        print(file)
+        print(file[12:])
+        os.rename(file, file[12:])
+
+
+
