@@ -8,18 +8,23 @@ if __name__ == "__main__":
     # configFiles = ["twoDimensionsLauncher", "threeDimensionsLauncher", "fourDimensionsLauncher",
     #                "fiveDimensionsLauncher"]
 
-    dimensions = ['2','3','4','5','10']
-    configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+    # dimensions = ['2','3','4','5','10']
+    # configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
-    # dimensions = ['4','5','10']
-    # configFiles = ["fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+    dimensions = ['2']
+    configFiles = ["twoDimensionsLauncher"]
 
-    learningCycles = ["50","100","250","500","1000","2000","5000","10000"]
+    learningCycles = []
+    for i in range(1,41):
+        learningCycles.append(""+ str(i*50))
+    print(learningCycles)
+    # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
+    # learningCycles = ["500"]
     exploitationCycles = ["250"]
-    episodes = ["10"]
+    episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.10"]
+    precisionRanges = ["0.1"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1"]
@@ -30,14 +35,17 @@ if __name__ == "__main__":
 
     # NCS
 
+    setSelfModelRequest = ["true"]
     setConflictDetection = ["true"]
     setConcurrenceDetection = ["true"]
     setVoidDetection = ["true"]
-    setSubVoidDetection = ["false"]
-    setFrontierRequest = ["true"]
-    setSelfModelRequest = ["true"]
     setFusionResolution = ["true"]
     setRestructureResolution = ["true"]
+    setFrontierRequest = ["true"]
+
+
+
+    setSubVoidDetection = ["false"]
 
     # setConflictDetection = ["true","false"]
     # setConcurrenceDetection = ["true","false"]
@@ -94,8 +102,8 @@ if __name__ == "__main__":
     rangeSimilarityCoefficient = ["0.375"]
     minimumRangeCoefficient = ["0.25"]
 
-    isAllContextSearchAllowedForLearning = ["true","false"]
-    isAllContextSearchAllowedForExploitation = ["true","false"]
+    isAllContextSearchAllowedForLearning = ["true"]
+    isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
 

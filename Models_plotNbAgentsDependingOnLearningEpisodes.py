@@ -7,38 +7,37 @@ import csv
 # transpose.transposeFiles()
 from _PARAMS import PARAMETERS
 
-figEndName = "-AllNCS"
+figEndName = "-noNCS"
 # figVaryingParamString = "learningCycles"
 # labels = ["250","500","1000","2000","5000","10000","20000"]
 # figVaryingParamString = "dimension"
 # labels = ["2"]
 # figVaryingParamString = "precisionRange"
 # labels = ["0.04","0.06","0.08","0.1"]
-figVaryingParamString = "dimension"
-labels = ["2", "3", "4", "5"]
+figVaryingParamString = "learningCycles"
+labels = ["500"]
 
-labelString = " dimensions"
-dimension = "#"
+labelString = " Learning Cycles"
 labelStrings = []
 
-PARAMETERS.dimension="#"
+PARAMETERS.learningCycles="#"
 for label in labels:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.dimension += label + "_"
+    PARAMETERS.learningCycles += label + "_"
     labelStrings.append(label + labelString)
 
-xlabel = 'Learning Cycles'
-ylabel = 'Volume of Agents (%)'
+xlabel = 'Episodes'
+ylabel = 'Number of Agents (#)'
 
-xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 10000)
+xString = "episodes"
+PARAMETERS.episodes = (0, 1000)
 
-yString = "mappingScore_Average"
+yString = "nbAgents_Average"
 
-deviationString = "mappingScore_Deviation"
-minString = "mappingScore_Min"
-maxString = "mappingScore_Max"
+deviationString = "nbAgents_Deviation"
+minString = "nbAgents_Min"
+maxString = "nbAgents_Max"
 
 logXScale = False
 logYScale = False
@@ -50,7 +49,6 @@ print(figName)
 
 
 constrains = PARAMETERS.getConstains(labels, figVaryingParamString)
-
 
 _PLOT.plotWithDeviationWithFillBetween(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                        figName, xlabel, ylabel, False, logYScale, xString, yString, deviationString,

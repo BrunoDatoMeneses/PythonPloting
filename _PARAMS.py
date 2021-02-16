@@ -9,7 +9,7 @@ class PARAMETERS:
     model = "squareFixed"
     learningCycles = "1000"
     exploitatingCycles = "250"
-    episodes = "10"
+    episodes = "15"
 
     validityRangesPrecision = "0.1"
 
@@ -178,5 +178,23 @@ class PARAMETERS:
                     constrainsDico[key] = value
 
             constrains.append(constrainsDico)
+
+        return constrains
+
+    @classmethod
+    def getConstainsLabelsAreParams(cls, labels, figVaryingParamString, XYDevMinMax):
+
+        constrains = []
+
+        for label in labels:
+            constrainsDico = {}
+            for key, value in cls.getPARAMS().items():
+                if (key == figVaryingParamString):
+                    constrainsDico[key] = label
+                else:
+                    constrainsDico[key] = value
+
+            fullConstain = [XYDevMinMax,constrainsDico]
+            constrains.append(fullConstain)
 
         return constrains

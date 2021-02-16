@@ -7,7 +7,7 @@ import csv
 # transpose.transposeFiles()
 from _PARAMS import PARAMETERS
 
-figEndName = "-AllNCS"
+figEndName = "-TEST"
 # figVaryingParamString = "learningCycles"
 # labels = ["250","500","1000","2000","5000","10000","20000"]
 # figVaryingParamString = "dimension"
@@ -15,7 +15,7 @@ figEndName = "-AllNCS"
 # figVaryingParamString = "precisionRange"
 # labels = ["0.04","0.06","0.08","0.1"]
 figVaryingParamString = "dimension"
-labels = ["2", "3", "4", "5"]
+labels = ["2","3"]
 
 labelString = " dimensions"
 dimension = "#"
@@ -49,20 +49,21 @@ figName = PARAMETERS.figPrefix + yString + "_DepOn_" + xString + "-" + PARAMETER
 print(figName)
 
 
-constrains = PARAMETERS.getConstains(labels, figVaryingParamString)
+constrains = PARAMETERS.getConstainsLabelsAreParams(labels, figVaryingParamString, [xString, yString, deviationString, minString, maxString])
+print(constrains)
 
 
-_PLOT.plotWithDeviationWithFillBetween(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                       figName, xlabel, ylabel, False, logYScale, xString, yString, deviationString,
+_PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                       figName, xlabel, ylabel, False, logYScale,
                                        constrains, 1, 100, PARAMETERS.figSize)
-_PLOT.plotWitMinMaxWithFillBetween(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                   figName, xlabel, ylabel, False, logYScale, xString, yString, minString, maxString,
+_PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                   figName, xlabel, ylabel, False, logYScale,
                                    constrains, 1, 100, PARAMETERS.figSize)
-_PLOT.plotWithDeviationWithFillBetween(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                       figName, xlabel, ylabel, True, logYScale, xString, yString, deviationString,
+_PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                       figName, xlabel, ylabel, True, logYScale,
                                        constrains, 1, 100, PARAMETERS.figSize)
-_PLOT.plotWitMinMaxWithFillBetween(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                   figName, xlabel, ylabel, True, logYScale, xString, yString, minString, maxString,
+_PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                   figName, xlabel, ylabel, True, logYScale,
                                    constrains, 1, 100, PARAMETERS.figSize)
 
 # _PLOT.plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, 1, 1)
