@@ -204,6 +204,27 @@ def plotWithDeviationWithFillBetweenConstrained(labels, colors, intervalColors, 
 
     _FIG.figWithDeviationFillBetween(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName +"-D", logXScale, logYScale, size)
 
+def barWithDeviationConstrained(XLabels, legendLabels, colors, intervalColors, markers, figName, ylabel, logXScale, logYScale, allConstrains, xModificationCoef, yModificationCoef, size):
+
+    yAllValues = []
+    yAllDeviationValues = []
+
+    for constrains in allConstrains:
+        yValues = []
+        yDeviationValues = []
+
+        for dicoConstrains in constrains:
+            print(dicoConstrains)
+            yDeviationValue, yValue = getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef)
+            yValues.append(yValue)
+            yDeviationValues.append(yDeviationValue)
+
+        yAllValues.append(yValues)
+        yAllDeviationValues.append(yDeviationValues)
+
+
+    _FIG.barWithDeviation(yAllValues, yAllDeviationValues, XLabels, ylabel, legendLabels, colors, intervalColors, figName + "-D", logXScale, logYScale, size)
+
 def plotWitMinMaxWithFillBetween(labels, colors, intervalColors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, minString, maxString, constrains, xModificationCoef, yModificationCoef, size):
 
     xValues = []
@@ -381,7 +402,28 @@ def getValuesFromFilesAndConstrains(dicoConstrains, xModificationCoef, yModifica
                     yDeviationValueList.append(float(row[dicoConstrains[0][2]])*yModificationCoef)
     return xValueList, yDeviationValueList, yValueList
 
+def getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef):
+    file = ""
+    for root, dirs, files in os.walk("TFiles"):
 
+        for filename in files:
+            with open("TFILES/" + filename) as csvfile:
+                csv_reader = csv.DictReader(csvfile, delimiter=';')
+                for row in csv_reader:
+
+                    test = True
+                    for constrainString, constrainValue in dicoConstrains[1].items():
+                        test = test and (row[constrainString]==constrainValue)
+
+                    if(test):
+                        file = filename
+
+    with open("TFILES/" + file) as csvfile:
+        csv_reader = csv.DictReader(csvfile, delimiter=';')
+        for row in csv_reader:
+            yValue=(float(row[dicoConstrains[0][0]])*yModificationCoef)
+            yDeviationValue=(float(row[dicoConstrains[0][1]])*yModificationCoef)
+    return  yDeviationValue, yValue
 
 def getValuesFromFiles2(minString,maxString, xString, yString, dicoConstrains, xModificationCoef, yModificationCoef):
     dicoFiles = {}

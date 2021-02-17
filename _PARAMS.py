@@ -7,7 +7,7 @@ class PARAMETERS:
 
     dimension = "2"
     model = "squareFixed"
-    learningCycles = "1000"
+    learningCycles = "500"
     exploitatingCycles = "250"
     episodes = "15"
 
@@ -101,9 +101,9 @@ class PARAMETERS:
 
 
 
-    colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown']
-    intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat']
-    markers = ['o', 'D', 'v', 's', 'P', 'p']
+    colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown', 'tab:olive']
+    intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat','lemonchiffon']
+    markers = ['o', 'D', 'v', 's', 'P', 'p','*']
 
     @classmethod
     def getPARAMS(cls):
@@ -196,5 +196,39 @@ class PARAMETERS:
 
             fullConstain = [XYDevMinMax,constrainsDico]
             constrains.append(fullConstain)
+
+        return constrains
+
+    @classmethod
+    def getConstainsLabelsAreYStrings(cls, labels, XYDevMinMax):
+
+        constrains = []
+
+        for label, xyDevmM in zip(labels,XYDevMinMax):
+            constrainsDico = {}
+            for key, value in cls.getPARAMS().items():
+                constrainsDico[key] = value
+
+            fullConstrain = [xyDevmM,constrainsDico]
+            constrains.append(fullConstrain)
+
+        return constrains
+
+    @classmethod
+    def getConstainsLabelsAreParamsWithVaryingParam(cls, labels, figVaryingParamString, XYDevMinMax, valueVarying):
+
+        constrains = []
+
+        for label, xyDevmM in zip(labels,XYDevMinMax):
+            constrainsDico = {}
+            for key, value in cls.getPARAMS().items():
+
+                if (key == figVaryingParamString):
+                    constrainsDico[key] = valueVarying
+                else:
+                    constrainsDico[key] = value
+
+            fullConstrain = [xyDevmM,constrainsDico]
+            constrains.append(fullConstrain)
 
         return constrains

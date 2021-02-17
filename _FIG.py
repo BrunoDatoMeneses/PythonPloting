@@ -120,6 +120,48 @@ def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelSt
     plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
     # plt.show()
 
+def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLabel, colors, intervalColors, figureName, logXScale, logYScale, size):
+
+    # ls = 'dotted'
+    ls = (0,(1,5))
+    fig, ax = plt.subplots(figsize=(size[0], size[1]))
+    x = np.arange(len(xLabelsString))  # the label locations
+    width = 0.75
+
+    n = len(legendLabel)
+    i=0
+    for yArray, errorArray,legend in zip(yArrays,errorArrays,legendLabel):
+        ax.bar(x -(width/2) + (width/(2*n))  +  i*(width/n), yArray, width/n, yerr=errorArray, label=legend)
+        i+=1
+
+    #ax.bar(x, yArrays, width, yerr=errorArrays, label='Test', color=colors)
+
+        #ax.errorbar(x, y + error, marker='_', markersize=12, color=color, linestyle='none')
+        #ax.errorbar(x, y - error, marker='_', markersize=12, color=color, linestyle='none')
+
+
+
+
+    # tidy up the figure
+    # ax.set_xlim((0, 5.5))
+    #ax.set_ylim((-1.5, 10))
+    # ax.set_title(figureName)
+    plt.grid()
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(xLabelsString, rotation=90)
+
+    ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
+    plt.legend()
+
+    if (logYScale):
+        plt.yscale("log")
+        figureName+="_ylog"
+
+    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    # plt.show()
+
+
 def fig(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logXScale, logYScale):
 
 

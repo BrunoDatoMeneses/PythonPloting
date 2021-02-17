@@ -10,10 +10,10 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 xlabel = 'Learning Cycles (#)'
-ylabel = 'Volumes (%)'
+ylabel = 'Actives Requests Sums (#)'
 
 
-yStrings = ["voidVol","concurrenceVol","conflictVol"]
+yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -24,7 +24,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-labelStrings = ["Incompetencies","Concurrencies","Conflicts"]
+labelStrings = ["Model Ambiguities","Conflicts","Concurrencies","Incompetencies","Complete Redundancy","Partial Redundancy","Range Ambiguities"]
 
 xString = "learningCycles"
 PARAMETERS.learningCycles = (0, 1000)
@@ -33,9 +33,9 @@ PARAMETERS.learningCycles = (0, 1000)
 logXScale = False
 logYScale = False
 
-yStringLong =""
-for label in labelStrings:
-    yStringLong += label  + "_"
+yStringLong ="ActiveRequests"
+# for label in labelStrings:
+#     yStringLong += label  + "_"
 
 XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
@@ -51,15 +51,15 @@ print(constrains)
 
 _PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                        figName, xlabel, ylabel, False, logYScale,
-                                       constrains, 1, 100, PARAMETERS.figSize)
+                                       constrains, 1, 1, PARAMETERS.figSize)
 _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                    figName, xlabel, ylabel, False, logYScale,
-                                   constrains, 1, 100, PARAMETERS.figSize)
+                                   constrains, 1, 1, PARAMETERS.figSize)
 _PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                        figName, xlabel, ylabel, True, logYScale,
-                                       constrains, 1, 100, PARAMETERS.figSize)
+                                       constrains, 1, 1, PARAMETERS.figSize)
 _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                    figName, xlabel, ylabel, True, logYScale,
-                                   constrains, 1, 100, PARAMETERS.figSize)
+                                   constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, 1, 1)
