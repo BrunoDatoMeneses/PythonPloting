@@ -13,7 +13,7 @@ figEndName = "-AllNCS"
 ylabel = 'Actives Requests Sums (#)'
 
 figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["50","100","500","1000",'2000']
+varyingParamStringValues = ["100","200","500","1000"]
 varyingParamStrings = []
 paramlabelString = " Learning Cycles"
 PARAMETERS.learningCycles= "#"

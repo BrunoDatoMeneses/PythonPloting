@@ -37,7 +37,7 @@ def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, 
         plt.yscale("log")
         figureName+="_ylog"
 
-    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
 def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xlabelString, yLabelString, colors, intervalColors, markers, figureName, logXScale, logYScale, size):
@@ -77,7 +77,7 @@ def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xla
         plt.yscale("log")
         figureName+="_ylog"
 
-    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
 def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelString, yLabelString, colors, intervalColors, markers, figureName, logXScale, logYScale, size):
@@ -118,7 +118,7 @@ def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelSt
         plt.yscale("log")
         figureName+="_ylog"
 
-    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
 def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLabel, colors, intervalColors, figureName, logXScale, logYScale, size):
@@ -159,7 +159,7 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
         plt.yscale("log")
         figureName+="_ylog"
 
-    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
 
@@ -199,7 +199,7 @@ def fig(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, mark
         plt.yscale("log")
         figureName += "_ylog"
 
-    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
 def fig3(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logXScale, logYScale, size):
@@ -238,10 +238,17 @@ def fig3(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, mar
         plt.yscale("log")
         figureName += "_ylog"
 
-    plt.savefig("Figures/" + figureName + ".png", bbox_inches='tight')
+
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
 
 
 
+def formatFigName(figureName):
+    newFigName=""
+    for char in figureName:
+        if(char != "." and char != "#" and char != " "):
+            newFigName+=char
 
+    return newFigName

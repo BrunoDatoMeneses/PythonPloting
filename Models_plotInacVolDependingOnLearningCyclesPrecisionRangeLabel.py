@@ -1,3 +1,4 @@
+import _FIG
 import _PLOT
 from Utils import transpose
 
@@ -14,31 +15,33 @@ figEndName = "-allNCS"
 # labels = ["2"]
 # figVaryingParamString = "precisionRange"
 # labels = ["0.04","0.06","0.08","0.1"]
-figVaryingParamString = "bootstrapCycle"
-labels = ["2","5","10"]
+figVaryingParamString = "validityRangesPrecision"
+labels = ["0.05","0.075","0.1"]
+labels.reverse()
 
-labelString = " Bootstrap Cycles"
+labelString = "Validity Ranges Precision "
 labelStrings = []
 
-PARAMETERS.bootstrapCycle="("
+PARAMETERS.validityRangesPrecision="("
 for label in labels:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.bootstrapCycle += label + "_"
-    labelStrings.append(label + labelString)
-PARAMETERS.bootstrapCycle +=")"
+    PARAMETERS.validityRangesPrecision += label + "_"
+    labelStrings.append(labelString + label)
+
+PARAMETERS.validityRangesPrecision+=")"
 
 xlabel = 'Learning Cycles (#)'
-ylabel = 'Generalization Score (%)'
+ylabel = 'Volume of Innacuracies (%)'
 
 xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 1000)
+PARAMETERS.learningCycles = (0, 500)
 
-yString = "generalizationScore_Average"
+yString = "imprecisionScore_Average"
 
-deviationString = "generalizationScore_Deviation"
-minString = "generalizationScore_Min"
-maxString = "generalizationScore_Max"
+deviationString = "imprecisionScore_Deviation"
+minString = "imprecisionScore_Min"
+maxString = "imprecisionScore_Max"
 
 logXScale = False
 logYScale = False
