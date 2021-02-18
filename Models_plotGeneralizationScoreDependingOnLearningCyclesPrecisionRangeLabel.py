@@ -1,3 +1,4 @@
+import _FIG
 import _PLOT
 from Utils import transpose
 
@@ -14,25 +15,27 @@ figEndName = "-allNCS"
 # labels = ["2"]
 # figVaryingParamString = "precisionRange"
 # labels = ["0.04","0.06","0.08","0.1"]
-figVaryingParamString = "bootstrapCycle"
-labels = ["2","5","10"]
+figVaryingParamString = "validityRangesPrecision"
+labels = ["0.05","0.075","0.1"]
+labels.reverse()
 
-labelString = " Bootstrap Cycles"
+labelString = "Validity Ranges Precision "
 labelStrings = []
 
-PARAMETERS.bootstrapCycle="("
+PARAMETERS.validityRangesPrecision="("
 for label in labels:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.bootstrapCycle += label + "_"
-    labelStrings.append(label + labelString)
-PARAMETERS.bootstrapCycle +=")"
+    PARAMETERS.validityRangesPrecision += label + "_"
+    labelStrings.append(labelString + label)
+
+PARAMETERS.validityRangesPrecision+=")"
 
 xlabel = 'Learning Cycles (#)'
 ylabel = 'Generalization Score (%)'
 
 xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 1000)
+PARAMETERS.learningCycles = (0, 2000)
 
 yString = "generalizationScore_Average"
 
@@ -47,7 +50,8 @@ logYScale = False
 
 figName = PARAMETERS.figPrefix + yString + "_DepOn_" + xString + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
-
+figName= _FIG.formatFigName(figName)
+print(figName)
 
 constrains = PARAMETERS.getConstains(labels, figVaryingParamString)
 

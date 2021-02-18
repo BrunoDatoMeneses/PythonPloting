@@ -314,7 +314,7 @@ def getValuesFromFilesSeveralY(deviationString, xString, yString, dicoConstrains
                     test = True
                     for constrainString, constrainValue in dicoConstrains.items():
                         if(constrainString==xString):
-                            test = test and ( constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                            test = test and ( constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])
                         else:
                             test = test and (row[constrainString]==constrainValue)
 
@@ -349,7 +349,7 @@ def getValuesFromFiles(deviationString, xString, yString, dicoConstrains, xModif
                     test = True
                     for constrainString, constrainValue in dicoConstrains.items():
                         if(constrainString==xString):
-                            test = test and ( constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                            test = test and ( constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])
                         else:
                             test = test and (row[constrainString]==constrainValue)
 
@@ -383,7 +383,7 @@ def getValuesFromFilesAndConstrains(dicoConstrains, xModificationCoef, yModifica
                     test = True
                     for constrainString, constrainValue in dicoConstrains[1].items():
                         if(constrainString==dicoConstrains[0][0]):
-                            test = test and ( constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                            test = test and ( constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])
                         else:
                             test = test and (row[constrainString]==constrainValue)
 
@@ -441,7 +441,7 @@ def getValuesFromFiles2(minString,maxString, xString, yString, dicoConstrains, x
                     test = True
                     for constrainString, constrainValue in dicoConstrains.items():
                         if (constrainString == xString):
-                            test = test and (constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                            test = test and (constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])
                         else:
                             test = test and (row[constrainString] == constrainValue)
 
@@ -477,7 +477,7 @@ def getValuesFromFilesMinMaxConstrained(dicoConstrains, xModificationCoef, yModi
                     test = True
                     for constrainString, constrainValue in dicoConstrains[1].items():
                         if (constrainString == dicoConstrains[0][0]):
-                            test = test and (constrainValue[0] < int(row[constrainString]) <= constrainValue[1])
+                            test = test and (constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])
                         else:
                             test = test and (row[constrainString] == constrainValue)
 
