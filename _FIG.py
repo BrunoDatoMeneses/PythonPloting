@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+ALPHA_FILL = 1.0
 
 def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logXScale, logYScale):
 
@@ -51,7 +52,7 @@ def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xla
 
 
         ax.errorbar(x, y, marker=marker, markersize=8, linestyle=ls, label=labelString, color = color)
-        ax.fill_between(x, (y - error), (y + error), color=intervalColor, alpha=0.7)
+        ax.fill_between(x, (y - error), (y + error), color=intervalColor, alpha=ALPHA_FILL)
         #ax.errorbar(x, y + error, marker='_', markersize=12, color=color, linestyle='none')
         #ax.errorbar(x, y - error, marker='_', markersize=12, color=color, linestyle='none')
 
@@ -92,7 +93,7 @@ def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelSt
         ax.errorbar(x, y, marker=marker, markersize=8, linestyle=ls, label=labelString, color = color)
         #ax.errorbar(x, min, marker=marker, markersize=4, linestyle=ls, label=labelString, color=intervalColor)
         #ax.errorbar(x, max, marker=marker, markersize=4, linestyle=ls, label=labelString, color=intervalColor)
-        ax.fill_between(x, (min), (max), color=intervalColor, alpha=0.7)
+        ax.fill_between(x, (min), (max), color=intervalColor, alpha=ALPHA_FILL)
         #ax.errorbar(x, y + error, marker='_', markersize=12, color=color, linestyle='none')
         #ax.errorbar(x, y - error, marker='_', markersize=12, color=color, linestyle='none')
 

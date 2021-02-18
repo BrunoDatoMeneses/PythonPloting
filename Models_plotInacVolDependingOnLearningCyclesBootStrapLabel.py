@@ -15,7 +15,7 @@ figEndName = "-allNCS"
 # figVaryingParamString = "precisionRange"
 # labels = ["0.04","0.06","0.08","0.1"]
 figVaryingParamString = "bootstrapCycle"
-labels = ["5","10","20","30"]
+labels = ["2","5","10","20"]
 
 labelString = " Bootstrap Cycles"
 labelStrings = []
@@ -31,7 +31,7 @@ xlabel = 'Learning Cycles (#)'
 ylabel = 'Volume of Innacuracies (#)'
 
 xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 2000)
+PARAMETERS.learningCycles = (0, 250)
 
 yString = "imprecisionScore_Average"
 
