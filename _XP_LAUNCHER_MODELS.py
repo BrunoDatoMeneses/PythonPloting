@@ -15,8 +15,8 @@ if __name__ == "__main__":
     configFiles = ["twoDimensionsLauncher"]
 
     learningCycles = []
-    for i in range(1,41):
-        learningCycles.append(""+ str(i*50))
+    for i in range(1,21):
+        learningCycles.append(""+ str(i*100))
     print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
     #learningCycles = ["500"]
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.1"]
+    precisionRanges = ["0.05","0.075""0.1"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1"]
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitFixed";
 
     models = ["squareFixed"]
-    setbootstrapCycles = ["2","5","10","20","30"]
+    setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
     endogenousLearningWeight = ["0.1"]
