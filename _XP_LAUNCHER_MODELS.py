@@ -19,12 +19,12 @@ if __name__ == "__main__":
         learningCycles.append(""+ str(i*50))
     print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    # learningCycles = ["500"]
+    #learningCycles = ["500"]
     exploitationCycles = ["250"]
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.05"]
+    precisionRanges = ["0.1"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1"]
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitFixed";
 
     models = ["squareFixed"]
-    setbootstrapCycles = ["10"]
+    setbootstrapCycles = ["2","5","10","20","30"]
 
     exogenousLearningWeight= ["0.1"]
     endogenousLearningWeight = ["0.1"]
