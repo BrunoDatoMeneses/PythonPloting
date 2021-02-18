@@ -8,22 +8,25 @@ import csv
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
-yStringLong ="ActiveRequests"
+
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Actives Requests Sums (#)'
+ylabel = 'Volumes (%)'
+yStringLong ="Volumes"
 
 figVaryingParamString = "learningCycles"
 varyingParamStringValues = ["100","200","500","1000"]
 varyingParamStrings = []
 paramlabelString = " Learning Cycles"
-PARAMETERS.learningCycles= "#"
+PARAMETERS.learningCycles= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
     PARAMETERS.learningCycles += value + "_"
     varyingParamStrings.append(value + paramlabelString)
 
-yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests"]
+PARAMETERS.learningCycles += ")"
+
+yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -34,7 +37,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy", "Range Ambiguities"]
+xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
