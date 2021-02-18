@@ -24,7 +24,7 @@ if __name__ == "__main__":
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.05","0.075""0.1"]
+    precisionRanges = ["0.05","0.075","0.1"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1"]
