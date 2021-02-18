@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
     maxRangeRadiusCoefficient = ["2.0"]
     rangeSimilarityCoefficient = ["0.375"]
-    minimumRangeCoefficient = ["0.05","0.15""0.25"]
+    minimumRangeCoefficient = ["0.05","0.15","0.25"]
 
     isAllContextSearchAllowedForLearning = ["true"]
     isAllContextSearchAllowedForExploitation = ["true"]
