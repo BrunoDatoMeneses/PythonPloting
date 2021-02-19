@@ -30,8 +30,8 @@ if __name__ == "__main__":
     regressionPerformances = ["1"]
 
     # Learning
-    activeLearning = ["false"]
-    selfLearning = ["true"]
+    activeLearning = ["true"]
+    selfLearning = ["false"]
 
     # NCS
 
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
-    setLearnFromNeighbors = ["true"]
+    setLearnFromNeighbors = ["false"]
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]
     setCreationFromNeighbor = ["true"]
