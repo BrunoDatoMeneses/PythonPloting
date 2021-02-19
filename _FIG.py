@@ -2,6 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ALPHA_FILL = 1.0
+# ROTATION = 0
+# ROTATION = 22.5
+ROTATION = 45
+# ROTATION = 67.5
+# ROTATION = 90
 
 def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logXScale, logYScale):
 
@@ -150,7 +155,7 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
     plt.grid()
 
     ax.set_xticks(x)
-    ax.set_xticklabels(xLabelsString, rotation=90)
+    ax.set_xticklabels(xLabelsString, rotation=ROTATION)
 
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
     plt.legend()

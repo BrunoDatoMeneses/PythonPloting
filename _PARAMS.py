@@ -1,7 +1,7 @@
 class PARAMETERS:
     """PARAMETERS"""
 
-    figSize = (5, 3.75)
+    figSize = (6, 3.75)
     # figSize = (8,4.5)
     # figSize = (16,9)
 
