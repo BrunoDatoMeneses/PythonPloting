@@ -7,7 +7,7 @@ class PARAMETERS:
 
     dimension = "2"
     model = "gaussianCos2"
-    learningCycles = "500"
+    learningCycles = "2000"
     exploitatingCycles = "250"
     episodes = "15"
 
@@ -210,6 +210,21 @@ class PARAMETERS:
                 constrainsDico[key] = value
 
             fullConstrain = [xyDevmM,constrainsDico]
+            constrains.append(fullConstrain)
+
+        return constrains
+
+    @classmethod
+    def getConstainsSingle(cls, XYDevMinMax):
+
+        constrains = []
+
+        for xyDevmM in  XYDevMinMax:
+            constrainsDico = {}
+            for key, value in cls.getPARAMS().items():
+                constrainsDico[key] = value
+
+            fullConstrain = [xyDevmM, constrainsDico]
             constrains.append(fullConstrain)
 
         return constrains
