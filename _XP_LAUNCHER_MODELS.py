@@ -15,8 +15,8 @@ if __name__ == "__main__":
     configFiles = ["twoDimensionsLauncher"]
 
     learningCycles = []
-    for i in range(1,21):
-        learningCycles.append(""+ str(i*100))
+    for i in range(1,5):
+        learningCycles.append(""+ str(i*500))
     print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
     #learningCycles = ["500"]
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.1"]
+    precisionRanges = ["0.04"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1"]
@@ -41,7 +41,7 @@ if __name__ == "__main__":
     setVoidDetection = ["true"]
     setFusionResolution = ["true"]
     setRestructureResolution = ["true"]
-    setFrontierRequest = ["true"]
+    setFrontierRequest = ["false"]
 
 
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
     setLearnFromNeighbors = ["false"]
     nbOfNeighborForLearningFromNeighbors = ["1"]
-    nbOfNeighborForContexCreationWithouOracle = ["50000"]
+    nbOfNeighborForContexCreationWithouOracle = ["7"]
     setCreationFromNeighbor = ["true"]
 
     # Other
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["squareFixed"]
+    models = ["gaussianCos2"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
     maxRangeRadiusCoefficient = ["2.0"]
     rangeSimilarityCoefficient = ["0.375"]
-    minimumRangeCoefficient = ["0.05","0.15","0.25"]
+    minimumRangeCoefficient = ["0.25"]
 
     isAllContextSearchAllowedForLearning = ["true"]
     isAllContextSearchAllowedForExploitation = ["true"]

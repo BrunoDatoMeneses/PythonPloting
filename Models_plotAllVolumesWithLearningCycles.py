@@ -26,7 +26,8 @@ for value in varyingParamStringValues:
 
 PARAMETERS.learningCycles += ")"
 
-yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
+yStrings = ["conflictVol","concurrenceVol","voidVol"]
+# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -37,7 +38,8 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
+xLabelStrings = ["Conflicts", "Concurrencies", "Incompetencies"]
+# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
