@@ -11,7 +11,7 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Learning Situations Sums (#)'
-yStringLong ="RequestsAcitveVSSelf"
+yStringLong ="RequestsDetailAll"
 
 varyingParamStrings = ["Active Learning","Self-Learning"]
 
@@ -28,7 +28,10 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 
-yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
+yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
+# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
+# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
+# yStrings = ["rdmRequests","activeRequests","selfRequests"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -39,8 +42,10 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Random","Active","Self","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
-
+xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
+# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
+# xLabelStrings = ["Passive","Active","Self-Generated"]
+# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
 
 
 
@@ -66,7 +71,11 @@ PARAMETERS.isLearnFromNeighbors = "true"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, logYScale,
+                                  figName, ylabel, False, False,
+                                  constrains, 1, 1, PARAMETERS.figSize)
+
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                  figName, ylabel, False, True,
                                   constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,

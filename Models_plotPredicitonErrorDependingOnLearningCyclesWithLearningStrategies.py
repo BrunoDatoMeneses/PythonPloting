@@ -28,13 +28,13 @@ for string in yStrings:
 labelStrings = ["Active Learning","Self-Learning"]
 
 xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 2001)
+PARAMETERS.learningCycles = (0, 2000)
 
 
 logXScale = False
 logYScale = False
 
-yStringLong =""
+yStringLong =yStrings[0] + "_"
 for label in labelStrings:
     yStringLong += label  + "_"
 

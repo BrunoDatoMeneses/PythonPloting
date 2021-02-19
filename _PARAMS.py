@@ -1,7 +1,7 @@
 class PARAMETERS:
     """PARAMETERS"""
 
-    figSize = (6, 3.75)
+    figSize = (5, 3.75)
     # figSize = (8,4.5)
     # figSize = (16,9)
 
@@ -99,10 +99,9 @@ class PARAMETERS:
                       "probabilityOfRangeAmbiguity"
                       ]
 
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
+    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon']
 
-
-    colors = ['tab:red', 'tab:blue', 'tab:green', 'tab:orange', 'tab:purple', 'tab:brown', 'tab:olive']
-    intervalColors = ['lightcoral', 'lightsteelblue', 'lightgreen', 'lightsalmon', 'thistle', 'wheat','lemonchiffon']
     markers = ['o', 'D', 'v', 's', 'P', 'p','*']
 
     @classmethod
