@@ -10,18 +10,18 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 xlabel = 'Learning Cycles (#)'
-ylabel = 'Prediction Error (%)'
+ylabel = 'Generalization Score (%)'
 
 
 
-yStrings = ["predictionError"]
+yStrings = ["generalizationScore"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"Deviation_Average")
+    yStringsDev.append(string+"_Deviation")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
@@ -34,7 +34,7 @@ PARAMETERS.learningCycles = (0, 2001)
 logXScale = False
 logYScale = False
 
-yStringLong =""
+yStringLong = yStrings[0] + "_"
 for label in labelStrings:
     yStringLong += label  + "_"
 
