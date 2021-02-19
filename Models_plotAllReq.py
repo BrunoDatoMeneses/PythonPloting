@@ -13,7 +13,7 @@ yStringLong ="ActiveRequests"
 ylabel = 'Actives Requests Sums (#)'
 
 figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["100","200","500","1000"]
+varyingParamStringValues = ["2000"]
 varyingParamStrings = []
 paramlabelString = " Learning Cycles"
 PARAMETERS.learningCycles= "#"

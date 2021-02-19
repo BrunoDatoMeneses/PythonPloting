@@ -6,12 +6,12 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "squareFixed"
+    model = "gaussianCos2"
     learningCycles = "500"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.1"
+    validityRangesPrecision = "0.04"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -45,7 +45,7 @@ class PARAMETERS:
     isConcurenceNCS = "true"
     isIncompetenceNCS = "true"
     isSubVoidDetection = "false"
-    isAmbiguityNCS = "true"
+    isAmbiguityNCS = "false"
     isModelNCS = "true"
 
     isLearnFromNeighbors = "false"
@@ -55,7 +55,7 @@ class PARAMETERS:
 
     dreamLaunch = "1500"
     nbOfNeighborForLearningFromNeighbors = "1"
-    nbOfNeighborForContexCreationWithouOracle = "50000"
+    nbOfNeighborForContexCreationWithouOracle = "7"
 
     isCreationFromNeighbor = "true"
     isAllContextSearchAllowedForLearning = "true"

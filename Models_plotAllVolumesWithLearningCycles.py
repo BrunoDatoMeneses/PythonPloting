@@ -14,7 +14,7 @@ ylabel = 'Volumes (%)'
 yStringLong ="Volumes"
 
 figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["100","200","500","1000"]
+varyingParamStringValues = ["500","1000","1500","2000"]
 varyingParamStrings = []
 paramlabelString = " Learning Cycles"
 PARAMETERS.learningCycles= "("
