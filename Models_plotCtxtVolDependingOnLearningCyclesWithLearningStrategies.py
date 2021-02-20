@@ -27,7 +27,7 @@ for string in yStrings:
 labelStrings = ["Active Learning","Self-Learning"]
 
 xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 4000)
+PARAMETERS.learningCycles = (0, 2000)
 
 
 logXScale = False

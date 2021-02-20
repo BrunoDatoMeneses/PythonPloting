@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 ALPHA_FILL = 1.0
-# ROTATION = 0
+ROTATION = 0
 # ROTATION = 22.5
-ROTATION = 45
+# ROTATION = 45
 # ROTATION = 67.5
 # ROTATION = 90
 

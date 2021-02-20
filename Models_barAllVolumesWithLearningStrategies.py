@@ -69,7 +69,7 @@ constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevM
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,
