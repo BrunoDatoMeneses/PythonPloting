@@ -27,7 +27,7 @@ if __name__ == "__main__":
     precisionRanges = ["0.04"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
-    regressionPerformances = ["0.5","1","1.5"]
+    regressionPerformances = ["1"]
 
     # Learning
     activeLearning = ["false"]
