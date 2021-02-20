@@ -10,8 +10,8 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Generalization Score (%)'
-yStringLong ="generalizationScore"
+ylabel = 'Volume of Agents (%)'
+yStringLong ="VolAgent"
 
 varyingParamStrings = ["Active Learning","Self-Learning"]
 
@@ -29,7 +29,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 # PARAMETERS.learningCycles += ")"
 
 PARAMETERS.figSize = (2.5, 3.75)
-yStrings = ["generalizationScore"]
+yStrings = ["mappingScore"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
@@ -41,7 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Generalization Score"]
+xLabelStrings = [" "]
 # xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 

@@ -421,8 +421,14 @@ def getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef):
     with open("TFILES/" + file) as csvfile:
         csv_reader = csv.DictReader(csvfile, delimiter=';')
         for row in csv_reader:
-            yValue=(float(row[dicoConstrains[0][0]])*yModificationCoef)
-            yDeviationValue=(float(row[dicoConstrains[0][1]])*yModificationCoef)
+            print(dicoConstrains[0])
+            if len(dicoConstrains[0])==5:
+                yValue = (float(row[dicoConstrains[0][0]]) * dicoConstrains[0][4])
+                yDeviationValue = (float(row[dicoConstrains[0][1]]) * dicoConstrains[0][4])
+            else:
+                yValue = (float(row[dicoConstrains[0][0]]) * yModificationCoef)
+                yDeviationValue = (float(row[dicoConstrains[0][1]]) * yModificationCoef)
+
     return  yDeviationValue, yValue
 
 def getValuesFromFiles2(minString,maxString, xString, yString, dicoConstrains, xModificationCoef, yModificationCoef):

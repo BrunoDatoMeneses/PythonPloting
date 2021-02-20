@@ -28,7 +28,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 
-
+PARAMETERS.figSize = (4.5, 3.75)
 yStrings = ["exoRequests","endoRequests","selfRequests"]
 yStringsAvg = []
 yStringsDev = []
@@ -41,7 +41,7 @@ for string in yStrings:
     yStringsMax.append(string+"_Max")
 
 
-xLabelStrings = ["Exogenous Learning","Endogenous Learning","Self-Exploitation"]
+xLabelStrings = ["Exogenous Learning","Endogenous Learning /10","Self-Exploitation"]
 
 
 
@@ -54,8 +54,12 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
-    XYDevMinMax.append([y, yDev, min, max])
+for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
+    if(yString == "endoRequests"):
+        XYDevMinMax.append([y, yDev, min, max,0.1])
+    else:
+        XYDevMinMax.append([y, yDev, min, max, 1])
+
 
 figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

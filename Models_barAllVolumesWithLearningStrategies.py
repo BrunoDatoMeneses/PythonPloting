@@ -28,6 +28,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 
+PARAMETERS.figSize = (4.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []

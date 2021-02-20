@@ -27,7 +27,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #     varyingParamStrings.append(value + paramlabelString)
 #
 # PARAMETERS.learningCycles += ")"
-
+PARAMETERS.figSize = (2.5, 3.75)
 yStrings = ["predictionError"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []

@@ -27,7 +27,7 @@ if __name__ == "__main__":
     precisionRanges = ["0.04"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
-    regressionPerformances = ["1"]
+    regressionPerformances = ["0.05"]
 
     # Learning
     activeLearning = ["true"]
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["gaussianCos2"]
+    models = ["cosSinX"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     isAllContextSearchAllowedForLearning = ["true"]
     isAllContextSearchAllowedForExploitation = ["true"]
-    probabilityOfRangeAmbiguity = ["0.01","0.05","0.1"]
+    probabilityOfRangeAmbiguity = ["0.1"]
 
 
     for dimension,configFile in zip(dimensions,configFiles):

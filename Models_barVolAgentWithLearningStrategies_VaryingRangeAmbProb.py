@@ -10,26 +10,26 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Generalization Score (%)'
-yStringLong ="generalizationScore"
+ylabel = 'Volume of Agents (%)'
+yStringLong ="VolAgent"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
+# varyingParamStrings = ["Active Learning","Self-Learning"]
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
-# varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
-# for value in varyingParamStringValues:
-#     # precisionRange+=  str(int(100*float(label))) + "_"
-#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
-#     varyingParamStrings.append(value + paramlabelString)
-#
-# PARAMETERS.learningCycles += ")"
+figVaryingParamString = "probabilityOfRangeAmbiguity"
+varyingParamStringValues = ["0.01","0.05","0.1"]
+varyingParamStrings = []
+paramlabelString = "PBdisc "
+PARAMETERS.probabilityOfRangeAmbiguity= "("
+for value in varyingParamStringValues:
+    # precisionRange+=  str(int(100*float(label))) + "_"
+    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+    PARAMETERS.probabilityOfRangeAmbiguity += value + "_"
+    varyingParamStrings.append(paramlabelString + value)
+
+PARAMETERS.probabilityOfRangeAmbiguity += ")"
 
 PARAMETERS.figSize = (2.5, 3.75)
-yStrings = ["generalizationScore"]
+yStrings = ["mappingScore"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
@@ -41,7 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Generalization Score"]
+xLabelStrings = [" "]
 # xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
@@ -62,13 +62,24 @@ figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + f
 print(figName)
 
 constrains = []
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+
+varyingParamStringsFinal=[]
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("AL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("SL "+lbl)
+
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
                                   constrains, 1, 100, PARAMETERS.figSize)
 

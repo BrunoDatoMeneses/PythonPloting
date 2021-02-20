@@ -10,8 +10,9 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Generalization Score (%)'
-yStringLong ="generalizationScore"
+ylabel = 'Number of Agents (#)'
+yStringLong ="NBAgent"
+
 
 varyingParamStrings = ["Active Learning","Self-Learning"]
 
@@ -28,8 +29,9 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 
+
 PARAMETERS.figSize = (2.5, 3.75)
-yStrings = ["generalizationScore"]
+yStrings = ["nbAgents"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
@@ -41,7 +43,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Generalization Score"]
+xLabelStrings = [" "]
 # xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
@@ -70,7 +72,7 @@ constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevM
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
-                                  constrains, 1, 100, PARAMETERS.figSize)
+                                  constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,
