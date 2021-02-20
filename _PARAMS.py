@@ -6,7 +6,7 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "gaussianCos2"
+    model = "cosSinX"
     learningCycles = "2000"
     exploitatingCycles = "250"
     episodes = "15"
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "1.0"
+    errorMargin = "0.05"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"

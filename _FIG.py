@@ -161,7 +161,7 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
 
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
     # plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
-    # plt.legend()
+    #plt.legend()
 
     if (logYScale):
         plt.yscale("log")
