@@ -136,8 +136,8 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
 
     n = len(legendLabel)
     i=0
-    for yArray, errorArray,legend in zip(yArrays,errorArrays,legendLabel):
-        ax.bar(x -(width/2) + (width/(2*n))  +  i*(width/n), yArray, width/n, yerr=errorArray, label=legend)
+    for yArray, errorArray,legend,color in zip(yArrays,errorArrays,legendLabel,colors):
+        ax.bar(x -(width/2) + (width/(2*n))  +  i*(width/n), yArray, width/n, yerr=errorArray, label=legend,color=color)
         i+=1
 
     #ax.bar(x, yArrays, width, yerr=errorArrays, label='Test', color=colors)
@@ -157,8 +157,11 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
     ax.set_xticks(x)
     ax.set_xticklabels(xLabelsString, rotation=ROTATION)
 
+
+
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    plt.legend()
+    #plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+    # plt.legend()
 
     if (logYScale):
         plt.yscale("log")

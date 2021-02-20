@@ -99,7 +99,10 @@ class PARAMETERS:
                       "probabilityOfRangeAmbiguity"
                       ]
 
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
+
+    colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red']
+
     intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon']
 
     markers = ['o', 'D', 'v', 's', 'P', 'p','*']
@@ -155,10 +158,10 @@ class PARAMETERS:
                           "_Ep" + str(cls.getPARAMS().get("episodes")) + \
                           "_R" + str(cls.getPARAMS().get("validityRangesPrecision")) + \
                           "_N" + str(cls.getPARAMS().get("neighborhoodRadiusCoefficient")) + \
-                          "_I" + str(int(10 * float(cls.getPARAMS().get("influenceRadiusCoefficient")))) + \
+                          "_I" + str(cls.getPARAMS().get("influenceRadiusCoefficient")) + \
                           "_A" + str(cls.getPARAMS().get("isActiveLearning")) + \
                           "_S" + str(cls.getPARAMS().get("isSelfLearning")) + \
-                          "_E" + str(int(10 * float(cls.getPARAMS().get("errorMargin")))) + \
+                          "_E" + str(cls.getPARAMS().get("errorMargin")) + \
                           "_B" + str(cls.getPARAMS().get("bootstrapCycle")) + \
                           "_W" + str(cls.getPARAMS().get("exogenousLearningWeight")) + str(
             cls.getPARAMS().get("endogenousLearningWeight"))
@@ -244,5 +247,25 @@ class PARAMETERS:
 
             fullConstrain = [xyDevmM,constrainsDico]
             constrains.append(fullConstrain)
+
+        return constrains
+
+    @classmethod
+    def getConstainsLabelsAreParamsWithVaryingParam2(cls, labels, figVaryingParamString, XYDevMinMax, valueVarying):
+
+        constrains = []
+
+        for label, xyDevmM in zip(labels, XYDevMinMax):
+            constrainsDico = {}
+            for key, value in cls.getPARAMS().items():
+
+                if (key == figVaryingParamString):
+                    constrainsDico[key] = valueVarying
+                else:
+                    constrainsDico[key] = value
+
+            fullConstrain = [xyDevmM, constrainsDico]
+            constrains=fullConstrain
+
 
         return constrains

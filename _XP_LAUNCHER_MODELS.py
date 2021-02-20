@@ -41,7 +41,7 @@ if __name__ == "__main__":
     setVoidDetection = ["true"]
     setFusionResolution = ["true"]
     setRestructureResolution = ["true"]
-    setFrontierRequest = ["false"]
+    setFrontierRequest = ["true"]
 
 
 
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 
     isAllContextSearchAllowedForLearning = ["true"]
     isAllContextSearchAllowedForExploitation = ["true"]
-    probabilityOfRangeAmbiguity = ["0.1"]
+    probabilityOfRangeAmbiguity = ["0.01","0.05","0.1"]
 
 
     for dimension,configFile in zip(dimensions,configFiles):
