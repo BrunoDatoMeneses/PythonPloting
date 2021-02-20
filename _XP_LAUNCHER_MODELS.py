@@ -15,7 +15,7 @@ if __name__ == "__main__":
     configFiles = ["twoDimensionsLauncher"]
 
     learningCycles = []
-    for i in range(1,9):
+    for i in range(1,5):
         learningCycles.append(""+ str(i*500))
     print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
