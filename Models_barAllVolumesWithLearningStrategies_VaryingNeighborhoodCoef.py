@@ -58,7 +58,7 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
     if yString == "endogenousLearningSituations":
         XYDevMinMax.append([y, yDev, min, max,0.05])
     else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
+        XYDevMinMax.append([y, yDev, min, max])
 
 figName = PARAMETERS.figPrefix + yStringLong + "_" + figVaryingParamString + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

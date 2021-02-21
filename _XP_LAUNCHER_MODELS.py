@@ -2,6 +2,58 @@
 import itertools
 import os
 
+
+def launch():
+    for dimension, configFile in zip(dimensions, configFiles):
+        for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges,
+                                           neighborhoodMultiplicators,
+                                           externalInfluenceRatios, regressionPerformances, activeLearning,
+                                           selfLearning,
+                                           setConflictDetection, setConcurrenceDetection, setVoidDetection,
+                                           setSubVoidDetection,
+                                           setFrontierRequest, setSelfModelRequest, setFusionResolution,
+                                           setRestructureResolution,
+                                           setDream, setDreamCycleLaunch,
+                                           setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors,
+                                           nbOfNeighborForContexCreationWithouOracle,
+                                           setCreationFromNeighbor,
+                                           models, setbootstrapCycles,
+                                           exogenousLearningWeight, endogenousLearningWeight,
+                                           LEARNING_WEIGHT_ACCURACY, LEARNING_WEIGHT_PROXIMITY,
+                                           LEARNING_WEIGHT_EXPERIENCE, LEARNING_WEIGHT_GENERALIZATION,
+                                           EXPLOITATION_WEIGHT_PROXIMITY, EXPLOITATION_WEIGHT_EXPERIENCE,
+                                           EXPLOITATION_WEIGHT_GENERALIZATION,
+                                           perceptionsGenerationCoefficient, modelSimilarityThreshold,
+                                           maxRangeRadiusCoefficient, rangeSimilarityCoefficient,
+                                           minimumRangeCoefficient,
+                                           isAllContextSearchAllowedForLearning,
+                                           isAllContextSearchAllowedForExploitation,
+                                           probabilityOfRangeAmbiguity
+                                           ):
+
+            fileName = dimension + "_"
+            arguments = dimension + " " + configFile + " "
+            argumentsList = [dimension, configFile]
+            for arg in iteration:
+                arguments += arg + " "
+                if arg == "true":
+                    fileName += "t" + "_"
+                elif arg == "false":
+                    fileName += "f" + "_"
+                else:
+                    fileName += arg + "_"
+
+                argumentsList.append(arg)
+
+            print(arguments, "ARGS SIZE : " + str(len(argumentsList) + 1))
+
+            arguments += fileName
+            argumentsList.append(fileName)
+
+            os.system("java -jar Jars/ELLSA.jar " + arguments)
+            print("")
+
+
 if __name__ == "__main__":
 
     # dimensions = ['2', '3', '4', '5']
@@ -30,9 +82,9 @@ if __name__ == "__main__":
     regressionPerformances = ["0.05"]
 
     # Learning
-    activeLearning = ["false"]
-    selfLearning = ["true"]
-    setLearnFromNeighbors = ["true"]
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["false"]
 
     # NCS
 
@@ -82,7 +134,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["cosSinX"]
+    models = ["multi"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
@@ -98,7 +150,7 @@ if __name__ == "__main__":
     EXPLOITATION_WEIGHT_GENERALIZATION = ["1.0"]
 
     perceptionsGenerationCoefficient = ["0.1"]
-    modelSimilarityThreshold = ["0.001","0.01","0.1"]
+    modelSimilarityThreshold = ["0.001"]
 
     maxRangeRadiusCoefficient = ["2.0"]
     rangeSimilarityCoefficient = ["0.375"]
@@ -109,48 +161,12 @@ if __name__ == "__main__":
     probabilityOfRangeAmbiguity = ["0.1"]
 
 
-    for dimension,configFile in zip(dimensions,configFiles):
-        for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges,
-                                           neighborhoodMultiplicators,
-                                           externalInfluenceRatios, regressionPerformances, activeLearning,
-                                           selfLearning,
-                                           setConflictDetection, setConcurrenceDetection, setVoidDetection,
-                                           setSubVoidDetection,
-                                           setFrontierRequest, setSelfModelRequest, setFusionResolution,
-                                           setRestructureResolution,
-                                           setDream, setDreamCycleLaunch,
-                                           setLearnFromNeighbors, nbOfNeighborForLearningFromNeighbors,
-                                           nbOfNeighborForContexCreationWithouOracle,
-                                           setCreationFromNeighbor,
-                                           models, setbootstrapCycles,
-                                           exogenousLearningWeight, endogenousLearningWeight,
-                                           LEARNING_WEIGHT_ACCURACY, LEARNING_WEIGHT_PROXIMITY, LEARNING_WEIGHT_EXPERIENCE, LEARNING_WEIGHT_GENERALIZATION,
-                                           EXPLOITATION_WEIGHT_PROXIMITY, EXPLOITATION_WEIGHT_EXPERIENCE, EXPLOITATION_WEIGHT_GENERALIZATION,
-                                           perceptionsGenerationCoefficient, modelSimilarityThreshold,
-                                           maxRangeRadiusCoefficient, rangeSimilarityCoefficient, minimumRangeCoefficient,
-                                           isAllContextSearchAllowedForLearning, isAllContextSearchAllowedForExploitation,
-                                           probabilityOfRangeAmbiguity
-                                           ):
+    launch()
 
+    #Other Params
+    # Learning
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
 
-            fileName = dimension + "_"
-            arguments = dimension + " " + configFile + " "
-            argumentsList = [dimension, configFile]
-            for arg in iteration:
-                arguments += arg + " "
-                if arg == "true":
-                    fileName += "t" + "_"
-                elif arg == "false":
-                    fileName += "f" + "_"
-                else:
-                    fileName += arg + "_"
-
-                argumentsList.append(arg)
-
-            print(arguments, "ARGS SIZE : " + str(len(argumentsList)+1))
-
-            arguments += fileName
-            argumentsList.append(fileName)
-
-            os.system("java -jar Jars/ELLSA.jar " + arguments)
-            print("")
+    launch()
