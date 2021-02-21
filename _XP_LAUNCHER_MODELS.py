@@ -25,13 +25,14 @@ if __name__ == "__main__":
 
     # Neighborhood
     precisionRanges = ["0.04"]
-    neighborhoodMultiplicators = ["2"]
+    neighborhoodMultiplicators = ["1.5","2","4"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["0.05"]
 
     # Learning
     activeLearning = ["false"]
     selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
 
     # NCS
 
@@ -59,7 +60,7 @@ if __name__ == "__main__":
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
-    setLearnFromNeighbors = ["true"]
+
 
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]
