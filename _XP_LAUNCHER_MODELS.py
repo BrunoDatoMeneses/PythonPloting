@@ -30,9 +30,9 @@ if __name__ == "__main__":
     regressionPerformances = ["0.05"]
 
     # Learning
-    activeLearning = ["true"]
-    selfLearning = ["false"]
-    setLearnFromNeighbors = ["false"]
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
 
     # NCS
 
