@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     # Neighborhood
     precisionRanges = ["0.04"]
-    neighborhoodMultiplicators = ["1.5","2","4"]
+    neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["0.05"]
 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     EXPLOITATION_WEIGHT_GENERALIZATION = ["1.0"]
 
     perceptionsGenerationCoefficient = ["0.1"]
-    modelSimilarityThreshold = ["0.001"]
+    modelSimilarityThreshold = ["0.001","0.01","0.1"]
 
     maxRangeRadiusCoefficient = ["2.0"]
     rangeSimilarityCoefficient = ["0.375"]

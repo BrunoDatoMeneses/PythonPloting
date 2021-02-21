@@ -5,32 +5,34 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Number of Agents (#)'
-yStringLong ="NBAgent"
+ylabel = 'Situations (#)'
+yStringLong ="SituationsCNLs"
 
 # varyingParamStrings = ["Active Learning","Self-Learning"]
 
-figVaryingParamString = "errorMargin"
-varyingParamStringValues = ["0.5","1.0","1.5"]
+figVaryingParamString = "neighborhoodRadiusCoefficient"
+varyingParamStringValues = ["1.5","2.0","4.0"]
 varyingParamStrings = []
-paramlabelString = "Merr "
-PARAMETERS.errorMargin= "("
+paramlabelString = r'$\alpha^\mathcal{N} = $'
+PARAMETERS.neighborhoodRadiusCoefficient= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.errorMargin += value + "_"
+    PARAMETERS.neighborhoodRadiusCoefficient += value + "_"
     varyingParamStrings.append(paramlabelString + value)
 
-PARAMETERS.errorMargin += ")"
+PARAMETERS.neighborhoodRadiusCoefficient += ")"
 
-PARAMETERS.figSize = (2.5, 3.75)
-yStrings = ["nbAgents"]
-# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
+yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests","endogenousLearningSituations"]
+# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
+# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
+# yStrings = ["rdmRequests","activeRequests","selfRequests"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -41,8 +43,10 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = [" "]
-# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
+xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguities","Cooperative Neighbors /20"]
+# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
+# xLabelStrings = ["Passive","Active","Self-Generated"]
+# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
 
 
 
@@ -55,10 +59,13 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
-    XYDevMinMax.append([y, yDev, min, max])
+for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
+    if yString == "endogenousLearningSituations":
+        XYDevMinMax.append([y, yDev, min, max,0.05])
+    else:
+        XYDevMinMax.append([y, yDev, min, max, 1])
 
-figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+figName = PARAMETERS.figPrefix + yStringLong + "_" + figVaryingParamString + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
 constrains = []
@@ -79,8 +86,14 @@ for lbl in varyingParamStrings:
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
 
+PLOTTING.ROTATION=45
+
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, logYScale,
+                                  figName, ylabel, False, False,
+                                  constrains, 1, 1, PARAMETERS.figSize)
+
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                  figName, ylabel, False, True,
                                   constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,

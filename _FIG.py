@@ -1,12 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-ALPHA_FILL = 1.0
-ROTATION = 0
-#ROTATION = 22.5
-#ROTATION = 45
-# ROTATION = 67.5
-# ROTATION = 90
+class PLOTTING:
+    """PARAMETERS"""
+
+    ALPHA_FILL = 1.0
+    ROTATION = 0
+    #ROTATION = 22.5
+    #ROTATION = 45
+    # ROTATION = 67.5
+    # ROTATION = 90
+
+    LEGEND_IN = True
+    LEGEND_OUT = False
 
 def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, yLabelString, colors, markers, figureName, logXScale, logYScale):
 
@@ -34,7 +40,12 @@ def figWithDeviation(xArrays, yArrays, errorArrays, labelsString, xlabelString, 
 
     ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    plt.legend()
+
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+
     if (logXScale):
         plt.xscale("log")
         figureName+="_xlog"
@@ -57,7 +68,7 @@ def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xla
 
 
         ax.errorbar(x, y, marker=marker, markersize=8, linestyle=ls, label=labelString, color = color)
-        ax.fill_between(x, (y - error), (y + error), color=intervalColor, alpha=ALPHA_FILL)
+        ax.fill_between(x, (y - error), (y + error), color=intervalColor, alpha=PLOTTING.ALPHA_FILL)
         #ax.errorbar(x, y + error, marker='_', markersize=12, color=color, linestyle='none')
         #ax.errorbar(x, y - error, marker='_', markersize=12, color=color, linestyle='none')
 
@@ -74,7 +85,12 @@ def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xla
 
     ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    plt.legend()
+
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+
     if (logXScale):
         plt.xscale("log")
         figureName+="_xlog"
@@ -115,7 +131,12 @@ def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelSt
 
     ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    plt.legend()
+
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+
     if (logXScale):
         plt.xscale("log")
         figureName+="_xlog"
@@ -155,13 +176,15 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
     plt.grid()
 
     ax.set_xticks(x)
-    ax.set_xticklabels(xLabelsString, rotation=ROTATION)
+    ax.set_xticklabels(xLabelsString, rotation=PLOTTING.ROTATION)
 
 
 
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    # plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
-    #plt.legend()
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
 
     if (logYScale):
         plt.yscale("log")
@@ -199,7 +222,11 @@ def fig(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, mark
 
     ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    plt.legend()
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+
     if (logXScale):
         plt.xscale("log")
         figureName += "_xlog"
@@ -238,7 +265,12 @@ def fig3(xArrays, yArrays, labelsString, xlabelString, yLabelString, colors, mar
 
     ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
     ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
-    plt.legend()
+
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+
     if (logXScale):
         plt.xscale("log")
         figureName += "_xlog"
