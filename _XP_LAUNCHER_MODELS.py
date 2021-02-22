@@ -66,17 +66,17 @@ if __name__ == "__main__":
     dimensions = ['2']
     configFiles = ["twoDimensionsLauncher"]
 
-    learningCycles = []
-    for i in range(1,5):
-        learningCycles.append(""+ str(i*500))
-    print(learningCycles)
+    # learningCycles = []
+    # for i in range(1,5):
+    #     learningCycles.append(""+ str(i*500))
+    # print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    #learningCycles = ["500"]
-    exploitationCycles = ["250"]
+    learningCycles = ["4000"]
+    exploitationCycles = ["500"]
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.04"]
+    precisionRanges = ["0.03"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["0.05"]
