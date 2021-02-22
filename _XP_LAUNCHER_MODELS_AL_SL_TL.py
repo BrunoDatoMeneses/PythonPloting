@@ -164,6 +164,8 @@ if __name__ == "__main__":
     listOfLearningCycles = ["1000", "1000", "1000", "2000", "3000"]
 
     for mod,cycl in zip(listOfModels,listOfLearningCycles):
+        models = mod
+        learningCycles = cycl
         launch()
 
     #Other Params
@@ -173,4 +175,6 @@ if __name__ == "__main__":
     setLearnFromNeighbors = ["true"]
 
     for mod, cycl in zip(listOfModels, listOfLearningCycles):
+        models=mod
+        learningCycles=cycl
         launch()
