@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -28,7 +29,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (4.5, 3.75)
+PARAMETERS.figSize = (3.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -67,6 +68,8 @@ PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+PLOTTING.ROTATION = 22.5
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

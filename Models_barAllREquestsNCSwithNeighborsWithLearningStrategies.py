@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -57,6 +58,8 @@ logYScale = False
 
 # for label in labelStrings:
 #     yStringLong += label  + "_"
+
+PLOTTING.ROTATION = 45
 
 XYDevMinMax = []
 for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):

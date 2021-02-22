@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -63,6 +64,8 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
 
 figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
+
+PLOTTING.ROTATION = 22.5
 
 constrains = []
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))

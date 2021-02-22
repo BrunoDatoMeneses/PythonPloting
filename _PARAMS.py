@@ -6,7 +6,7 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "cosSinX"
+    model = "multi"
     learningCycles = "4000"
     exploitatingCycles = "500"
     episodes = "15"
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "1"
+    errorMargin = "1.0"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"
@@ -99,9 +99,9 @@ class PARAMETERS:
                       "probabilityOfRangeAmbiguity"
                       ]
 
-    #colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
 
-    colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red']
+    # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red']
 
     intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon']
 

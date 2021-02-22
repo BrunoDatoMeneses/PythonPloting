@@ -84,7 +84,7 @@ if __name__ == "__main__":
     # Learning
     activeLearning = ["true"]
     selfLearning = ["false"]
-    setLearnFromNeighbors = ["false"]
+
 
     # NCS
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
-
+    setLearnFromNeighbors = ["false"]
 
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]

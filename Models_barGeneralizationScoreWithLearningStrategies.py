@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -68,6 +69,7 @@ PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
+PLOTTING.LEGEND_IN=False
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
                                   constrains, 1, 100, PARAMETERS.figSize)
