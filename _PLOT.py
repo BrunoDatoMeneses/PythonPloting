@@ -223,7 +223,50 @@ def barWithDeviationConstrained(XLabels, legendLabels, colors, intervalColors, m
         yAllDeviationValues.append(yDeviationValues)
 
 
+
+
+
     _FIG.barWithDeviation(yAllValues, yAllDeviationValues, XLabels, ylabel, legendLabels, colors, intervalColors, figName + "-D", logXScale, logYScale, size)
+
+
+def barWithDeviationConstrainedModded(XLabels, legendLabels, colors, intervalColors, markers, figName, ylabel, logXScale,
+                                logYScale, allConstrains, xModificationCoef, yModificationCoef, size):
+    yAllValues = []
+    yAllDeviationValues = []
+
+    for constrains in allConstrains:
+        yValues = []
+        yDeviationValues = []
+
+        for dicoConstrains in constrains:
+            print(dicoConstrains)
+            yDeviationValue, yValue = getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef)
+            yValues.append(yValue)
+            yDeviationValues.append(yDeviationValue)
+
+        yAllValues.append(yValues)
+        yAllDeviationValues.append(yDeviationValues)
+
+    print(yAllValues)
+    yAllValuesModed = []
+    yAllDeviationValuesModed = []
+    for i in range( len(yAllValues)):
+        yAllValuesModed.append([])
+        yAllDeviationValuesModed.append([])
+        for j in range( len(yAllValues[0])):
+
+            if (i >= 3):
+                yAllValuesModed[i].append( yAllValues[i][j] - yAllValues[i - 1][j])
+                yAllDeviationValuesModed[i].append( min(yAllDeviationValues[i][j], yAllDeviationValues[i - 1][j]))
+            else:
+                yAllValuesModed[i].append(yAllValues[i][j])
+                yAllDeviationValuesModed[i].append(yAllDeviationValues[i][j])
+
+
+
+
+    _FIG.barWithDeviation(yAllValuesModed, yAllDeviationValuesModed, XLabels, ylabel, legendLabels, colors, intervalColors,
+                          figName + "-D", logXScale, logYScale, size)
 
 def plotWitMinMaxWithFillBetween(labels, colors, intervalColors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, minString, maxString, constrains, xModificationCoef, yModificationCoef, size):
 

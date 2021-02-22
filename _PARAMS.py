@@ -11,7 +11,7 @@ class PARAMETERS:
     exploitatingCycles = "500"
     episodes = "15"
 
-    validityRangesPrecision = "0.03"
+    validityRangesPrecision = "0.05"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
