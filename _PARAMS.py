@@ -7,11 +7,11 @@ class PARAMETERS:
 
     dimension = "2"
     model = "cosSinX"
-    learningCycles = "2000"
-    exploitatingCycles = "250"
+    learningCycles = "4000"
+    exploitatingCycles = "500"
     episodes = "15"
 
-    validityRangesPrecision = "0.04"
+    validityRangesPrecision = "0.03"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "0.05"
+    errorMargin = "1"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"
