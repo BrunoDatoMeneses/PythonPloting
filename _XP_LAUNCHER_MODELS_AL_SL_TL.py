@@ -160,9 +160,11 @@ if __name__ == "__main__":
     isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
+    listOfModels = ["squareFixed", "triangle", "disc", "squareDiag", "squareDiagCircle"]
+    listOfLearningCycles = ["1000", "1000", "1000", "2000", "3000"]
 
-
-    launch()
+    for mod,cycl in zip(listOfModels,listOfLearningCycles):
+        launch()
 
     #Other Params
     # Learning
@@ -170,4 +172,5 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    launch()
+    for mod, cycl in zip(listOfModels, listOfLearningCycles):
+        launch()
