@@ -160,7 +160,7 @@ if __name__ == "__main__":
     isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
-    listOfModels = ["squareFixed", "los", "disc", "squareDiag", "squareCircleLos"]
+    listOfModels = ["squareFixed", "los", "disc", "squareDisc", "squareDiscLos"]
     listOfLearningCycles = ["1000", "1000", "1000", "2000", "3000"]
 
     for mod,cycl in zip(listOfModels,listOfLearningCycles):

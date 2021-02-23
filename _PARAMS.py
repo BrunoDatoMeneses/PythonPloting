@@ -6,7 +6,7 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "multi"
+    model = "squareDiscLos"
     learningCycles = "4000"
     exploitatingCycles = "500"
     episodes = "15"
