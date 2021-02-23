@@ -70,6 +70,8 @@ if __name__ == "__main__":
     isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
+    transferRatio = ["0.333"]
+
     for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges, neighborhoodMultiplicators,
                                externalInfluenceRatios, regressionPerformances, activeLearning, selfLearning,
                                setConflictDetection, setConcurrenceDetection, setVoidDetection, setSubVoidDetection,
@@ -86,7 +88,7 @@ if __name__ == "__main__":
                                perceptionsGenerationCoefficient, modelSimilarityThreshold,
                                maxRangeRadiusCoefficient, rangeSimilarityCoefficient, minimumRangeCoefficient,
                                isAllContextSearchAllowedForLearning, isAllContextSearchAllowedForExploitation,
-                               probabilityOfRangeAmbiguity
+                                       probabilityOfRangeAmbiguity, transferRatio
                                ):
 
         arguments = dimensions[0] + " " + configFiles[0] + " "

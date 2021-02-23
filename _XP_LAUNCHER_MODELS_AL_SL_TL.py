@@ -28,7 +28,7 @@ def launch():
                                            minimumRangeCoefficient,
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
-                                           probabilityOfRangeAmbiguity
+                                           probabilityOfRangeAmbiguity, transferRatio
                                            ):
 
             fileName = dimension + "_"
@@ -160,13 +160,17 @@ if __name__ == "__main__":
     isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
-    listOfModels = ["squareFixed", "los", "disc", "squareDisc", "squareDiscLos"]
-    listOfLearningCycles = ["1000", "1000", "1000", "2000", "3000"]
+    transferRatio = ["0.333"]
 
-    for mod,cycl in zip(listOfModels,listOfLearningCycles):
+    listOfModels = ["squareFixed", "los", "disc", "squareDisc", "squareDiscLos"]
+    listOfLearningCycles = ["1000", "1000", "1000", "1750", "2500"]
+    listOfTransferRatios = ["0.0", "0.0", "0.0", "0.429", "0.3"]
+
+    for mod,cycl,tfr in zip(listOfModels,listOfLearningCycles,listOfTransferRatios):
         print(mod,cycl)
         models = [mod]
         learningCycles = [cycl]
+        transferRatio = tfr
         launch()
 
     #Other Params
@@ -175,7 +179,9 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    for mod, cycl in zip(listOfModels, listOfLearningCycles):
+    for mod,cycl,tfr in zip(listOfModels,listOfLearningCycles,listOfTransferRatios):
+        print(mod,cycl)
         models = [mod]
         learningCycles = [cycl]
+        transferRatio = tfr
         launch()

@@ -28,7 +28,7 @@ def launch():
                                            minimumRangeCoefficient,
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
-                                           probabilityOfRangeAmbiguity
+                                           probabilityOfRangeAmbiguity, transferRatio
                                            ):
 
             fileName = dimension + "_"
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
-
+    transferRatio = ["0.333"]
 
     launch()
 

@@ -61,11 +61,8 @@ figName = "transfer_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
 constrains = []
-varyingParamStrings = ["Diagonal","Disc","Square","Square, Diagonal","Square, Diagonal, Disc"]
-
-
-constrains = []
-listOfModels = ["triangle", "disc", "squareFixed", "squareDiag", "squareDiagCircle"]
+varyingParamStrings = ["Rhombus","Disc","Square","Square, Disc","Square, Disc, Rhombus"]
+listOfModels = ["los", "disc", "squareFixed", "squareDisc", "squareDiscLos"]
 listOfLearningCycles = ["1000", "1000", "1000", "2000", "3000"]
 
 for mod,cycl in zip(listOfModels,listOfLearningCycles):

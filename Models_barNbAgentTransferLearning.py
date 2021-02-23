@@ -11,8 +11,9 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Situations (#)'
-yStringLong ="RequestsAllNCSwithNeighbors"
+ylabel = 'Number of Agents (#)'
+yStringLong ="NBAgent"
+
 
 
 
@@ -30,10 +31,9 @@ yStringLong ="RequestsAllNCSwithNeighbors"
 # PARAMETERS.learningCycles += ")"
 
 
-yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests"]
-# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests"]
+PARAMETERS.figSize = (2.5, 3.75)
+yStrings = ["nbAgents"]
+# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -44,10 +44,8 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity"]
-# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
-# xLabelStrings = ["Passive","Active","Self-Generated"]
-# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
+xLabelStrings = [" "]
+# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
@@ -59,16 +57,11 @@ logYScale = False
 # for label in labelStrings:
 #     yStringLong += label  + "_"
 
-PLOTTING.ROTATION = 45
-
 XYDevMinMax = []
-for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearningSituations"):
-        XYDevMinMax.append([y, yDev, min, max,0.1])
-    else:
-        XYDevMinMax.append([y, yDev, min, max])
+for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
+    XYDevMinMax.append([y, yDev, min, max])
 
-figName = "transfer_"  + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+figName = "transfer_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
 constrains = []
@@ -81,13 +74,10 @@ for mod,cycl in zip(listOfModels,listOfLearningCycles):
     PARAMETERS.learningCycles = cycl
     constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
+PLOTTING.LEGEND_IN=False
 
-_PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, False,
-                                  constrains, 1, 1, PARAMETERS.figSize)
-
-_PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, True,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                  figName, ylabel, False, logYScale,
                                   constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
