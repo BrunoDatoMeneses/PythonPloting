@@ -65,7 +65,7 @@ print(figName)
 constrains = []
 varyingParamStrings = ["Rhombus","Disc","Square","Square, Disc","Square, Disc, Rhombus"]
 listOfModels = ["los", "disc", "squareFixed", "squareDisc", "squareDiscLos"]
-listOfLearningCycles = ["1000", "1000", "1000", "2000", "3000"]
+listOfLearningCycles = ["1000", "1000", "1000", "1750", "2500"]
 
 for mod,cycl in zip(listOfModels,listOfLearningCycles):
     PARAMETERS.model = mod

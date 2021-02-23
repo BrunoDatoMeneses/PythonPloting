@@ -7,7 +7,7 @@ class PARAMETERS:
 
     dimension = "2"
     model = "squareDiscLos"
-    learningCycles = "4000"
+    learningCycles = "2500"
     exploitatingCycles = "500"
     episodes = "15"
 
