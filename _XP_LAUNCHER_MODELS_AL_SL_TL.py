@@ -170,7 +170,7 @@ if __name__ == "__main__":
         print(mod,cycl)
         models = [mod]
         learningCycles = [cycl]
-        transferRatio = tfr
+        transferRatio = [tfr]
         launch()
 
     #Other Params
@@ -183,5 +183,5 @@ if __name__ == "__main__":
         print(mod,cycl)
         models = [mod]
         learningCycles = [cycl]
-        transferRatio = tfr
+        transferRatio = [tfr]
         launch()
