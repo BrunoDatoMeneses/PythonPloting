@@ -28,7 +28,8 @@ def launch():
                                            minimumRangeCoefficient,
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
-                                           probabilityOfRangeAmbiguity, transferRatio
+                                           probabilityOfRangeAmbiguity, transferRatio,
+                                           endoExploitationCycles,isActiveExploitation
                                            ):
 
             fileName = dimension + "_"
@@ -71,8 +72,8 @@ if __name__ == "__main__":
     #     learningCycles.append(""+ str(i*500))
     # print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    learningCycles = ["4000"]
-    exploitationCycles = ["500"]
+    learningCycles = ["1000"]
+    exploitationCycles = ["250"]
     episodes = ["15"]
 
     # Neighborhood
@@ -134,7 +135,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["multi"]
+    models = ["cosSinX"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
@@ -162,12 +163,12 @@ if __name__ == "__main__":
 
     transferRatio = ["0.333"]
 
-    launch()
+    endoExploitationCycles = ["1000"]
+    isActiveExploitation = ["true"]
 
-    #Other Params
-    # Learning
     activeLearning = ["false"]
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
     launch()
+

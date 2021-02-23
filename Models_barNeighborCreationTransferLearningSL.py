@@ -12,9 +12,8 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Creation with Sponsor (#)'
-yStringLong ="predictionError"
+yStringLong ="creationsWithNeighbor"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
 
 # figVaryingParamString = "learningCycles"
 # varyingParamStringValues = ["500","1000","1500","2000"]
@@ -29,7 +28,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 PARAMETERS.figSize = (2.5, 3.75)
-yStrings = ["predictionError"]
+yStrings = ["creationsWithNeighbor"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
@@ -37,7 +36,7 @@ yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"Deviation_Average")
+    yStringsDev.append(string+"_Deviation")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
@@ -69,7 +68,8 @@ PARAMETERS.isLearnFromNeighbors = "true"
 constrains = []
 varyingParamStrings = ["Rhombus","Disc","Square","Square, Disc","Square, Disc, Rhombus"]
 listOfModels = ["los", "disc", "squareFixed", "squareDisc", "squareDiscLos"]
-listOfLearningCycles = ["1000", "1000", "1000", "1750", "2500"]
+listOfLearningCycles = ["2000", "2000", "2000", "3500", "5000"]
+# listOfLearningCycles = ["1000", "1000", "1000", "1750", "2500"]
 
 for mod,cycl in zip(listOfModels,listOfLearningCycles):
     PARAMETERS.model = mod
@@ -78,13 +78,13 @@ for mod,cycl in zip(listOfModels,listOfLearningCycles):
 
 PLOTTING.LEGEND_IN=False
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
-                                  constrains, 1, 100, PARAMETERS.figSize)
+                                  constrains, 1, 1, PARAMETERS.figSize)
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
-                                  constrains, 1, 100, PARAMETERS.figSize)
+                                  constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,

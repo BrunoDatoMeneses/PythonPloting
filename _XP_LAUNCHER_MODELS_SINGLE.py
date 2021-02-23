@@ -72,6 +72,9 @@ if __name__ == "__main__":
 
     transferRatio = ["0.333"]
 
+    endoExploitationCycles = ["1000"]
+    isActiveExploitation = ["false"]
+
     for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges, neighborhoodMultiplicators,
                                externalInfluenceRatios, regressionPerformances, activeLearning, selfLearning,
                                setConflictDetection, setConcurrenceDetection, setVoidDetection, setSubVoidDetection,
@@ -88,7 +91,8 @@ if __name__ == "__main__":
                                perceptionsGenerationCoefficient, modelSimilarityThreshold,
                                maxRangeRadiusCoefficient, rangeSimilarityCoefficient, minimumRangeCoefficient,
                                isAllContextSearchAllowedForLearning, isAllContextSearchAllowedForExploitation,
-                                       probabilityOfRangeAmbiguity, transferRatio
+                                       probabilityOfRangeAmbiguity, transferRatio,
+                                           endoExploitationCycles,isActiveExploitation
                                ):
 
         arguments = dimensions[0] + " " + configFiles[0] + " "

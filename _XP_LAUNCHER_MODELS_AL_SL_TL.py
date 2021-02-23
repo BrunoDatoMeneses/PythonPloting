@@ -28,7 +28,8 @@ def launch():
                                            minimumRangeCoefficient,
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
-                                           probabilityOfRangeAmbiguity, transferRatio
+                                           probabilityOfRangeAmbiguity, transferRatio,
+                                           endoExploitationCycles,isActiveExploitation
                                            ):
 
             fileName = dimension + "_"
@@ -161,6 +162,9 @@ if __name__ == "__main__":
     probabilityOfRangeAmbiguity = ["0.1"]
 
     transferRatio = ["0.333"]
+
+    endoExploitationCycles = ["1000"]
+    isActiveExploitation = ["false"]
 
     listOfModels = ["squareFixed", "los", "disc", "squareDisc", "squareDiscLos"]
     listOfLearningCycles = ["2000", "2000", "2000", "3500", "5000"]
