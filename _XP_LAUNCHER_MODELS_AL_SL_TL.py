@@ -163,7 +163,7 @@ if __name__ == "__main__":
     transferRatio = ["0.333"]
 
     listOfModels = ["squareFixed", "los", "disc", "squareDisc", "squareDiscLos"]
-    listOfLearningCycles = ["1000", "1000", "1000", "1750", "2500"]
+    listOfLearningCycles = ["2000", "2000", "2000", "3500", "5000"]
     listOfTransferRatios = ["0.0", "0.0", "0.0", "0.429", "0.3"]
 
     for mod,cycl,tfr in zip(listOfModels,listOfLearningCycles,listOfTransferRatios):
