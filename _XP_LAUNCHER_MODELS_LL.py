@@ -176,5 +176,8 @@ if __name__ == "__main__":
 
     isActiveExploitation = ["true"]
 
-    launch()
+    listOfEndoExploitationCycles = ["500","1000","2000","4000"]
+    for endoExpCycles in listOfEndoExploitationCycles:
+        endoExploitationCycles = [endoExpCycles]
+        launch()
 
