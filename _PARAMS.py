@@ -63,6 +63,7 @@ class PARAMETERS:
     probabilityOfRangeAmbiguity = "0.1"
 
     isActiveExploitation = "false"
+    activeExploitationCycles = "1000"
 
     figPrefix = model + "_"
 
@@ -100,6 +101,7 @@ class PARAMETERS:
                       "isAllContextSearchAllowedForExploitation",
                       "probabilityOfRangeAmbiguity",
                       "isActiveExploitation"
+                      "activeExploitationCycles"
                       ]
 
     colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
@@ -155,6 +157,7 @@ class PARAMETERS:
                 "isAllContextSearchAllowedForExploitation": cls.isAllContextSearchAllowedForExploitation,
                 "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
                 "isActiveExploitation": cls.isActiveExploitation,
+                "activeExploitationCycles" : cls.activeExploitationCycles,
 
                 }
 

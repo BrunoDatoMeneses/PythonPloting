@@ -12,7 +12,7 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Situations (#)'
-yStringLong ="RequestsExoEndoSelf"
+yStringLong ="RequestsRandomActiveSelf"
 
 
 
@@ -29,8 +29,8 @@ yStringLong ="RequestsExoEndoSelf"
 #
 # PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (4.5, 3.75)
-yStrings = ["exogenousLearning","endogenousLearning","endogenousExploitation"]
+PARAMETERS.figSize = (3.5, 3.75)
+yStrings = ["rdmLearning","activeLearning","activeExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -41,8 +41,8 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Exogenous Learning","Endogenous Learning /10","Self-Exploitation"]
 
+xLabelStrings = ["Passive Learning","Active Learning","Self-Exploitation"]
 
 
 
@@ -55,12 +55,8 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearning"):
-        XYDevMinMax.append([y, yDev, min, max,0.1])
-    else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
-
+for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
+    XYDevMinMax.append([y, yDev, min, max])
 
 figName = "lifelongSL_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -79,7 +75,6 @@ constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevM
 PARAMETERS.isActiveExploitation = "true"
 
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
-
 
 PLOTTING.ROTATION = 22.5
 

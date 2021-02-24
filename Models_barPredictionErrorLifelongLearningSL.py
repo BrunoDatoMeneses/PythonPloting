@@ -11,8 +11,8 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Situations (#)'
-yStringLong ="RequestsExoEndoSelf"
+ylabel = 'Prediction Error (%)'
+yStringLong ="predictionError"
 
 
 
@@ -28,21 +28,21 @@ yStringLong ="RequestsExoEndoSelf"
 #     varyingParamStrings.append(value + paramlabelString)
 #
 # PARAMETERS.learningCycles += ")"
-
-PARAMETERS.figSize = (4.5, 3.75)
-yStrings = ["exogenousLearning","endogenousLearning","endogenousExploitation"]
+PARAMETERS.figSize = (2.5, 3.75)
+yStrings = ["predictionError"]
+# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"_Deviation")
+    yStringsDev.append(string+"Deviation_Average")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Exogenous Learning","Endogenous Learning /10","Self-Exploitation"]
-
+xLabelStrings = [""]
+# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
@@ -55,12 +55,8 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearning"):
-        XYDevMinMax.append([y, yDev, min, max,0.1])
-    else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
-
+for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
+    XYDevMinMax.append([y, yDev, min, max])
 
 figName = "lifelongSL_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -80,16 +76,15 @@ PARAMETERS.isActiveExploitation = "true"
 
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
+PLOTTING.LEGEND_IN=False
 
-PLOTTING.ROTATION = 22.5
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                  figName, ylabel, False, logYScale,
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
-_PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, False,
-                                  constrains, 1, 1, PARAMETERS.figSize)
-
-_PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,

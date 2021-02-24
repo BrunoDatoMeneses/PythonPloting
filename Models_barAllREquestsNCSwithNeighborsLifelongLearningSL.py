@@ -12,7 +12,7 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Situations (#)'
-yStringLong ="RequestsExoEndoSelf"
+yStringLong ="RequestsAllNCSwithNeighbors"
 
 
 
@@ -29,8 +29,11 @@ yStringLong ="RequestsExoEndoSelf"
 #
 # PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (4.5, 3.75)
-yStrings = ["exogenousLearning","endogenousLearning","endogenousExploitation"]
+
+yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests","neighborsRequest"]
+# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
+# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
+# yStrings = ["rdmRequests","activeRequests","selfRequests"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -41,8 +44,10 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Exogenous Learning","Endogenous Learning /10","Self-Exploitation"]
-
+xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity","Coop. Neighbors /10"]
+# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
+# xLabelStrings = ["Passive","Active","Self-Generated"]
+# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
 
 
 
@@ -54,13 +59,14 @@ logYScale = False
 # for label in labelStrings:
 #     yStringLong += label  + "_"
 
+
+
 XYDevMinMax = []
 for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearning"):
+    if(yString == "neighborsRequest"):
         XYDevMinMax.append([y, yDev, min, max,0.1])
     else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
-
+        XYDevMinMax.append([y, yDev, min, max])
 
 figName = "lifelongSL_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -80,8 +86,7 @@ PARAMETERS.isActiveExploitation = "true"
 
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
-
-PLOTTING.ROTATION = 22.5
+PLOTTING.ROTATION = 45
 
 _PLOT.barWithDeviationConstrainedModded(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,
