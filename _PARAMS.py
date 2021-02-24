@@ -7,7 +7,7 @@ class PARAMETERS:
 
     dimension = "2"
     model = "cosSinX"
-    learningCycles = "500"
+    learningCycles = "1000"
     exploitatingCycles = "250"
     episodes = "15"
 
@@ -104,11 +104,11 @@ class PARAMETERS:
                       "activeExploitationCycles"
                       ]
 
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive','tab:pink']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red']
 
-    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon']
+    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
 
     markers = ['o', 'D', 'v', 's', 'P', 'p','*']
 

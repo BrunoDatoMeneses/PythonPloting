@@ -172,7 +172,7 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    listOfLearningCycles = ["500", "1000"]
+    listOfLearningCycles = ["500", "1000","2000"]
 
     for lrnCycles in listOfLearningCycles:
         learningCycles = [lrnCycles]
@@ -180,7 +180,7 @@ if __name__ == "__main__":
 
     isActiveExploitation = ["true"]
 
-    listOfEndoExploitationCycles = ["6000","10000","20000"]
+    listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000","20000","50000","100000"]
 
 
     for lrnCycles in listOfLearningCycles:
