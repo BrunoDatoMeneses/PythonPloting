@@ -7,7 +7,7 @@ class PARAMETERS:
 
     dimension = "2"
     model = "cosSinX"
-    learningCycles = "1000"
+    learningCycles = "500"
     exploitatingCycles = "250"
     episodes = "15"
 
