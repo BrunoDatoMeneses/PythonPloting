@@ -7,11 +7,11 @@ class PARAMETERS:
 
     dimension = "2"
     model = "cosSinX"
-    learningCycles = "500"
+    learningCycles = "1000"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.05"
+    validityRangesPrecision = "0.02"
 
     isActiveLearning = "false"
     isSelfLearning = "true"
