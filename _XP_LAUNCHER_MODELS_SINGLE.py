@@ -14,14 +14,15 @@ if __name__ == "__main__":
     episodes = ["1"]
 
     # Neighborhood
-    precisionRanges = ["0.08"]
+    precisionRanges = ["0.05"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.25"]
-    regressionPerformances = ["1"]
+    regressionPerformances = ["0.05"]
 
     # Learning
-    activeLearning = ["true"]
-    selfLearning = ["false"]
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
 
     # NCS
     setConflictDetection = ["true"]
@@ -37,14 +38,14 @@ if __name__ == "__main__":
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
-    setLearnFromNeighbors = ["false"]
+
     nbOfNeighborForLearningFromNeighbors = ["1"]
-    nbOfNeighborForContexCreationWithouOracle = ["50000"]
+    nbOfNeighborForContexCreationWithouOracle = ["7"]
     setCreationFromNeighbor = ["true"]
 
     # Other
 
-    models = ["squareFixed"]
+    models = ["cosSinX"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight = ["0.1"]
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     transferRatio = ["0.333"]
 
     endoExploitationCycles = ["1000"]
-    isActiveExploitation = ["false"]
+    isActiveExploitation = ["true"]
 
     for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges, neighborhoodMultiplicators,
                                externalInfluenceRatios, regressionPerformances, activeLearning, selfLearning,
