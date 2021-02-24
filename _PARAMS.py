@@ -6,15 +6,15 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "squareDiscLos"
-    learningCycles = "2500"
-    exploitatingCycles = "500"
+    model = "cosSinX"
+    learningCycles = "1000"
+    exploitatingCycles = "250"
     episodes = "15"
 
     validityRangesPrecision = "0.05"
 
-    isActiveLearning = "true"
-    isSelfLearning = "false"
+    isActiveLearning = "false"
+    isSelfLearning = "true"
 
     LEARNING_WEIGHT_ACCURACY = "1.0"
     LEARNING_WEIGHT_PROXIMITY = "0.0"
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "1.0"
+    errorMargin = "0.05"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"
@@ -48,7 +48,7 @@ class PARAMETERS:
     isAmbiguityNCS = "true"
     isModelNCS = "true"
 
-    isLearnFromNeighbors = "false"
+    isLearnFromNeighbors = "true"
     isDream = "false"
     isFusionResolution = "true"
     isRetructureResolution = "true"
@@ -61,6 +61,8 @@ class PARAMETERS:
     isAllContextSearchAllowedForLearning = "true"
     isAllContextSearchAllowedForExploitation = "true"
     probabilityOfRangeAmbiguity = "0.1"
+
+    isActiveExploitation = "false"
 
     figPrefix = model + "_"
 
@@ -96,7 +98,8 @@ class PARAMETERS:
 
                       "isAllContextSearchAllowedForLearning",
                       "isAllContextSearchAllowedForExploitation",
-                      "probabilityOfRangeAmbiguity"
+                      "probabilityOfRangeAmbiguity",
+                      "isActiveExploitation"
                       ]
 
     colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:olive']
@@ -107,48 +110,53 @@ class PARAMETERS:
 
     markers = ['o', 'D', 'v', 's', 'P', 'p','*']
 
+
     @classmethod
     def getPARAMS(cls):
-        return {"dimension": cls.dimension, "learningCycles": cls.learningCycles, "exploitatingCycles": cls.exploitatingCycles,
-              "episodes": cls.episodes,
-              "validityRangesPrecision": cls.validityRangesPrecision,
-              "neighborhoodRadiusCoefficient": cls.neighborhoodRadiusCoefficient,
-              "influenceRadiusCoefficient": cls.influenceRadiusCoefficient,
-              "isActiveLearning": cls.isActiveLearning, "isSelfLearning": cls.isSelfLearning,
-              "errorMargin": cls.errorMargin, "bootstrapCycle": cls.bootstrapCycle,
-              "isConflictNCS": cls.isConflictNCS, "isConcurenceNCS": cls.isConcurenceNCS,
-              "isIncompetenceNCS": cls.isIncompetenceNCS,
-              "isSubVoidDetection": cls.isSubVoidDetection, "isAmbiguityNCS": cls.isAmbiguityNCS, "isModelNCS": cls.isModelNCS,
-              "isLearnFromNeighbors": cls.isLearnFromNeighbors, "isDream": cls.isDream,
-              "dreamLaunch": cls.dreamLaunch, "nbOfNeighborForLearningFromNeighbors": cls.nbOfNeighborForLearningFromNeighbors,
-              "nbOfNeighborForContexCreationWithouOracle": cls.nbOfNeighborForContexCreationWithouOracle,
+        return {"dimension": cls.dimension, "learningCycles": cls.learningCycles,
+                "exploitatingCycles": cls.exploitatingCycles,
+                "episodes": cls.episodes,
+                "validityRangesPrecision": cls.validityRangesPrecision,
+                "neighborhoodRadiusCoefficient": cls.neighborhoodRadiusCoefficient,
+                "influenceRadiusCoefficient": cls.influenceRadiusCoefficient,
+                "isActiveLearning": cls.isActiveLearning, "isSelfLearning": cls.isSelfLearning,
+                "errorMargin": cls.errorMargin, "bootstrapCycle": cls.bootstrapCycle,
+                "isConflictNCS": cls.isConflictNCS, "isConcurenceNCS": cls.isConcurenceNCS,
+                "isIncompetenceNCS": cls.isIncompetenceNCS,
+                "isSubVoidDetection": cls.isSubVoidDetection, "isAmbiguityNCS": cls.isAmbiguityNCS,
+                "isModelNCS": cls.isModelNCS,
+                "isLearnFromNeighbors": cls.isLearnFromNeighbors, "isDream": cls.isDream,
+                "dreamLaunch": cls.dreamLaunch,
+                "nbOfNeighborForLearningFromNeighbors": cls.nbOfNeighborForLearningFromNeighbors,
+                "nbOfNeighborForContexCreationWithouOracle": cls.nbOfNeighborForContexCreationWithouOracle,
 
-              "isCreationFromNeighbor": cls.isCreationFromNeighbor,
-              "model": cls.model,
-              "exogenousLearningWeight": cls.exogenousLearningWeight,
-              "endogenousLearningWeight": cls.endogenousLearningWeight,
+                "isCreationFromNeighbor": cls.isCreationFromNeighbor,
+                "model": cls.model,
+                "exogenousLearningWeight": cls.exogenousLearningWeight,
+                "endogenousLearningWeight": cls.endogenousLearningWeight,
 
-              "LEARNING_WEIGHT_ACCURACY": cls.LEARNING_WEIGHT_ACCURACY,
-              "LEARNING_WEIGHT_PROXIMITY": cls.LEARNING_WEIGHT_PROXIMITY,
-              "LEARNING_WEIGHT_EXPERIENCE": cls.LEARNING_WEIGHT_EXPERIENCE,
-              "LEARNING_WEIGHT_GENERALIZATION": cls.LEARNING_WEIGHT_GENERALIZATION,
+                "LEARNING_WEIGHT_ACCURACY": cls.LEARNING_WEIGHT_ACCURACY,
+                "LEARNING_WEIGHT_PROXIMITY": cls.LEARNING_WEIGHT_PROXIMITY,
+                "LEARNING_WEIGHT_EXPERIENCE": cls.LEARNING_WEIGHT_EXPERIENCE,
+                "LEARNING_WEIGHT_GENERALIZATION": cls.LEARNING_WEIGHT_GENERALIZATION,
 
-              "EXPLOITATION_WEIGHT_PROXIMITY": cls.EXPLOITATION_WEIGHT_PROXIMITY,
-              "EXPLOITATION_WEIGHT_EXPERIENCE": cls.EXPLOITATION_WEIGHT_EXPERIENCE,
-              "EXPLOITATION_WEIGHT_GENERALIZATION": cls.EXPLOITATION_WEIGHT_GENERALIZATION,
+                "EXPLOITATION_WEIGHT_PROXIMITY": cls.EXPLOITATION_WEIGHT_PROXIMITY,
+                "EXPLOITATION_WEIGHT_EXPERIENCE": cls.EXPLOITATION_WEIGHT_EXPERIENCE,
+                "EXPLOITATION_WEIGHT_GENERALIZATION": cls.EXPLOITATION_WEIGHT_GENERALIZATION,
 
-              "perceptionsGenerationCoefficient": cls.perceptionsGenerationCoefficient,
-              "modelSimilarityThreshold": cls.modelSimilarityThreshold,
+                "perceptionsGenerationCoefficient": cls.perceptionsGenerationCoefficient,
+                "modelSimilarityThreshold": cls.modelSimilarityThreshold,
 
-              "maxRangeRadiusCoefficient": cls.maxRangeRadiusCoefficient,
-              "rangeSimilarityCoefficient": cls.rangeSimilarityCoefficient,
-              "minimumRangeCoefficient": cls.minimumRangeCoefficient,
+                "maxRangeRadiusCoefficient": cls.maxRangeRadiusCoefficient,
+                "rangeSimilarityCoefficient": cls.rangeSimilarityCoefficient,
+                "minimumRangeCoefficient": cls.minimumRangeCoefficient,
 
-              "isAllContextSearchAllowedForLearning": cls.isAllContextSearchAllowedForLearning,
-              "isAllContextSearchAllowedForExploitation": cls.isAllContextSearchAllowedForExploitation,
-              "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
+                "isAllContextSearchAllowedForLearning": cls.isAllContextSearchAllowedForLearning,
+                "isAllContextSearchAllowedForExploitation": cls.isAllContextSearchAllowedForExploitation,
+                "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
+                "isActiveExploitation": cls.isActiveExploitation,
 
-              }
+                }
 
     @classmethod
     def getFigName(cls):
