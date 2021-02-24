@@ -77,7 +77,7 @@ if __name__ == "__main__":
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.05"]
+    precisionRanges = ["0.02"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["0.05"]
@@ -172,12 +172,20 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    launch()
+    listOfLearningCycles = ["500", "1000"]
+
+    for lrnCycles in listOfLearningCycles:
+        learningCycles = [lrnCycles]
+        launch()
 
     isActiveExploitation = ["true"]
 
     listOfEndoExploitationCycles = ["500","1000","2000","4000"]
-    for endoExpCycles in listOfEndoExploitationCycles:
-        endoExploitationCycles = [endoExpCycles]
-        launch()
+
+
+    for lrnCycles in listOfLearningCycles:
+        for endoExpCycles in listOfEndoExploitationCycles:
+            learningCycles = [lrnCycles]
+            endoExploitationCycles = [endoExpCycles]
+            launch()
 
