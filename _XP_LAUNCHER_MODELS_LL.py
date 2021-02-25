@@ -176,10 +176,11 @@ if __name__ == "__main__":
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
     listOfLearningCycles = ["2000"]
-    ListOfPrecisionRanges = ["0.06"]
+    ListOfPrecisionRanges = ["0.02"]
+    ListOfEndoLeanringWeight = ["0.05","0.2","0.5"]
 
-    for prcRG in ListOfPrecisionRanges:
-        precisionRanges = [prcRG]
+    for endoW in ListOfEndoLeanringWeight:
+        endogenousLearningWeight = [endoW]
 
         for lrnCycles in listOfLearningCycles:
             learningCycles = [lrnCycles]
