@@ -89,7 +89,7 @@ for val in varyingParamValues:
     constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
 PLOTTING.LEGEND_IN=False
-PLOTTING.LEGEND_OUT=True
+PLOTTING.LEGEND_OUT=False
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

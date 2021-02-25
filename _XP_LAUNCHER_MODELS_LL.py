@@ -72,7 +72,7 @@ if __name__ == "__main__":
     #     learningCycles.append(""+ str(i*500))
     # print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    learningCycles = ["500"]
+    learningCycles = ["2000"]
     exploitationCycles = ["250"]
     episodes = ["15"]
 
@@ -175,28 +175,34 @@ if __name__ == "__main__":
     # listOfLearningCycles = ["500", "1000","2000"]
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
+    listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000", "10000"]
     listOfLearningCycles = ["2000"]
-    ListOfPrecisionRanges = ["0.04","0.06"]
-    ListOfEndoLeanringWeight = ["0.05","0.2","0.5"]
+    ListOfPrecisionRanges = ["0.02"]
+    ListOfEndoLeanringWeight = ["0.1"]
+    listOfNeighboords = ["2", "4", "8", "16"]
+    listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
 
-    for prcRg in ListOfPrecisionRanges:
-        precisionRanges = [prcRg]
+    for nb in listOfNeighboords:
+        neighborhoodMultiplicators = [nb]
+        launch()
 
-        for endoW in ListOfEndoLeanringWeight:
-            endogenousLearningWeight = [endoW]
+        isActiveExploitation = ["true"]
 
-            for lrnCycles in listOfLearningCycles:
-                learningCycles = [lrnCycles]
+        for lrnCycles in listOfLearningCycles:
+            for endoExpCycles in listOfEndoExploitationCycles:
+                endoExploitationCycles = [endoExpCycles]
                 launch()
 
-            isActiveExploitation = ["true"]
-
-            listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000"]
 
 
-            for lrnCycles in listOfLearningCycles:
-                for endoExpCycles in listOfEndoExploitationCycles:
-                    learningCycles = [lrnCycles]
-                    endoExploitationCycles = [endoExpCycles]
-                    launch()
+    for infl in listOfInfluences:
+        externalInfluenceRatios = [infl]
+        launch()
+
+        isActiveExploitation = ["true"]
+
+        for lrnCycles in listOfLearningCycles:
+            for endoExpCycles in listOfEndoExploitationCycles:
+                endoExploitationCycles = [endoExpCycles]
+                launch()
 
