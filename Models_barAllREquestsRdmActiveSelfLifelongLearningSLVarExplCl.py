@@ -58,10 +58,12 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
+PARAMETERS.learningCycles = "2000"
 figName = "lifelongSL_Var_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
+varyingParamValues = ["0","500","1000","2000","4000","6000","10000","20000","50000","100000"]
 
-varyingParamValues = ["0","500","1000","2000","4000","6000","10000","20000"]
+
 varyingParamStrings = []
 for val in varyingParamValues:
     varyingParamStrings.append(val + " Active Exploitation Cycles")

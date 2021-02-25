@@ -173,19 +173,23 @@ if __name__ == "__main__":
     setLearnFromNeighbors = ["true"]
 
     listOfLearningCycles = ["500", "1000","2000"]
+    ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
-    for lrnCycles in listOfLearningCycles:
-        learningCycles = [lrnCycles]
-        launch()
+    for prcRG in ListOfPrecisionRanges:
+        precisionRanges = [prcRG]
 
-    isActiveExploitation = ["true"]
-
-    listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000","20000","50000","100000"]
-
-
-    for lrnCycles in listOfLearningCycles:
-        for endoExpCycles in listOfEndoExploitationCycles:
+        for lrnCycles in listOfLearningCycles:
             learningCycles = [lrnCycles]
-            endoExploitationCycles = [endoExpCycles]
             launch()
+
+        isActiveExploitation = ["true"]
+
+        listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000","20000","50000","100000"]
+
+
+        for lrnCycles in listOfLearningCycles:
+            for endoExpCycles in listOfEndoExploitationCycles:
+                learningCycles = [lrnCycles]
+                endoExploitationCycles = [endoExpCycles]
+                launch()
 
