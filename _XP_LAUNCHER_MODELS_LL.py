@@ -176,24 +176,27 @@ if __name__ == "__main__":
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
     listOfLearningCycles = ["2000"]
-    ListOfPrecisionRanges = ["0.02"]
+    ListOfPrecisionRanges = ["0.04","0.06"]
     ListOfEndoLeanringWeight = ["0.05","0.2","0.5"]
 
-    for endoW in ListOfEndoLeanringWeight:
-        endogenousLearningWeight = [endoW]
+    for prcRg in ListOfPrecisionRanges:
+        precisionRanges = [prcRg]
 
-        for lrnCycles in listOfLearningCycles:
-            learningCycles = [lrnCycles]
-            launch()
+        for endoW in ListOfEndoLeanringWeight:
+            endogenousLearningWeight = [endoW]
 
-        isActiveExploitation = ["true"]
-
-        listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000"]
-
-
-        for lrnCycles in listOfLearningCycles:
-            for endoExpCycles in listOfEndoExploitationCycles:
+            for lrnCycles in listOfLearningCycles:
                 learningCycles = [lrnCycles]
-                endoExploitationCycles = [endoExpCycles]
                 launch()
+
+            isActiveExploitation = ["true"]
+
+            listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000"]
+
+
+            for lrnCycles in listOfLearningCycles:
+                for endoExpCycles in listOfEndoExploitationCycles:
+                    learningCycles = [lrnCycles]
+                    endoExploitationCycles = [endoExpCycles]
+                    launch()
 
