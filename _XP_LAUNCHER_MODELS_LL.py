@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
         isActiveExploitation = ["true"]
 
-        listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000","20000","50000","100000"]
+        listOfEndoExploitationCycles = ["500","1000","2000","4000","6000","10000"]
 
 
         for lrnCycles in listOfLearningCycles:
