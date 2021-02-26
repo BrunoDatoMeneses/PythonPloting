@@ -6,8 +6,8 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "cosSinX"
-    learningCycles = "1000"
+    model = "gaussianCos2"
+    learningCycles = "2000"
     exploitatingCycles = "250"
     episodes = "15"
 
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "0.05"
+    errorMargin = "1.0"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"
@@ -63,7 +63,9 @@ class PARAMETERS:
     probabilityOfRangeAmbiguity = "0.1"
 
     isActiveExploitation = "false"
-    activeExploitationCycles = "1000"
+    activeExploitationCycles = "0"
+
+    noise = "0.0"
 
     figPrefix = model + "_"
 
@@ -100,13 +102,19 @@ class PARAMETERS:
                       "isAllContextSearchAllowedForLearning",
                       "isAllContextSearchAllowedForExploitation",
                       "probabilityOfRangeAmbiguity",
-                      "isActiveExploitation"
-                      "activeExploitationCycles"
+                      "isActiveExploitation",
+                      "activeExploitationCycles",
+                      "noise"
                       ]
 
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
 
-    # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red']
+    # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
+    # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
+
+    # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
+    colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']
 
     intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
 
@@ -158,7 +166,7 @@ class PARAMETERS:
                 "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
                 "isActiveExploitation": cls.isActiveExploitation,
                 "activeExploitationCycles" : cls.activeExploitationCycles,
-
+                "noise": cls.noise,
                 }
 
     @classmethod
