@@ -59,30 +59,29 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 PARAMETERS.learningCycles = "2000"
-PARAMETERS.activeExploitationCycles = "10000" # ["500","1000","2000","4000","6000","10000"]
-PARAMETERS.validityRangesPrecision = "0.06"
+PARAMETERS.activeExploitationCycles = "6000" # ["500","1000","2000","4000","6000","10000"]
+PARAMETERS.validityRangesPrecision = "0.02"
 PARAMETERS.isActiveExploitation = "true"
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.isActiveExploitation = "true"
 
-figName = "lifelongSL_VarEndoW_Expl" + PARAMETERS.activeExploitationCycles +"_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+
+figName = "lifelongSL_VarInflR_Expl" + PARAMETERS.activeExploitationCycles +"_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
-varyingParamValues = ["0.05","0.1","0.2","0.5"]
+varyingParamValues = ["0.5","1.0","2.0","4.0"]
 
 varyingParamStrings = []
 for val in varyingParamValues:
-    varyingParamStrings.append(r'$\omega^{endo}_{lrn} = $' + val)
-
+    varyingParamStrings.append(r'$\alpha^\mathcal{I} = $' + val)
 
 
 
 constrains = []
 
 for val in varyingParamValues:
-    PARAMETERS.endogenousLearningWeight = val
+    PARAMETERS.influenceRadiusCoefficient = val
     constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
 PLOTTING.LEGEND_IN=False

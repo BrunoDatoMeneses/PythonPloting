@@ -178,10 +178,10 @@ if __name__ == "__main__":
     # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
     listOfEndoExploitationCycles = ["10000"]
     listOfLearningCycles = ["2000"]
-    ListOfPrecisionRanges = ["0.02"]
+    ListOfPrecisionRanges = ["0.01","0.04","0.06"]
     ListOfEndoLeanringWeight = ["0.1"]
     listOfNeighboords = ["2", "4", "8", "16"]
-    listOfInfluences = ["1.0", "2.0", "4.0"]
+    listOfInfluences = ["0.5","1.0", "2.0", "4.0"]
 
     # for nb in listOfNeighboords:
     #     neighborhoodMultiplicators = [nb]
