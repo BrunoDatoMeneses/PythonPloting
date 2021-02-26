@@ -180,7 +180,7 @@ if __name__ == "__main__":
     ListOfPrecisionRanges = ["0.02"]
     ListOfEndoLeanringWeight = ["0.1"]
     listOfNeighboords = ["2", "4", "8", "16"]
-    listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+    listOfInfluences = ["1.0", "2.0", "4.0"]
 
     # for nb in listOfNeighboords:
     #     neighborhoodMultiplicators = [nb]
