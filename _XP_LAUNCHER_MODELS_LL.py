@@ -194,16 +194,17 @@ if __name__ == "__main__":
     #             endoExploitationCycles = [endoExpCycles]
     #             launch()
 
+    for pR in ListOfPrecisionRanges:
+        precisionRanges = [pR]
 
+        for infl in listOfInfluences:
+            externalInfluenceRatios = [infl]
+            launch()
 
-    for infl in listOfInfluences:
-        externalInfluenceRatios = [infl]
-        launch()
+            isActiveExploitation = ["true"]
 
-        isActiveExploitation = ["true"]
-
-        for lrnCycles in listOfLearningCycles:
-            for endoExpCycles in listOfEndoExploitationCycles:
-                endoExploitationCycles = [endoExpCycles]
-                launch()
+            for lrnCycles in listOfLearningCycles:
+                for endoExpCycles in listOfEndoExploitationCycles:
+                    endoExploitationCycles = [endoExpCycles]
+                    launch()
 
