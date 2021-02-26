@@ -203,7 +203,7 @@ if __name__ == "__main__":
             for perf in listOfRegressionPerformances:
                 regressionPerformances = [perf]
 
-            launch()
+                launch()
 
     # ACT LEARNING
     activeLearning = ["true"]
@@ -219,7 +219,7 @@ if __name__ == "__main__":
             for perf in listOfRegressionPerformances:
                 regressionPerformances = [perf]
 
-            launch()
+                launch()
 
     # ACT NEIGH LEARNING
     activeLearning = ["true"]
@@ -235,4 +235,4 @@ if __name__ == "__main__":
             for perf in listOfRegressionPerformances:
                 regressionPerformances = [perf]
 
-            launch()
+                launch()
