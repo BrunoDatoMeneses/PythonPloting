@@ -59,8 +59,8 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 PARAMETERS.learningCycles = "2000"
-PARAMETERS.activeExploitationCycles = "10000" # ["500","1000","2000","4000","6000","10000"]
-PARAMETERS.validityRangesPrecision = "0.02"
+PARAMETERS.activeExploitationCycles = "2000" # ["500","1000","2000","4000","6000","10000"]
+PARAMETERS.validityRangesPrecision = "0.06"
 PARAMETERS.isActiveExploitation = "true"
 
 PARAMETERS.isActiveLearning = "false"
@@ -85,7 +85,7 @@ for val in varyingParamValues:
     constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
 PLOTTING.LEGEND_IN=False
-PLOTTING.LEGEND_OUT=False
+PLOTTING.LEGEND_OUT=True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

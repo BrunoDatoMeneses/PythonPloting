@@ -170,10 +170,7 @@ if __name__ == "__main__":
 
     noiseRange = ["0.0"]
 
-    # SELF LEARNING
-    activeLearning = ["false"]
-    selfLearning = ["true"]
-    setLearnFromNeighbors = ["true"]
+
 
     # listOfLearningCycles = ["500", "1000","2000"]
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
@@ -181,11 +178,61 @@ if __name__ == "__main__":
     # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
     listOfEndoExploitationCycles = ["10000"]
     listOfLearningCycles = ["2000"]
-    ListOfPrecisionRanges = ["0.02","0.04","0.06"]
+
     ListOfEndoLeanringWeight = ["0.1"]
     listOfNeighboords = ["2", "4", "8", "16"]
     listOfInfluences = ["0.5","1.0", "2.0", "4.0"]
-    listOfNoiseRanges = ["0.0","0.5","1.0","2.0"]
 
-    launch()
 
+
+    ListOfPrecisionRanges = ["0.02", "0.04"]
+    listOfNoiseRanges = ["0.0", "1.0", "10.0", "20.0"]
+    listOfRegressionPerformances = ["1.0", "10.0", "20.0"]
+
+    # SELF LEARNING
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
+
+    for pR in ListOfPrecisionRanges:
+        precisionRanges = [pR]
+
+        for noise in listOfNoiseRanges:
+            noiseRange = [noise]
+
+            for perf in listOfRegressionPerformances:
+                regressionPerformances = [perf]
+
+            launch()
+
+    # ACT LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["false"]
+
+    for pR in ListOfPrecisionRanges:
+        precisionRanges = [pR]
+
+        for noise in listOfNoiseRanges:
+            noiseRange = [noise]
+
+            for perf in listOfRegressionPerformances:
+                regressionPerformances = [perf]
+
+            launch()
+
+    # ACT NEIGH LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["true"]
+
+    for pR in ListOfPrecisionRanges:
+        precisionRanges = [pR]
+
+        for noise in listOfNoiseRanges:
+            noiseRange = [noise]
+
+            for perf in listOfRegressionPerformances:
+                regressionPerformances = [perf]
+
+            launch()
