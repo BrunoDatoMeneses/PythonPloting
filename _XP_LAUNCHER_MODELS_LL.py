@@ -175,7 +175,8 @@ if __name__ == "__main__":
     # listOfLearningCycles = ["500", "1000","2000"]
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
-    listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
+    # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
+    listOfEndoExploitationCycles = ["10000"]
     listOfLearningCycles = ["2000"]
     ListOfPrecisionRanges = ["0.02"]
     ListOfEndoLeanringWeight = ["0.1"]
