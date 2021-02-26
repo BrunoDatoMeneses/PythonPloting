@@ -29,7 +29,8 @@ def launch():
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
                                            probabilityOfRangeAmbiguity, transferRatio,
-                                           endoExploitationCycles,isActiveExploitation
+                                           endoExploitationCycles,isActiveExploitation,
+                                           noiseRange
                                            ):
 
             fileName = dimension + "_"
@@ -166,6 +167,7 @@ if __name__ == "__main__":
 
     endoExploitationCycles = ["1000"]
     isActiveExploitation = ["false"]
+    noiseRange = ["0.0"]
 
     # SELF LEARNING
     activeLearning = ["false"]
@@ -175,13 +177,14 @@ if __name__ == "__main__":
     # listOfLearningCycles = ["500", "1000","2000"]
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
-    # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
-    listOfEndoExploitationCycles = ["10000"]
+    listOfEndoExploitationCycles = ["2000"]
+    # listOfEndoExploitationCycles = ["10000"]
     listOfLearningCycles = ["2000"]
-    ListOfPrecisionRanges = ["0.01","0.04","0.06"]
+    ListOfPrecisionRanges = ["0.02","0.04","0.06"]
     ListOfEndoLeanringWeight = ["0.1"]
-    listOfNeighboords = ["2", "4", "8", "16"]
+    listOfNeighboords = ["2", "4", "8"]
     listOfInfluences = ["0.5","1.0", "2.0", "4.0"]
+    isActiveExploitation = ["true"]
 
     # for nb in listOfNeighboords:
     #     neighborhoodMultiplicators = [nb]
@@ -199,9 +202,17 @@ if __name__ == "__main__":
 
         for infl in listOfInfluences:
             externalInfluenceRatios = [infl]
-            launch()
 
-            isActiveExploitation = ["true"]
+            for lrnCycles in listOfLearningCycles:
+                for endoExpCycles in listOfEndoExploitationCycles:
+                    endoExploitationCycles = [endoExpCycles]
+                    launch()
+
+    for pR in ListOfPrecisionRanges:
+        precisionRanges = [pR]
+
+        for nei in listOfNeighboords:
+            neighborhoodMultiplicators = [nei]
 
             for lrnCycles in listOfLearningCycles:
                 for endoExpCycles in listOfEndoExploitationCycles:

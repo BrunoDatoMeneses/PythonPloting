@@ -75,6 +75,7 @@ if __name__ == "__main__":
 
     endoExploitationCycles = ["1000"]
     isActiveExploitation = ["true"]
+    noiseRange = ["0.0"]
 
     for iteration in itertools.product(learningCycles, exploitationCycles, episodes, precisionRanges, neighborhoodMultiplicators,
                                externalInfluenceRatios, regressionPerformances, activeLearning, selfLearning,
@@ -93,7 +94,8 @@ if __name__ == "__main__":
                                maxRangeRadiusCoefficient, rangeSimilarityCoefficient, minimumRangeCoefficient,
                                isAllContextSearchAllowedForLearning, isAllContextSearchAllowedForExploitation,
                                        probabilityOfRangeAmbiguity, transferRatio,
-                                           endoExploitationCycles,isActiveExploitation
+                                           endoExploitationCycles,isActiveExploitation,
+                                           noiseRange
                                ):
 
         arguments = dimensions[0] + " " + configFiles[0] + " "

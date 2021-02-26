@@ -29,7 +29,8 @@ def launch():
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
                                            probabilityOfRangeAmbiguity, transferRatio,
-                                           endoExploitationCycles,isActiveExploitation
+                                           endoExploitationCycles,isActiveExploitation,
+                                           noiseRange
                                            ):
 
             fileName = dimension + "_"
@@ -165,10 +166,17 @@ if __name__ == "__main__":
 
     endoExploitationCycles = ["1000"]
     isActiveExploitation = ["true"]
+    noiseRange = ["0.0"]
+
+
+
 
     activeLearning = ["false"]
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
+
+
+
 
     launch()
 

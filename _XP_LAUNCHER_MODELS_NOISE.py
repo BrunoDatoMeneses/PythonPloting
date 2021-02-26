@@ -73,19 +73,20 @@ if __name__ == "__main__":
     #     learningCycles.append(""+ str(i*500))
     # print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    learningCycles = ["4000"]
-    exploitationCycles = ["500"]
+    learningCycles = ["2000"]
+    exploitationCycles = ["250"]
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.03"]
+    precisionRanges = ["0.02"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1.0"]
 
     # Learning
-    activeLearning = ["true"]
-    selfLearning = ["false"]
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
 
 
     # NCS
@@ -114,7 +115,7 @@ if __name__ == "__main__":
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
-    setLearnFromNeighbors = ["false"]
+
 
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]
@@ -136,7 +137,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["multi"]
+    models = ["gaussianCos2"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
@@ -162,18 +163,29 @@ if __name__ == "__main__":
     isAllContextSearchAllowedForExploitation = ["true"]
     probabilityOfRangeAmbiguity = ["0.1"]
 
-    transferRatio = ["0.0"]
+    transferRatio = ["0.333"]
 
-    endoExploitationCycles = ["1000"]
+    endoExploitationCycles = ["0"]
     isActiveExploitation = ["false"]
+
     noiseRange = ["0.0"]
 
-    launch()
-
-    #Other Params
-    # Learning
+    # SELF LEARNING
     activeLearning = ["false"]
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
+    # listOfLearningCycles = ["500", "1000","2000"]
+    # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
+
+    # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
+    listOfEndoExploitationCycles = ["10000"]
+    listOfLearningCycles = ["2000"]
+    ListOfPrecisionRanges = ["0.02","0.04","0.06"]
+    ListOfEndoLeanringWeight = ["0.1"]
+    listOfNeighboords = ["2", "4", "8", "16"]
+    listOfInfluences = ["0.5","1.0", "2.0", "4.0"]
+    listOfNoiseRanges = ["0.0","0.5","1.0","2.0"]
+
     launch()
+

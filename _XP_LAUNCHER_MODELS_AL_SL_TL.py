@@ -29,7 +29,8 @@ def launch():
                                            isAllContextSearchAllowedForLearning,
                                            isAllContextSearchAllowedForExploitation,
                                            probabilityOfRangeAmbiguity, transferRatio,
-                                           endoExploitationCycles,isActiveExploitation
+                                           endoExploitationCycles,isActiveExploitation,
+                                           noiseRange
                                            ):
 
             fileName = dimension + "_"
@@ -119,6 +120,8 @@ if __name__ == "__main__":
     nbOfNeighborForContexCreationWithouOracle = ["7"]
     setCreationFromNeighbor = ["true"]
 
+
+
     # Other
 # squareFixed, triangle, disc, squareDiag, squareDiagCircle
 # // PARAMS.model = "multi";
@@ -165,6 +168,8 @@ if __name__ == "__main__":
 
     endoExploitationCycles = ["1000"]
     isActiveExploitation = ["false"]
+
+    noiseRange = ["0.0"]
 
     listOfModels = ["squareFixed", "los", "disc", "squareDisc", "squareDiscLos"]
     listOfLearningCycles = ["2000", "2000", "2000", "3500", "5000"]
