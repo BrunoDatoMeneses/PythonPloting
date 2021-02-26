@@ -175,23 +175,23 @@ if __name__ == "__main__":
     # listOfLearningCycles = ["500", "1000","2000"]
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
 
-    listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000", "10000"]
+    listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
     listOfLearningCycles = ["2000"]
     ListOfPrecisionRanges = ["0.02"]
     ListOfEndoLeanringWeight = ["0.1"]
     listOfNeighboords = ["2", "4", "8", "16"]
     listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
 
-    for nb in listOfNeighboords:
-        neighborhoodMultiplicators = [nb]
-        launch()
-
-        isActiveExploitation = ["true"]
-
-        for lrnCycles in listOfLearningCycles:
-            for endoExpCycles in listOfEndoExploitationCycles:
-                endoExploitationCycles = [endoExpCycles]
-                launch()
+    # for nb in listOfNeighboords:
+    #     neighborhoodMultiplicators = [nb]
+    #     launch()
+    #
+    #     isActiveExploitation = ["true"]
+    #
+    #     for lrnCycles in listOfLearningCycles:
+    #         for endoExpCycles in listOfEndoExploitationCycles:
+    #             endoExploitationCycles = [endoExpCycles]
+    #             launch()
 
 
 
