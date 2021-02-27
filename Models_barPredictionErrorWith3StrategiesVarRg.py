@@ -17,7 +17,7 @@ yStringLong ="predictionError"
 
 
 figVaryingParamString = "validityRangesPrecision"
-varyingParamStringValues = ["0.02","0.04"]
+varyingParamStringValues = ["0.02","0.04","0.06"]
 varyingParamStrings = []
 paramlabelString = r'$p^\mathcal{R} = $'
 PARAMETERS.validityRangesPrecision= "("
@@ -60,7 +60,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 
-PARAMETERS.noise = "0.0"
+
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

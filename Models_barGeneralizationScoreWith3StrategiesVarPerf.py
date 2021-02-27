@@ -11,26 +11,27 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Volumes (%)'
-yStringLong ="Volumes"
+ylabel = 'Generalization Score (%)'
+yStringLong ="generalizationScore"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
-# varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
-# for value in varyingParamStringValues:
-#     # precisionRange+=  str(int(100*float(label))) + "_"
-#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
-#     varyingParamStrings.append(value + paramlabelString)
-#
-# PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (3.5, 3.75)
-yStrings = ["conflictVol","concurrenceVol","voidVol"]
+
+figVaryingParamString = "errorMargin"
+varyingParamStringValues = ["1.0","10.0","20.0"]
+varyingParamStrings = []
+paramlabelString = r'$m_{err}^f = $'
+PARAMETERS.errorMargin= "("
+for value in varyingParamStringValues:
+    # precisionRange+=  str(int(100*float(label))) + "_"
+    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+    PARAMETERS.errorMargin += value + "_"
+    varyingParamStrings.append(paramlabelString + value)
+
+PARAMETERS.errorMargin += ")"
+
+PARAMETERS.figSize = (2.5, 3.75)
+yStrings = ["generalizationScore"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
@@ -42,7 +43,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Conflicts", "Concurrencies", "Incompetencies"]
+xLabelStrings = [""]
 # xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
@@ -59,7 +60,6 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
-varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
 
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
@@ -71,24 +71,39 @@ PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "false"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
 
 PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+# varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
+varyingParamStringsFinal=[]
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("AL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("ACL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("SL "+lbl)
+
 
 
 PLOTTING.ROTATION = 22.5
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+PLOTTING.LEGEND_IN=False
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
                                   constrains, 1, 100, PARAMETERS.figSize)
 

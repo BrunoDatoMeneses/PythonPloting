@@ -11,6 +11,8 @@ class PLOTTING:
     # ROTATION = 67.5
     # ROTATION = 90
 
+    BAR_WIDTH = 0.75
+
     LEGEND_IN = True
     LEGEND_OUT = False
 
@@ -114,7 +116,7 @@ def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelSt
         ax.errorbar(x, y, marker=marker, markersize=8, linestyle=ls, label=labelString, color = color)
         #ax.errorbar(x, min, marker=marker, markersize=4, linestyle=ls, label=labelString, color=intervalColor)
         #ax.errorbar(x, max, marker=marker, markersize=4, linestyle=ls, label=labelString, color=intervalColor)
-        ax.fill_between(x, (min), (max), color=intervalColor, alpha=ALPHA_FILL)
+        ax.fill_between(x, (min), (max), color=intervalColor, alpha=PLOTTING.ALPHA_FILL)
         #ax.errorbar(x, y + error, marker='_', markersize=12, color=color, linestyle='none')
         #ax.errorbar(x, y - error, marker='_', markersize=12, color=color, linestyle='none')
 
@@ -153,12 +155,12 @@ def barWithDeviation(yArrays, errorArrays, xLabelsString, yLabelString, legendLa
     ls = (0,(1,5))
     fig, ax = plt.subplots(figsize=(size[0], size[1]))
     x = np.arange(len(xLabelsString))  # the label locations
-    width = 0.75
+
 
     n = len(legendLabel)
     i=0
     for yArray, errorArray,legend,color in zip(yArrays,errorArrays,legendLabel,colors):
-        ax.bar(x -(width/2) + (width/(2*n))  +  i*(width/n), yArray, width/n, yerr=errorArray, label=legend,color=color)
+        ax.bar(x -(PLOTTING.BAR_WIDTH/2) + (PLOTTING.BAR_WIDTH/(2*n))  +  i*(PLOTTING.BAR_WIDTH/n), yArray, PLOTTING.BAR_WIDTH/n, yerr=errorArray, label=legend,color=color)
         i+=1
 
     #ax.bar(x, yArrays, width, yerr=errorArrays, label='Test', color=colors)

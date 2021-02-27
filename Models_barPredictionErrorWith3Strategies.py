@@ -59,7 +59,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
-PARAMETERS.noise = "0.0"
+
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

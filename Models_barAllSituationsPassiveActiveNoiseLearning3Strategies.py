@@ -63,7 +63,7 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
 
 
 varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
-PARAMETERS.noise = "0.0"
+
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

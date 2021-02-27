@@ -11,7 +11,7 @@ class PARAMETERS:
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.02"
+    validityRangesPrecision = "0.04"
 
     isActiveLearning = "false"
     isSelfLearning = "true"
@@ -65,7 +65,7 @@ class PARAMETERS:
     isActiveExploitation = "false"
     activeExploitationCycles = "0"
 
-    noise = "0.0"
+    noise = "1.0"
 
     figPrefix = model + "_"
 
@@ -113,8 +113,11 @@ class PARAMETERS:
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
 
-    # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
-    colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']
+    # colors = ['lavender','lightsteelblue', 'tab:blue', 'midnightblue',
+    #           'lightgreen', 'limegreen' ,'tab:green', 'darkgreen',
+    #           'gold','tab:orange', 'sienna', 'tab:red']
+    colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
+    # colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']
 
     intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
 

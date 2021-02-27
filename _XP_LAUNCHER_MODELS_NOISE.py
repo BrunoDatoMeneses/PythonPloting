@@ -78,7 +78,7 @@ if __name__ == "__main__":
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.02"]
+    precisionRanges = ["0.04"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1.0"]
@@ -182,57 +182,47 @@ if __name__ == "__main__":
     ListOfEndoLeanringWeight = ["0.1"]
     listOfNeighboords = ["2", "4", "8", "16"]
     listOfInfluences = ["0.5","1.0", "2.0", "4.0"]
+    ListOfPrecisionRanges = ["0.04"]
+    listOfRegressionPerformances = ["1.0"]
 
 
 
-    ListOfPrecisionRanges = ["0.06"]
-    listOfNoiseRanges = ["0.0", "1.0", "10.0", "20.0"]
-    listOfRegressionPerformances = ["1.0", "10.0", "20.0"]
+    listOfArtificialGenerationRanges = ["0.05", "0.1", "0.5", "1.0", "2.0"]
+    listOfNoiseRanges = ["0.0", "1.0", "10.0"]
+
 
     # SELF LEARNING
     activeLearning = ["false"]
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    for pR in ListOfPrecisionRanges:
-        precisionRanges = [pR]
+    for genRg in listOfArtificialGenerationRanges:
+        perceptionsGenerationCoefficient=[genRg]
 
         for noise in listOfNoiseRanges:
             noiseRange = [noise]
-
-            for perf in listOfRegressionPerformances:
-                regressionPerformances = [perf]
-
-                launch()
+            launch()
 
     # ACT LEARNING
     activeLearning = ["true"]
     selfLearning = ["false"]
     setLearnFromNeighbors = ["false"]
 
-    for pR in ListOfPrecisionRanges:
-        precisionRanges = [pR]
+    for genRg in listOfArtificialGenerationRanges:
+        perceptionsGenerationCoefficient=[genRg]
 
         for noise in listOfNoiseRanges:
             noiseRange = [noise]
-
-            for perf in listOfRegressionPerformances:
-                regressionPerformances = [perf]
-
-                launch()
+            launch()
 
     # ACT NEIGH LEARNING
     activeLearning = ["true"]
     selfLearning = ["false"]
     setLearnFromNeighbors = ["true"]
 
-    for pR in ListOfPrecisionRanges:
-        precisionRanges = [pR]
+    for genRg in listOfArtificialGenerationRanges:
+        perceptionsGenerationCoefficient=[genRg]
 
         for noise in listOfNoiseRanges:
             noiseRange = [noise]
-
-            for perf in listOfRegressionPerformances:
-                regressionPerformances = [perf]
-
-                launch()
+            launch()

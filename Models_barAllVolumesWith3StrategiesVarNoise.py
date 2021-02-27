@@ -16,18 +16,18 @@ yStringLong ="Volumes"
 
 varyingParamStrings = ["Active Learning","Self-Learning"]
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
-# varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
-# for value in varyingParamStringValues:
-#     # precisionRange+=  str(int(100*float(label))) + "_"
-#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
-#     varyingParamStrings.append(value + paramlabelString)
-#
-# PARAMETERS.learningCycles += ")"
+figVaryingParamString = "noise"
+varyingParamStringValues = ["0.0","1.0","10.0"]
+varyingParamStrings = []
+paramlabelString = r'$2\sigma = $'
+PARAMETERS.noise= "("
+for value in varyingParamStringValues:
+    # precisionRange+=  str(int(100*float(label))) + "_"
+    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+    PARAMETERS.noise += value + "_"
+    varyingParamStrings.append(paramlabelString + value)
+
+PARAMETERS.noise += ")"
 
 PARAMETERS.figSize = (3.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
@@ -59,7 +59,6 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
-varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
 
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
@@ -71,24 +70,39 @@ PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "false"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
 
 PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+# varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
+varyingParamStringsFinal=[]
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("AL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("ACL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("SL "+lbl)
 
 
 PLOTTING.ROTATION = 22.5
+PLOTTING.LEGEND_IN = False
+PLOTTING.LEGEND_OUT = True
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
                                   constrains, 1, 100, PARAMETERS.figSize)
 

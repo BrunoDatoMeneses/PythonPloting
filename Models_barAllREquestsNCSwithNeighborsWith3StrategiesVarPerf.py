@@ -14,20 +14,20 @@ figEndName = "-AllNCS"
 ylabel = 'Situations (#)'
 yStringLong ="RequestsAllNCSwithNeighbors"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
-# varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
-# for value in varyingParamStringValues:
-#     # precisionRange+=  str(int(100*float(label))) + "_"
-#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
-#     varyingParamStrings.append(value + paramlabelString)
-#
-# PARAMETERS.learningCycles += ")"
+
+figVaryingParamString = "errorMargin"
+varyingParamStringValues = ["1.0","10.0","20.0"]
+varyingParamStrings = []
+paramlabelString = r'$m_{err}^f = $'
+PARAMETERS.errorMargin= "("
+for value in varyingParamStringValues:
+    # precisionRange+=  str(int(100*float(label))) + "_"
+    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+    PARAMETERS.errorMargin += value + "_"
+    varyingParamStrings.append(paramlabelString + value)
+
+PARAMETERS.errorMargin += ")"
 
 
 yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests","neighborsRequest"]
@@ -68,7 +68,7 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
     else:
         XYDevMinMax.append([y, yDev, min, max, 1])
 
-varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
+
 
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
@@ -80,28 +80,42 @@ PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "false"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
 
 PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
+# varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
+varyingParamStringsFinal=[]
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("AL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("ACL "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("SL "+lbl)
 
 PLOTTING.ROTATION = 45
+PLOTTING.LEGEND_IN = False
+PLOTTING.LEGEND_OUT = True
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,
                                   constrains, 1, 1, PARAMETERS.figSize)
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
                                   constrains, 1, 1, PARAMETERS.figSize)
 

@@ -17,7 +17,7 @@ yStringLong ="RequestsAllNCSwithNeighbors"
 
 
 figVaryingParamString = "validityRangesPrecision"
-varyingParamStringValues = ["0.02","0.04"]
+varyingParamStringValues = ["0.02","0.04","0.06"]
 varyingParamStrings = []
 paramlabelString = r'$p^\mathcal{R} = $'
 PARAMETERS.validityRangesPrecision= "("
@@ -69,7 +69,7 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
         XYDevMinMax.append([y, yDev, min, max, 1])
 
 
-PARAMETERS.noise = "0.0"
+
 
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -107,7 +107,10 @@ for lbl in varyingParamStrings:
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
 
-PLOTTING.ROTATION = 45
+PARAMETERS.figSize = (10, 3.75)
+PLOTTING.ROTATION = 22.5
+PLOTTING.LEGEND_IN = False
+PLOTTING.LEGEND_OUT = True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,
