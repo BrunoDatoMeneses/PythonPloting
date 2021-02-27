@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
 
 
-    ListOfPrecisionRanges = ["0.02", "0.04"]
+    ListOfPrecisionRanges = ["0.06"]
     listOfNoiseRanges = ["0.0", "1.0", "10.0", "20.0"]
     listOfRegressionPerformances = ["1.0", "10.0", "20.0"]
 
