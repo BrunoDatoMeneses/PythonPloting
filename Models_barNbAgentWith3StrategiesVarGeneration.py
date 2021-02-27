@@ -17,7 +17,8 @@ yStringLong ="NBAgent"
 
 
 figVaryingParamString = "perceptionsGenerationCoefficient"
-varyingParamStringValues = ["0.05", "0.1", "0.5"]
+#varyingParamStringValues = ["0.05", "0.1", "0.5"]
+varyingParamStringValues = [ "0.1", "0.5","1.0","2.0"]
 varyingParamStrings = []
 paramlabelString = r'$\alpha^{\mathcal{P}_{gen}} = $'
 PARAMETERS.perceptionsGenerationCoefficient= "("
