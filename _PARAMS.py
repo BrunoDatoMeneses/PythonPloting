@@ -65,7 +65,7 @@ class PARAMETERS:
     isActiveExploitation = "false"
     activeExploitationCycles = "0"
 
-    noise = "1.0"
+    noise = "0.0"
 
     figPrefix = model + "_"
 
