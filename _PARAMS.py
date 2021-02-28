@@ -7,11 +7,11 @@ class PARAMETERS:
 
     dimension = "2"
     model = "gaussianCos2"
-    learningCycles = "2000"
+    learningCycles = "500"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.04"
+    validityRangesPrecision = "0.02"
 
     isActiveLearning = "false"
     isSelfLearning = "true"
@@ -43,7 +43,7 @@ class PARAMETERS:
 
     isConflictNCS = "true"
     isConcurenceNCS = "true"
-    isIncompetenceNCS = "true"
+    isIncompetenceNCS = "false"
     isSubVoidDetection = "false"
     isAmbiguityNCS = "true"
     isModelNCS = "true"
@@ -65,7 +65,7 @@ class PARAMETERS:
     isActiveExploitation = "false"
     activeExploitationCycles = "0"
 
-    noise = "1.0"
+    noise = "0.0"
 
     figPrefix = model + "_"
 
@@ -109,6 +109,7 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    # colors = ['tab:blue', 'tab:green']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
@@ -119,10 +120,13 @@ class PARAMETERS:
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
     # colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']
 
-    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
+    # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
+    # intervalColors = ['lightsteelblue', 'lightgreen', 'lightsalmon', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon',
+    #                   'lightpink']
+    intervalColors = ['lightsteelblue', 'lightgreen']
 
-    markers = ['o', 'D', 'v', 's', 'P', 'p','*']
-
+    # markers = ['o', 'D', 'v', 's', 'P', 'p','*']
+    markers = ['o', 'D']
 
     @classmethod
     def getPARAMS(cls):

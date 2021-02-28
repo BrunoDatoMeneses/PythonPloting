@@ -12,28 +12,25 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Situations (#)'
-yStringLong ="RequestsAllNCSwithNeighbors"
+yStringLong ="SituationsPassAct"
 
 
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
-# varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
-# for value in varyingParamStringValues:
-#     # precisionRange+=  str(int(100*float(label))) + "_"
-#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
-#     varyingParamStrings.append(value + paramlabelString)
-#
-# PARAMETERS.learningCycles += ")"
+figVaryingParamString = "learningCycles"
+varyingParamStringValues = ["75","150","250","500"]
+varyingParamStrings = []
+paramlabelString = r'$\mathcal{L}^N = $'
+PARAMETERS.learningCycles= "("
+for value in varyingParamStringValues:
+    # precisionRange+=  str(int(100*float(label))) + "_"
+    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+    PARAMETERS.learningCycles += value + "_"
+    varyingParamStrings.append(paramlabelString + value)
 
+PARAMETERS.learningCycles += ")"
 
-yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests","neighborsRequest"]
-# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests"]
+PARAMETERS.figSize = (4.5, 3.75)
+yStrings = ["rdmLearning","rdmExploitation","activeLearning","activeExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -44,10 +41,8 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity","Coop. Neighbors /10"]
-# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
-# xLabelStrings = ["Passive","Active","Self-Generated"]
-# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
+xLabelStrings = ["Passive Learning","Passive Exploitation","Active Learning","Active Exploitation"]
+
 
 
 
@@ -59,16 +54,16 @@ logYScale = False
 # for label in labelStrings:
 #     yStringLong += label  + "_"
 
-
-
 XYDevMinMax = []
 for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "neighborsRequest"):
-        XYDevMinMax.append([y, yDev, min, max,0.1])
+    if(yString == "endogenousLearning"):
+        XYDevMinMax.append([y, yDev, min, max,1])
     else:
         XYDevMinMax.append([y, yDev, min, max, 1])
 
-varyingParamStrings = ["NLC Model","NLD Model"]
+
+
+
 
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -81,7 +76,8 @@ PARAMETERS.isLearnFromNeighbors = "true"
 PARAMETERS.model = "gaussianCos2"
 PARAMETERS.errorMargin = "1.0"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
@@ -91,18 +87,27 @@ PARAMETERS.errorMargin = "0.05" # "0.05"
 
 
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
 
+# varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
+varyingParamStringsFinal=[]
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("NLC Model "+lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("NLD Model "+lbl)
 
 
-PLOTTING.ROTATION = 45
+PLOTTING.LEGEND_IN = False
+PLOTTING.LEGEND_OUT = True
+PLOTTING.ROTATION = 22.5
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,
                                   constrains, 1, 1, PARAMETERS.figSize)
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
                                   constrains, 1, 1, PARAMETERS.figSize)
 

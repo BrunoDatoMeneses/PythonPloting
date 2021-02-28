@@ -182,7 +182,7 @@ if __name__ == "__main__":
     listOfInfluences = ["1.0", "2.0", "4.0" ,"6.0"]
     listOfEndogenousLearningW = ["0.1", "0.25","0.5"]
 
-    listOfLearningCycles = ["25","50","75","100","150","200","250","500"]
+    listOfLearningCycles = ["350"]
 
     listOfModels = ["gaussianCos2","cosSinX"]
     listOfRegressionPerf = ["1.0","0.05"]
