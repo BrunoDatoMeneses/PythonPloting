@@ -171,8 +171,8 @@ if __name__ == "__main__":
     listOfPrecisionRanges = ["0.02", "0.04", "0.06", "0.08", "0.1"]
     listOfLearningCycles = ["500", "1000", "2000", "4000", "10000"]
 
-    listOfModels = ["squareFixed", "cosSinX"]
-    listOfRegressionPerf = ["1.0", "0.05"]
+    listOfModels = ["squareFixed"]
+    listOfRegressionPerf = ["1.0"]
 
     listOfdimensions = ['2','3','5','10']
     listOfconfigFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
