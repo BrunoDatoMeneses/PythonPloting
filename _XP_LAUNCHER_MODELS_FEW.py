@@ -184,42 +184,62 @@ if __name__ == "__main__":
 
     listOfLearningCycles = ["25","50","75","100","150","200","250","500"]
 
+    listOfModels = ["gaussianCos2","cosSinX"]
+    listOfRegressionPerf = ["1.0","0.05"]
+
     # SELF LEARNING
     activeLearning = ["false"]
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    for prRg in listOfPrecisionRanges:
-        precisionRanges=[prRg]
+    for mod,perf in zip(listOfModels,listOfRegressionPerf):
+        models = [mod]
+        regressionPerformances = [perf]
 
-        for nei in listOfNeighboords:
-            neighborhoodMultiplicators = [nei]
 
-            for lrnCl in listOfLearningCycles:
-                learningCycles = [lrnCl]
+        neighborhoodMultiplicators = ["2"]
+        externalInfluenceRatios = ["0.5"]
+        endogenousLearningWeight = ["0.1"]
 
-                launch()
+        for prRg in listOfPrecisionRanges:
+            precisionRanges=[prRg]
 
-    for prRg in listOfPrecisionRanges:
-        precisionRanges=[prRg]
+            for nei in listOfNeighboords:
+                neighborhoodMultiplicators = [nei]
 
-        for infl in listOfInfluences:
-            externalInfluenceRatios = [infl]
+                for lrnCl in listOfLearningCycles:
+                    learningCycles = [lrnCl]
 
-            for lrnCl in listOfLearningCycles:
-                learningCycles = [lrnCl]
+                    launch()
 
-                launch()
+        neighborhoodMultiplicators = ["2"]
+        externalInfluenceRatios = ["0.5"]
+        endogenousLearningWeight = ["0.1"]
 
-    for prRg in listOfPrecisionRanges:
-        precisionRanges=[prRg]
+        for prRg in listOfPrecisionRanges:
+            precisionRanges=[prRg]
 
-        for endoW in listOfEndogenousLearningW:
-            endogenousLearningWeight = [endoW]
+            for infl in listOfInfluences:
+                externalInfluenceRatios = [infl]
 
-            for lrnCl in listOfLearningCycles:
-                learningCycles = [lrnCl]
+                for lrnCl in listOfLearningCycles:
+                    learningCycles = [lrnCl]
 
-                launch()
+                    launch()
+
+        neighborhoodMultiplicators = ["2"]
+        externalInfluenceRatios = ["0.5"]
+        endogenousLearningWeight = ["0.1"]
+
+        for prRg in listOfPrecisionRanges:
+            precisionRanges=[prRg]
+
+            for endoW in listOfEndogenousLearningW:
+                endogenousLearningWeight = [endoW]
+
+                for lrnCl in listOfLearningCycles:
+                    learningCycles = [lrnCl]
+
+                    launch()
 
 
