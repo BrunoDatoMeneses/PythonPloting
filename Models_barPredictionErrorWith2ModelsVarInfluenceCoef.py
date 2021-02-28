@@ -18,7 +18,7 @@ yStringLong ="predictionError"
 
 figVaryingParamString = "influenceRadiusCoefficient"
 # varyingParamStringValues = ["0.5", "1.0", "2.0","4.0"]
-varyingParamStringValues = ["8.0", "10.0", "12.0", "14.0"]
+varyingParamStringValues = ["0.5", "1.0", "2.0", "4.0"]
 varyingParamStrings = []
 paramlabelString = r'$\alpha^\mathcal{I} = $'
 PARAMETERS.influenceRadiusCoefficient= "("
@@ -62,7 +62,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
 
 
 PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "200"
+PARAMETERS.learningCycles = "500"
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 

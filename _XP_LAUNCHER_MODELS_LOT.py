@@ -176,8 +176,8 @@ if __name__ == "__main__":
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
     # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
 
-    listOfPrecisionRanges = ["0.02","0.04","0.6"]
-    listOfExogenousLearningW = ["0.1", "0.25","0.5"]
+    listOfPrecisionRanges = ["0.02","0.04","0.06"]
+    listOfExogenousLearningW = ["0.05", "0.15","0.2"]
     listOfLearningCycles = ["250","500","1000","2000","4000"]
 
     listOfModels = ["gaussianCos2","cosSinX"]
@@ -207,25 +207,25 @@ if __name__ == "__main__":
 
                     launch()
 
-    # ACTIVE LEARNING
-    activeLearning = ["true"]
-    selfLearning = ["false"]
-    setLearnFromNeighbors = ["false"]
-
-    for mod, perf in zip(listOfModels, listOfRegressionPerf):
-        models = [mod]
-        regressionPerformances = [perf]
-
-        for exoW in listOfExogenousLearningW:
-            exogenousLearningWeight = [exoW]
-
-            for prRg in listOfPrecisionRanges:
-                precisionRanges = [prRg]
-
-                for lrnCl in listOfLearningCycles:
-                    learningCycles = [lrnCl]
-
-                    launch()
+    # # ACTIVE LEARNING
+    # activeLearning = ["true"]
+    # selfLearning = ["false"]
+    # setLearnFromNeighbors = ["false"]
+    #
+    # for mod, perf in zip(listOfModels, listOfRegressionPerf):
+    #     models = [mod]
+    #     regressionPerformances = [perf]
+    #
+    #     for exoW in listOfExogenousLearningW:
+    #         exogenousLearningWeight = [exoW]
+    #
+    #         for prRg in listOfPrecisionRanges:
+    #             precisionRanges = [prRg]
+    #
+    #             for lrnCl in listOfLearningCycles:
+    #                 learningCycles = [lrnCl]
+    #
+    #                 launch()
 
 
 

@@ -9,7 +9,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-xlabel = 'Influence Radius Coefficients '+ r'$\alpha^\mathcal{I}$'
+xlabel = 'Learning Cycles (#)'
 ylabel = 'Prediction Error (%)'
 
 
@@ -25,10 +25,10 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-labelStrings = ["NLC Model","NLD Model"]
 
-xString = "influenceRadiusCoefficient"
-PARAMETERS.influenceRadiusCoefficient = (0.0, 2000.0)
+
+xString = "learningCycles"
+PARAMETERS.learningCycles = (0, 4000)
 
 
 logXScale = False
@@ -40,8 +40,7 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([xString, y, yDev, min, max])
 
-PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "500"
+PARAMETERS.validityRangesPrecision = "0.06"
 figName = "few_2Mod_" + yStringLong + "_DepOn_" + xString + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
@@ -50,22 +49,36 @@ PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 PARAMETERS.model = "gaussianCos2"
 PARAMETERS.errorMargin = "1.0"
+PARAMETERS.exogenousLearningWeight = "0.1"
 
 constrains = PARAMETERS.getConstainsSingle(XYDevMinMax)
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.model = "cosSinX" # "cosSinX"
-PARAMETERS.errorMargin = "0.05" # "0.05"
+PARAMETERS.model = "gaussianCos2"
+PARAMETERS.errorMargin = "1.0"
+PARAMETERS.exogenousLearningWeight = "0.25"
 
 constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
 
+PARAMETERS.isActiveLearning = "false"
+PARAMETERS.isSelfLearning = "true"
+PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.model = "gaussianCos2"
+PARAMETERS.errorMargin = "1.0"
+PARAMETERS.exogenousLearningWeight = "0.5"
+
+constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
+
+labelStrings = [r'$\omega_{lrn}^{exo} = 0.1$',r'$\omega_{lrn}^{exo} = 0.25$',r'$\omega_{lrn}^{exo} = 0.5$']
 labelStrings.reverse()
 constrains.reverse()
 PARAMETERS.colors.reverse()
 PARAMETERS.intervalColors.reverse()
 PARAMETERS.markers.reverse()
+
+
 
 _PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                        figName, xlabel, ylabel, False, logYScale,
@@ -79,7 +92,5 @@ _PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.color
 _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                    figName, xlabel, ylabel, True, logYScale,
                                    constrains, 1, 100, PARAMETERS.figSize)
-
-
 
 # _PLOT.plotWithDeviation(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constrains, 1, 1)

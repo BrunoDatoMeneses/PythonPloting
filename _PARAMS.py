@@ -109,7 +109,8 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
-    colors = ['tab:red', 'tab:purple']
+    colors = ['tab:blue', 'tab:orange', 'tab:green']
+    # colors = ['tab:red', 'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
@@ -120,6 +121,8 @@ class PARAMETERS:
 
     # colors = ['lightcoral','tab:red', 'orangered', 'darkred',
     #           'thistle', 'violet' ,'tab:purple', 'indigo']
+    # colors = ['tab:red', 'orangered', 'darkred',
+    #           'violet', 'tab:purple', 'indigo']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
     # colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']
@@ -127,10 +130,12 @@ class PARAMETERS:
     # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
     # intervalColors = ['lightsteelblue', 'lightgreen', 'lightsalmon', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon',
     #                   'lightpink']
-    intervalColors = ['lightcoral', 'thistle']
+    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen']
+    # intervalColors = ['lightcoral', 'thistle']
 
     # markers = ['o', 'D', 'v', 's', 'P', 'p','*']
-    markers = ['o', 'D']
+    markers = ['o', 'D', 'v']
+    # markers = ['o', 'D']
 
     @classmethod
     def getPARAMS(cls):

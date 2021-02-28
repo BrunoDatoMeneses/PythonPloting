@@ -41,7 +41,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([xString, y, yDev, min, max])
 
 PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "250"
+PARAMETERS.learningCycles = "500"
 figName = "few_2Mod_" + yStringLong + "_DepOn_" + xString + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 

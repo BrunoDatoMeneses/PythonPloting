@@ -16,18 +16,18 @@ yStringLong ="predictionError"
 
 
 
-figVaryingParamString = "validityRangesPrecision"
-varyingParamStringValues = ["0.02","0.04","0.06"]
+figVaryingParamString = "exogenousLearningWeight"
+varyingParamStringValues = ["0.1", "0.25","0.5"]
 varyingParamStrings = []
-paramlabelString = r'$p^\mathcal{R} = $'
-PARAMETERS.validityRangesPrecision= "("
+paramlabelString = r'$\omega_{lrn}^{exo} = $'
+PARAMETERS.exogenousLearningWeight= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.validityRangesPrecision += value + "_"
+    PARAMETERS.exogenousLearningWeight += value + "_"
     varyingParamStrings.append(paramlabelString + value)
 
-PARAMETERS.validityRangesPrecision += ")"
+PARAMETERS.exogenousLearningWeight += ")"
 
 PARAMETERS.figSize = (2.5, 3.75)
 yStrings = ["predictionError"]
@@ -60,8 +60,8 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 
-# PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "500"
+PARAMETERS.validityRangesPrecision = "0.02"
+PARAMETERS.learningCycles = "4000"
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
