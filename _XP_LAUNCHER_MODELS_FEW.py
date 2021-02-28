@@ -81,7 +81,7 @@ if __name__ == "__main__":
     precisionRanges = ["0.04"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
-    regressionPerformances = ["1.0"]
+    regressionPerformances = ["0.05"]
 
     # Learning
     activeLearning = ["false"]
@@ -137,7 +137,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["gaussianCos2"]
+    models = ["cosSinX"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
