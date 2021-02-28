@@ -109,7 +109,9 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
-    colors = ['tab:blue', 'tab:orange', 'tab:green']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green']
     # colors = ['tab:red', 'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
@@ -119,8 +121,8 @@ class PARAMETERS:
     #           'lightgreen', 'limegreen' ,'tab:green', 'darkgreen',
     #           'gold','tab:orange', 'sienna', 'tab:red']
 
-    # colors = ['lightcoral','tab:red', 'orangered', 'darkred',
-    #           'thistle', 'violet' ,'tab:purple', 'indigo']
+    colors = ['lightcoral','tab:red', 'orangered', 'darkred',
+              'thistle', 'violet' ,'tab:purple', 'indigo']
     # colors = ['tab:red', 'orangered', 'darkred',
     #           'violet', 'tab:purple', 'indigo']
 
@@ -130,11 +132,15 @@ class PARAMETERS:
     # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
     # intervalColors = ['lightsteelblue', 'lightgreen', 'lightsalmon', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon',
     #                   'lightpink']
-    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen']
+    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle']
+    # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral']
+    # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen']
     # intervalColors = ['lightcoral', 'thistle']
 
     # markers = ['o', 'D', 'v', 's', 'P', 'p','*']
-    markers = ['o', 'D', 'v']
+    markers = ['o', 'D', 'v', 's', 'P']
+    # markers = ['o', 'D', 'v', 's']
+    # markers = ['o', 'D', 'v']
     # markers = ['o', 'D']
 
     @classmethod

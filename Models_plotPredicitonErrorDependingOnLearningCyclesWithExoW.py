@@ -40,38 +40,55 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([xString, y, yDev, min, max])
 
-PARAMETERS.validityRangesPrecision = "0.06"
-figName = "few_2Mod_" + yStringLong + "_DepOn_" + xString + "-" + PARAMETERS.getFigName() + figEndName
+PARAMETERS.validityRangesPrecision = "0.02"
+# PARAMETERS.model = "gaussianCos2"
+# PARAMETERS.errorMargin = "1.0"
+PARAMETERS.model = "cosSinX"
+PARAMETERS.errorMargin = "0.05"
+figName = "few_2Mod_" + PARAMETERS.model + "_" + yStringLong + "_DepOn_" + xString + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.model = "gaussianCos2"
-PARAMETERS.errorMargin = "1.0"
-PARAMETERS.exogenousLearningWeight = "0.1"
+
+PARAMETERS.exogenousLearningWeight = "0.05"
 
 constrains = PARAMETERS.getConstainsSingle(XYDevMinMax)
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.model = "gaussianCos2"
-PARAMETERS.errorMargin = "1.0"
-PARAMETERS.exogenousLearningWeight = "0.25"
+
+PARAMETERS.exogenousLearningWeight = "0.1"
 
 constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.model = "gaussianCos2"
-PARAMETERS.errorMargin = "1.0"
-PARAMETERS.exogenousLearningWeight = "0.5"
+
+PARAMETERS.exogenousLearningWeight = "0.15"
 
 constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
 
-labelStrings = [r'$\omega_{lrn}^{exo} = 0.1$',r'$\omega_{lrn}^{exo} = 0.25$',r'$\omega_{lrn}^{exo} = 0.5$']
+PARAMETERS.isActiveLearning = "false"
+PARAMETERS.isSelfLearning = "true"
+PARAMETERS.isLearnFromNeighbors = "true"
+
+PARAMETERS.exogenousLearningWeight = "0.2"
+
+constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
+
+PARAMETERS.isActiveLearning = "false"
+PARAMETERS.isSelfLearning = "true"
+PARAMETERS.isLearnFromNeighbors = "true"
+
+PARAMETERS.exogenousLearningWeight = "0.25"
+
+constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
+
+labelStrings = [r'$\omega_{lrn}^{exo} = 0.05$',r'$\omega_{lrn}^{exo} = 0.1$',r'$\omega_{lrn}^{exo} = 0.15$',r'$\omega_{lrn}^{exo} = 0.2$',r'$\omega_{lrn}^{exo} = 0.25$']
 labelStrings.reverse()
 constrains.reverse()
 PARAMETERS.colors.reverse()

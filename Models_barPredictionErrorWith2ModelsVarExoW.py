@@ -17,7 +17,7 @@ yStringLong ="predictionError"
 
 
 figVaryingParamString = "exogenousLearningWeight"
-varyingParamStringValues = ["0.1", "0.25","0.5"]
+varyingParamStringValues = ["0.05", "0.1","0.15","0.2"]
 varyingParamStrings = []
 paramlabelString = r'$\omega_{lrn}^{exo} = $'
 PARAMETERS.exogenousLearningWeight= "("
