@@ -109,7 +109,7 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
-    # colors = ['tab:red', 'tab:purple']
+    colors = ['tab:red', 'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
@@ -118,8 +118,8 @@ class PARAMETERS:
     #           'lightgreen', 'limegreen' ,'tab:green', 'darkgreen',
     #           'gold','tab:orange', 'sienna', 'tab:red']
 
-    colors = ['lightcoral','tab:red', 'orangered', 'darkred',
-              'thistle', 'violet' ,'tab:purple', 'indigo']
+    # colors = ['lightcoral','tab:red', 'orangered', 'darkred',
+    #           'thistle', 'violet' ,'tab:purple', 'indigo']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
     # colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']
