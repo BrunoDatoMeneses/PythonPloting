@@ -94,7 +94,7 @@ if __name__ == "__main__":
     setSelfModelRequest = ["true"]
     setConflictDetection = ["true"]
     setConcurrenceDetection = ["true"]
-    setVoidDetection = ["true"]
+    setVoidDetection = ["false"]
     setFusionResolution = ["true"]
     setRestructureResolution = ["true"]
     setFrontierRequest = ["true"]
