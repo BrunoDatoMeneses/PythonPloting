@@ -55,8 +55,7 @@ logXScale = False
 logYScale = False
 
 
-# for label in labelStrings:
-#     yStringLong += label  + "_"
+
 
 
 
@@ -67,7 +66,7 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
     else:
         XYDevMinMax.append([y, yDev, min, max, 1])
 
-
+PARAMETERS.figSize = (10, 3.75)
 
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

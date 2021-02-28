@@ -10,39 +10,40 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
+#xlabel = 'Learning Cycles (#)'
+ylabel = 'Prediction Error (%)'
+yStringLong ="predictionError"
 
-ylabel = 'Situations (#)'
-yStringLong ="SituationsPassAct"
 
 
-
-figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["75","150","250","500"]
+figVaryingParamString = "validityRangesPrecision"
+varyingParamStringValues = ["0.02","0.04","0.06"]
 varyingParamStrings = []
-paramlabelString = r'$\mathcal{L}^N = $'
-PARAMETERS.learningCycles= "("
+paramlabelString = r'$p^\mathcal{R} = $'
+PARAMETERS.validityRangesPrecision= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.learningCycles += value + "_"
+    PARAMETERS.validityRangesPrecision += value + "_"
     varyingParamStrings.append(paramlabelString + value)
 
-PARAMETERS.learningCycles += ")"
+PARAMETERS.validityRangesPrecision += ")"
 
-PARAMETERS.figSize = (4.5, 3.75)
-yStrings = ["rdmLearning","rdmExploitation","activeLearning","activeExploitation"]
+PARAMETERS.figSize = (2.5, 3.75)
+yStrings = ["predictionError"]
+# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"_Deviation")
+    yStringsDev.append(string+"Deviation_Average")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Passive Exploitation","Active Learning","Active Exploitation"]
-
+xLabelStrings = [""]
+# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
@@ -55,16 +56,12 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearning"):
-        XYDevMinMax.append([y, yDev, min, max,1])
-    else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
+for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
+    XYDevMinMax.append([y, yDev, min, max])
 
 
-
-
-
+# PARAMETERS.validityRangesPrecision = "0.02"
+PARAMETERS.learningCycles = "200"
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
@@ -98,18 +95,16 @@ for lbl in varyingParamStrings:
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("NLD Model "+lbl)
 
-
-PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
-PLOTTING.ROTATION = 22.5
+PLOTTING.LEGEND_IN=False
+PLOTTING.LEGEND_OUT=True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, False,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  figName, ylabel, False, logYScale,
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,

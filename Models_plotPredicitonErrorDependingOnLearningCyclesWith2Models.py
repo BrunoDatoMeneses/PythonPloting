@@ -10,31 +10,31 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 xlabel = 'Learning Cycles (#)'
-ylabel = 'Generalization Score (%)'
+ylabel = 'Prediction Error (%)'
 
 
 
-yStrings = ["generalizationScore"]
+yStrings = ["predictionError"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"_Deviation")
+    yStringsDev.append(string+"Deviation_Average")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
 labelStrings = ["NLC Models","NLD Model"]
 
 xString = "learningCycles"
-PARAMETERS.learningCycles = (0, 500)
+PARAMETERS.learningCycles = (0, 2000)
 
 
 logXScale = False
 logYScale = False
 
-yStringLong = yStrings[0] + "_"
+yStringLong =yStrings[0] + "_"
 for label in labelStrings:
     yStringLong += label  + "_"
 
@@ -66,7 +66,6 @@ constrains.reverse()
 PARAMETERS.colors.reverse()
 PARAMETERS.intervalColors.reverse()
 PARAMETERS.markers.reverse()
-
 
 _PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                        figName, xlabel, ylabel, False, logYScale,

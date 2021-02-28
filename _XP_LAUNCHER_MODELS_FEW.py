@@ -176,13 +176,15 @@ if __name__ == "__main__":
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
     # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
 
-    listOfPrecisionRanges = ["0.02", "0.04", "0.06"]
+    listOfPrecisionRanges = ["0.02"]
 
-    listOfNeighboords = ["2", "4", "6","8" ]
-    listOfInfluences = ["1.0", "2.0", "4.0" ,"6.0"]
+    # listOfNeighboords = ["2", "4", "6","8" ]
+    listOfNeighboords = ["10", "12", "14", "16"]
+    # listOfInfluences = ["1.0", "2.0", "4.0" ,"6.0"]
+    listOfInfluences = ["8.0", "10.0", "12.0", "14.0"]
     listOfEndogenousLearningW = ["0.1", "0.25","0.5"]
 
-    listOfLearningCycles = ["350"]
+    listOfLearningCycles = ["25","50","75","100","150","200","250","350","500"]
 
     listOfModels = ["gaussianCos2","cosSinX"]
     listOfRegressionPerf = ["1.0","0.05"]
@@ -227,19 +229,19 @@ if __name__ == "__main__":
 
                     launch()
 
-        neighborhoodMultiplicators = ["2"]
-        externalInfluenceRatios = ["0.5"]
-        endogenousLearningWeight = ["0.1"]
-
-        for prRg in listOfPrecisionRanges:
-            precisionRanges=[prRg]
-
-            for endoW in listOfEndogenousLearningW:
-                endogenousLearningWeight = [endoW]
-
-                for lrnCl in listOfLearningCycles:
-                    learningCycles = [lrnCl]
-
-                    launch()
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        #
+        # for prRg in listOfPrecisionRanges:
+        #     precisionRanges=[prRg]
+        #
+        #     for endoW in listOfEndogenousLearningW:
+        #         endogenousLearningWeight = [endoW]
+        #
+        #         for lrnCl in listOfLearningCycles:
+        #             learningCycles = [lrnCl]
+        #
+        #             launch()
 
 

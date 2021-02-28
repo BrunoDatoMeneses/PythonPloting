@@ -13,7 +13,7 @@ figEndName = "-AllNCS"
 xlabel = 'Learning Cycles (#)'
 ylabel = 'Number of Agents (#)'
 
-
+labelStrings = ["NLC Models","NLD Model"]
 
 yStrings = ["nbAgents"]
 yStringsAvg = []
@@ -26,7 +26,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-labelStrings = ["Active Learning","Self-Learning"]
+
 
 xString = "learningCycles"
 PARAMETERS.learningCycles = (0, 500)

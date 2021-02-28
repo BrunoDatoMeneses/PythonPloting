@@ -10,11 +10,10 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 xlabel = 'Learning Cycles (#)'
-ylabel = 'Generalization Score (%)'
+ylabel = 'Agents Volume (%)'
 
 
-
-yStrings = ["generalizationScore"]
+yStrings = ["mappingScore"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -34,7 +33,7 @@ PARAMETERS.learningCycles = (0, 500)
 logXScale = False
 logYScale = False
 
-yStringLong = yStrings[0] + "_"
+yStringLong =yStrings[0] + "_"
 for label in labelStrings:
     yStringLong += label  + "_"
 
@@ -60,13 +59,6 @@ PARAMETERS.model = "cosSinX" # "cosSinX"
 PARAMETERS.errorMargin = "0.05" # "0.05"
 
 constrains+=PARAMETERS.getConstainsSingle(XYDevMinMax)
-
-labelStrings.reverse()
-constrains.reverse()
-PARAMETERS.colors.reverse()
-PARAMETERS.intervalColors.reverse()
-PARAMETERS.markers.reverse()
-
 
 _PLOT.plotWithDeviationWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                        figName, xlabel, ylabel, False, logYScale,

@@ -10,14 +10,15 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-
-ylabel = 'Situations (#)'
-yStringLong ="SituationsPassAct"
+#xlabel = 'Learning Cycles (#)'
+ylabel = 'Prediction Error (%)'
+yStringLong ="predictionError"
 
 
 
 figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["75","150","250","500"]
+# varyingParamStringValues = ["75","150","250","500"]
+varyingParamStringValues = ["25","50","75","100"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("
@@ -29,20 +30,21 @@ for value in varyingParamStringValues:
 
 PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (4.5, 3.75)
-yStrings = ["rdmLearning","rdmExploitation","activeLearning","activeExploitation"]
+PARAMETERS.figSize = (2.5, 3.75)
+yStrings = ["predictionError"]
+# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"_Deviation")
+    yStringsDev.append(string+"Deviation_Average")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Passive Exploitation","Active Learning","Active Exploitation"]
-
+xLabelStrings = [""]
+# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
@@ -55,12 +57,8 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearning"):
-        XYDevMinMax.append([y, yDev, min, max,1])
-    else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
-
+for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
+    XYDevMinMax.append([y, yDev, min, max])
 
 
 
@@ -94,22 +92,20 @@ for varyingValue in varyingParamStringValues:
 # varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
 varyingParamStringsFinal=[]
 for lbl in varyingParamStrings:
-    varyingParamStringsFinal.append("NLC Model "+lbl)
+    varyingParamStringsFinal.append("NLC "+lbl)
 for lbl in varyingParamStrings:
-    varyingParamStringsFinal.append("NLD Model "+lbl)
+    varyingParamStringsFinal.append("NLD "+lbl)
 
-
-PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
-PLOTTING.ROTATION = 22.5
+PLOTTING.LEGEND_IN=False
+PLOTTING.LEGEND_OUT=True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, False,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  figName, ylabel, False, logYScale,
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,
