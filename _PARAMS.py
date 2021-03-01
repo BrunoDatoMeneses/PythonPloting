@@ -6,15 +6,15 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "gaussianCos2"
+    model = "squareFixed"
     learningCycles = "500"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.02"
+    validityRangesPrecision = "0.1"
 
-    isActiveLearning = "false"
-    isSelfLearning = "true"
+    isActiveLearning = "true"
+    isSelfLearning = "false"
 
     LEARNING_WEIGHT_ACCURACY = "1.0"
     LEARNING_WEIGHT_PROXIMITY = "0.0"
@@ -43,12 +43,12 @@ class PARAMETERS:
 
     isConflictNCS = "true"
     isConcurenceNCS = "true"
-    isIncompetenceNCS = "false"
+    isIncompetenceNCS = "true"
     isSubVoidDetection = "false"
     isAmbiguityNCS = "true"
     isModelNCS = "true"
 
-    isLearnFromNeighbors = "true"
+    isLearnFromNeighbors = "false"
     isDream = "false"
     isFusionResolution = "true"
     isRetructureResolution = "true"
@@ -63,7 +63,7 @@ class PARAMETERS:
     probabilityOfRangeAmbiguity = "0.1"
 
     isActiveExploitation = "false"
-    activeExploitationCycles = "0"
+    activeExploitationCycles = "1000"
 
     noise = "0.0"
 
@@ -76,6 +76,7 @@ class PARAMETERS:
                       "isActiveLearning", "isSelfLearning", "errorMargin", "bootstrapCycle",
                       "isConflictNCS", "isConcurenceNCS", "isIncompetenceNCS", "isSubVoidDetection", "isAmbiguityNCS",
                       "isModelNCS", "isLearnFromNeighbors", "isDream",
+                      "isFusionResolution",    "isRetructureResolution",
                       "dreamLaunch", "nbOfNeighborForLearningFromNeighbors",
                       "nbOfNeighborForContexCreationWithouOracle",
 
@@ -107,6 +108,9 @@ class PARAMETERS:
                       "noise"
                       ]
 
+    colors = [ 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
+              'tab:olive', 'tab:cyan']
+
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
@@ -121,8 +125,16 @@ class PARAMETERS:
     #           'lightgreen', 'limegreen' ,'tab:green', 'darkgreen',
     #           'gold','tab:orange', 'sienna', 'tab:red']
 
-    colors = ['lightcoral','tab:red', 'orangered', 'darkred',
-              'thistle', 'violet' ,'tab:purple', 'indigo']
+    # colors = ['lavender','lightsteelblue', 'tab:blue', 'mediumblue','midnightblue',
+    #           'bisque','gold','tab:orange','peru', 'sienna',
+    #           'darkseagreen','lightgreen', 'limegreen' ,'tab:green', 'darkgreen']
+
+    # colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
+    #             'tab:orange', 'peru', 'sienna',
+    #            'limegreen', 'tab:green', 'darkgreen']
+
+    # colors = ['lightcoral','tab:red', 'orangered', 'darkred',
+    #           'thistle', 'violet' ,'tab:purple', 'indigo']
     # colors = ['tab:red', 'orangered', 'darkred',
     #           'violet', 'tab:purple', 'indigo']
 
@@ -158,6 +170,7 @@ class PARAMETERS:
                 "isSubVoidDetection": cls.isSubVoidDetection, "isAmbiguityNCS": cls.isAmbiguityNCS,
                 "isModelNCS": cls.isModelNCS,
                 "isLearnFromNeighbors": cls.isLearnFromNeighbors, "isDream": cls.isDream,
+                "isFusionResolution": cls.isFusionResolution, "isRetructureResolution": cls.isRetructureResolution,
                 "dreamLaunch": cls.dreamLaunch,
                 "nbOfNeighborForLearningFromNeighbors": cls.nbOfNeighborForLearningFromNeighbors,
                 "nbOfNeighborForContexCreationWithouOracle": cls.nbOfNeighborForContexCreationWithouOracle,
