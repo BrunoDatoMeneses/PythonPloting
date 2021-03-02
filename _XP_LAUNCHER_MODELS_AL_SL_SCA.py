@@ -192,62 +192,42 @@ if __name__ == "__main__":
     listOfisAllContextSearchAllowedForLearning = ["true","false"]
     listOfisAllContextSearchAllowedForExploitation = ["true","false"]
 
-    # SELF LEARNING
-    activeLearning = ["false"]
-    selfLearning = ["true"]
-    setLearnFromNeighbors = ["true"]
-
-    for allCtxtLrn, allCtxtExpl in zip(listOfisAllContextSearchAllowedForLearning,listOfisAllContextSearchAllowedForExploitation):
-        isAllContextSearchAllowedForLearning = [allCtxtLrn]
-        isAllContextSearchAllowedForExploitation = [allCtxtExpl]
-
-        for d, conf in zip(listOfdimensions, listOfconfigFiles):
-            dimensions = [d]
-            configFiles = [conf]
-
-            for mod, perf in zip(listOfModels, listOfRegressionPerf):
-                models = [mod]
-                regressionPerformances = [perf]
-
-                for prRg in listOfPrecisionRanges:
-                    precisionRanges = [prRg]
-
-                    for lrnCl in listOfLearningCycles:
-                        learningCycles = [lrnCl]
-
-                        for boot in listOfBoostrapCycles:
-                            setbootstrapCycles = [boot]
-
-                            launch()
+    # # SELF LEARNING
+    # activeLearning = ["false"]
+    # selfLearning = ["true"]
+    # setLearnFromNeighbors = ["true"]
 
     # ACTIVE LEARNING
     activeLearning = ["true"]
     selfLearning = ["false"]
     setLearnFromNeighbors = ["false"]
 
-    for allCtxtLrn, allCtxtExpl in zip(listOfisAllContextSearchAllowedForLearning,
-                                       listOfisAllContextSearchAllowedForExploitation):
-        isAllContextSearchAllowedForLearning = [allCtxtLrn]
-        isAllContextSearchAllowedForExploitation = [allCtxtExpl]
+    # for allCtxtLrn, allCtxtExpl in zip(listOfisAllContextSearchAllowedForLearning,listOfisAllContextSearchAllowedForExploitation):
+    #     isAllContextSearchAllowedForLearning = [allCtxtLrn]
+    #     isAllContextSearchAllowedForExploitation = [allCtxtExpl]
 
-        for d, conf in zip(listOfdimensions, listOfconfigFiles):
-            dimensions = [d]
-            configFiles = [conf]
+    for d, conf in zip(listOfdimensions, listOfconfigFiles):
+        dimensions = [d]
+        configFiles = [conf]
 
-            for mod, perf in zip(listOfModels, listOfRegressionPerf):
-                models = [mod]
-                regressionPerformances = [perf]
+        for mod, perf in zip(listOfModels, listOfRegressionPerf):
+            models = [mod]
+            regressionPerformances = [perf]
 
-                for prRg in listOfPrecisionRanges:
-                    precisionRanges = [prRg]
+            for prRg in listOfPrecisionRanges:
+                precisionRanges = [prRg]
 
-                    for lrnCl in listOfLearningCycles:
-                        learningCycles = [lrnCl]
+                for lrnCl in listOfLearningCycles:
+                    learningCycles = [lrnCl]
 
-                        for boot in listOfBoostrapCycles:
-                            setbootstrapCycles = [boot]
+                    for boot in listOfBoostrapCycles:
+                        setbootstrapCycles = [boot]
 
-                            launch()
+                        launch()
+
+
+
+
 
 
 
