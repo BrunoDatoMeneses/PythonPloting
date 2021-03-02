@@ -71,6 +71,15 @@ PARAMETERS.isLearnFromNeighbors = "false"
 
 constrains = []
 
+PARAMETERS.isModelNCS = "false"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 PARAMETERS.isModelNCS = "true"
 PARAMETERS.isConflictNCS = "false"
@@ -143,11 +152,11 @@ PARAMETERS.isAmbiguityNCS = "true"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 # varyingParamStrings=["Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity"]
-varyingParamStrings=["Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy", "Range Ambiguity"]
+varyingParamStrings=["No NCS","Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy", "Range Ambiguity"]
 
 PLOTTING.ROTATION = 0
 PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
+PLOTTING.LEGEND_OUT = False
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,

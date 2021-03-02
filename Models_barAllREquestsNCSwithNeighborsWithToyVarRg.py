@@ -16,18 +16,18 @@ yStringLong ="RequestsAllNCSwithNeighbors"
 
 
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
-# varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
-# for value in varyingParamStringValues:
-#     # precisionRange+=  str(int(100*float(label))) + "_"
-#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
-#     varyingParamStrings.append(value + paramlabelString)
-#
-# PARAMETERS.learningCycles += ")"
+figVaryingParamString = "validityRangesPrecision"
+varyingParamStringValues = ["0.05","0.1","0.15","0.2"]
+varyingParamStrings = []
+paramlabelString = r'$p^\mathcal{R} = $'
+PARAMETERS.validityRangesPrecision= "("
+for value in varyingParamStringValues:
+    # precisionRange+=  str(int(100*float(label))) + "_"
+    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+    PARAMETERS.validityRangesPrecision += value + "_"
+    varyingParamStrings.append(paramlabelString + value)
+
+PARAMETERS.validityRangesPrecision += ")"
 
 
 yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests"]
@@ -78,75 +78,7 @@ PARAMETERS.isLearnFromNeighbors = "false"
 
 constrains = []
 
-PARAMETERS.isModelNCS = "false"
-PARAMETERS.isConflictNCS = "false"
-PARAMETERS.isConcurenceNCS = "false"
-PARAMETERS.isIncompetenceNCS = "false"
-PARAMETERS.isFusionResolution = "false"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "false"
-PARAMETERS.isConcurenceNCS = "false"
-PARAMETERS.isIncompetenceNCS = "false"
-PARAMETERS.isFusionResolution = "false"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "true"
-PARAMETERS.isConcurenceNCS = "false"
-PARAMETERS.isIncompetenceNCS = "false"
-PARAMETERS.isFusionResolution = "false"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "true"
-PARAMETERS.isConcurenceNCS = "true"
-PARAMETERS.isIncompetenceNCS = "false"
-PARAMETERS.isFusionResolution = "false"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "true"
-PARAMETERS.isConcurenceNCS = "true"
-PARAMETERS.isIncompetenceNCS = "true"
-PARAMETERS.isFusionResolution = "false"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "true"
-PARAMETERS.isConcurenceNCS = "true"
-PARAMETERS.isIncompetenceNCS = "true"
-PARAMETERS.isFusionResolution = "true"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "true"
-PARAMETERS.isConcurenceNCS = "true"
-PARAMETERS.isIncompetenceNCS = "true"
-PARAMETERS.isFusionResolution = "true"
-PARAMETERS.isRetructureResolution = "true"
-PARAMETERS.isAmbiguityNCS = "false"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 PARAMETERS.isModelNCS = "true"
 PARAMETERS.isConflictNCS = "true"
@@ -156,10 +88,10 @@ PARAMETERS.isFusionResolution = "true"
 PARAMETERS.isRetructureResolution = "true"
 PARAMETERS.isAmbiguityNCS = "true"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
-# varyingParamStrings=["Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity"]
-varyingParamStrings=["No NCS","Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy", "Range Ambiguity"]
+
 
 PLOTTING.ROTATION = 0
 

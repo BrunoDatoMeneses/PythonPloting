@@ -108,10 +108,10 @@ class PARAMETERS:
                       "noise"
                       ]
 
-    colors = [ 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
-              'tab:olive', 'tab:cyan']
+    # colors = ['tab:gray', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
+    #           'tab:olive', 'tab:cyan']
 
-    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']

@@ -70,6 +70,15 @@ PARAMETERS.isLearnFromNeighbors = "false"
 
 constrains = []
 
+PARAMETERS.isModelNCS = "false"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 PARAMETERS.isModelNCS = "true"
 PARAMETERS.isConflictNCS = "false"
@@ -142,7 +151,7 @@ PARAMETERS.isAmbiguityNCS = "true"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 # varyingParamStrings=["Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity"]
-varyingParamStrings=["Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy", "All NCS"]
+varyingParamStrings=["No NCS","Model Ambiguity", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy", "Range Ambiguity"]
 
 PLOTTING.ROTATION = 22.5
 

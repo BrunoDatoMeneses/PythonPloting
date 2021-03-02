@@ -173,7 +173,11 @@ if __name__ == "__main__":
     selfLearning = ["false"]
     setLearnFromNeighbors = ["false"]
 
-    launch()
+    listOfValaidityRanges = ["0.02","0.05","0.1","0.15","0.2"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
 
 
 
