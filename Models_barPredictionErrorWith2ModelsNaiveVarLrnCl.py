@@ -18,7 +18,8 @@ yStringLong ="predictionError"
 
 figVaryingParamString = "learningCycles"
 # varyingParamStringValues = ["75","150","250","500"]
-varyingParamStringValues = ["25","50","75","100"]
+# varyingParamStringValues = ["50","75","150"]
+varyingParamStringValues = ["50"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("
@@ -68,20 +69,73 @@ print(figName)
 
 constrains = []
 
+
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
-PARAMETERS.isLearnFromNeighbors = "true"
+
 PARAMETERS.model = "gaussianCos2"
 PARAMETERS.errorMargin = "1.0"
+
+PARAMETERS.isLearnFromNeighbors = "false"
+PARAMETERS.isCreationFromNeighbor = "false"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
 
 for varyingValue in varyingParamStringValues:
     constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
-PARAMETERS.isActiveLearning = "false"
-PARAMETERS.isSelfLearning = "true"
+
 PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
+
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+
 PARAMETERS.model = "cosSinX" # "cosSinX"
 PARAMETERS.errorMargin = "0.05" # "0.05"
+
+PARAMETERS.isLearnFromNeighbors = "false"
+PARAMETERS.isCreationFromNeighbor = "false"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+
+
+PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
 
 
 
@@ -90,11 +144,15 @@ for varyingValue in varyingParamStringValues:
 
 
 # varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
-varyingParamStringsFinal=[]
-for lbl in varyingParamStrings:
-    varyingParamStringsFinal.append("NLC "+lbl)
-for lbl in varyingParamStrings:
-    varyingParamStringsFinal.append("NLD "+lbl)
+varyingParamStringsFinal=["NLC Naive","NLC SL","NLD Naive","NLD SL"]
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLC naive "+lbl)
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLC SL "+lbl)
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLD naive "+lbl)
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLD SL "+lbl)
 
 PLOTTING.LEGEND_IN=False
 PLOTTING.LEGEND_OUT=False

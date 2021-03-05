@@ -86,7 +86,7 @@ if __name__ == "__main__":
     # Learning
     activeLearning = ["false"]
     selfLearning = ["true"]
-    setLearnFromNeighbors = ["true"]
+    setLearnFromNeighbors = ["false"]
 
 
     # NCS
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
     # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
 
-    listOfPrecisionRanges = ["0.02"]
+    listOfPrecisionRanges = ["0.04"]
 
     # listOfNeighboords = ["2", "4", "6","8" ]
     listOfNeighboords = ["10", "12", "14", "16"]
@@ -188,7 +188,8 @@ if __name__ == "__main__":
 
     # listOfLearningCycles = ["25","50","75","100","150","200","250","350","500"]
     # listOfLearningCycles = ["200"]
-    listOfLearningCycles = ["75", "150",  "250", "500"]
+    # listOfLearningCycles = ["75", "150",  "250", "500"]
+    listOfLearningCycles = ["25", "50"]
 
     listOfModels = ["gaussianCos2","cosSinX"]
     listOfRegressionPerf = ["1.0","0.05"]
@@ -196,7 +197,7 @@ if __name__ == "__main__":
     # SELF LEARNING
     activeLearning = ["false"]
     selfLearning = ["true"]
-    setLearnFromNeighbors = ["true"]
+    setLearnFromNeighbors = ["false"]
 
     for mod,perf in zip(listOfModels,listOfRegressionPerf):
         models = [mod]

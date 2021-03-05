@@ -467,6 +467,7 @@ def getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef):
                     if(test):
                         file = filename
 
+
     with open("TFILES/" + file) as csvfile:
         csv_reader = csv.DictReader(csvfile, delimiter=';')
         for row in csv_reader:

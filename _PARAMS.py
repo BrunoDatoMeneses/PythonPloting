@@ -11,7 +11,7 @@ class PARAMETERS:
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.02"
+    validityRangesPrecision = "0.04"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -118,6 +118,8 @@ class PARAMETERS:
     # colors = ['tab:blue', 'tab:orange', 'tab:green']
     # colors = ['tab:red', 'tab:purple']
 
+    colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
+
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
 
@@ -137,10 +139,23 @@ class PARAMETERS:
     #             'tab:orange', 'peru', 'sienna',
     #            'limegreen', 'tab:green', 'darkgreen']
 
-    colors = ['lightcoral','tab:red', 'orangered', 'darkred',
-              'thistle', 'violet' ,'tab:purple', 'indigo']
+    # colors = [ 'sandybrown', 'tab:brown', 'saddlebrown',
+    #            'tab:red', 'orangered', 'darkred',
+    #            'darkgray', 'tab:gray', 'black',
+    #            'violet', 'tab:purple', 'indigo']
+
+    # colors = ['peachpuff','sandybrown', 'tab:brown', 'saddlebrown',
+    #         'lightcoral','tab:red', 'orangered', 'darkred',
+    #           'lightgray', 'darkgray', 'tab:gray', 'black',
+    #           'thistle', 'violet' ,'tab:purple', 'indigo']
+
     # colors = ['tab:red', 'orangered', 'darkred',
     #           'violet', 'tab:purple', 'indigo']
+
+    # colors = ['sandybrown', 'tab:brown',
+    #           'lightcoral', 'tab:red',
+    #            'tab:gray', 'black',
+    #           'thistle',  'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'lightgreen', 'tab:green', 'darkgreen', 'gold', 'tab:orange', 'tab:red']
     # colors = ['lightsteelblue', 'tab:blue', 'lightgreen', 'tab:green', 'gold', 'tab:orange']

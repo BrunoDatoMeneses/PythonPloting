@@ -11,14 +11,14 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Prediction Error (%)'
-yStringLong ="predictionError"
+ylabel = 'Situations (#)'
+yStringLong ="Situations"
 
 
 
 figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["75","150","250","500"]
-varyingParamStringValues = ["25","50","75","100"]
+# varyingParamStringValues = ["50","75","150"]
+varyingParamStringValues = ["50"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("
@@ -30,21 +30,20 @@ for value in varyingParamStringValues:
 
 PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (1.5, 3.75)
-yStrings = ["predictionError"]
-# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
+PARAMETERS.figSize = (10, 3.75)
+yStrings = ["rdmLearning","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"Deviation_Average")
+    yStringsDev.append(string+"_Deviation")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = [""]
-# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
+xLabelStrings = ["Passive Learning","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
+
 
 
 
@@ -57,9 +56,11 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
-    XYDevMinMax.append([y, yDev, min, max])
-
+for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
+    if(yString == "endogenousLearning"):
+        XYDevMinMax.append([y, yDev, min, max,0.1])
+    else:
+        XYDevMinMax.append([y, yDev, min, max, 1])
 
 
 
@@ -68,20 +69,73 @@ print(figName)
 
 constrains = []
 
+
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
-PARAMETERS.isLearnFromNeighbors = "true"
+
 PARAMETERS.model = "gaussianCos2"
 PARAMETERS.errorMargin = "1.0"
+
+PARAMETERS.isLearnFromNeighbors = "false"
+PARAMETERS.isCreationFromNeighbor = "false"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
 
 for varyingValue in varyingParamStringValues:
     constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
 
-PARAMETERS.isActiveLearning = "false"
-PARAMETERS.isSelfLearning = "true"
+
 PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
+
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+
 PARAMETERS.model = "cosSinX" # "cosSinX"
 PARAMETERS.errorMargin = "0.05" # "0.05"
+
+PARAMETERS.isLearnFromNeighbors = "false"
+PARAMETERS.isCreationFromNeighbor = "false"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
+for varyingValue in varyingParamStringValues:
+    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+
+
+
+PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
 
 
 
@@ -90,22 +144,26 @@ for varyingValue in varyingParamStringValues:
 
 
 # varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
-varyingParamStringsFinal=[]
-for lbl in varyingParamStrings:
-    varyingParamStringsFinal.append("NLC "+lbl)
-for lbl in varyingParamStrings:
-    varyingParamStringsFinal.append("NLD "+lbl)
+varyingParamStringsFinal=["NLC Naive","NLC SL","NLD Naive","NLD SL"]
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLC naive "+lbl)
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLC SL "+lbl)
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLD naive "+lbl)
+# for lbl in varyingParamStrings:
+#     varyingParamStringsFinal.append("NLD SL "+lbl)
 
-PLOTTING.LEGEND_IN=False
-PLOTTING.LEGEND_OUT=False
+
+PLOTTING.ROTATION = 0
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, logYScale,
-                                  constrains, 1, 100, PARAMETERS.figSize)
+                                  figName, ylabel, False, False,
+                                  constrains, 1, 1, PARAMETERS.figSize)
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
-                                  constrains, 1, 100, PARAMETERS.figSize)
+                                  constrains, 1, 1, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,
