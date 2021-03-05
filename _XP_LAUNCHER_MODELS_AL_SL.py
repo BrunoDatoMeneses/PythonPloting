@@ -73,12 +73,12 @@ if __name__ == "__main__":
     #     learningCycles.append(""+ str(i*500))
     # print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    learningCycles = ["4000"]
-    exploitationCycles = ["500"]
+    learningCycles = ["2000"]
+    exploitationCycles = ["250"]
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.03"]
+    precisionRanges = ["0.04"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1.0"]
@@ -136,7 +136,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["multi"]
+    models = ["gaussianCos2"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
@@ -164,16 +164,84 @@ if __name__ == "__main__":
 
     transferRatio = ["0.0"]
 
-    endoExploitationCycles = ["1000"]
+    endoExploitationCycles = ["0"]
     isActiveExploitation = ["false"]
     noiseRange = ["0.0"]
 
+    learningCycles = ["4000"]
+    exploitationCycles = ["500"]
+    precisionRanges = ["0.03"]
+    regressionPerformances = ["1.0"]
+    models = ["multi"]
+
+    # Active Learning
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["false"]
     launch()
 
-    #Other Params
-    # Learning
+    # Self Learning
     activeLearning = ["false"]
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
-
     launch()
+
+    # listOfSimilarityThresholds = ["0.01","0.1"]
+    #
+    # for th in listOfSimilarityThresholds:
+    #     modelSimilarityThreshold = [th]
+    #
+    #     # Active Learning
+    #     activeLearning = ["true"]
+    #     selfLearning = ["false"]
+    #     setLearnFromNeighbors = ["false"]
+    #     launch()
+    #
+    #     # Self Learning
+    #     activeLearning = ["false"]
+    #     selfLearning = ["true"]
+    #     setLearnFromNeighbors = ["true"]
+    #     launch()
+
+
+    # listOfModelErrorMargin = ["0.5","1.0","1.5"]
+    # listOfProbabilityOfRangeAmbiguity = ["0.01", "0.05", "0.1"]
+    #
+    # regressionPerformances = ["1.0"]
+    # probabilityOfRangeAmbiguity = ["0.1"]
+    #
+    # for err in listOfModelErrorMargin:
+    #     regressionPerformances = [err]
+    #
+    #     # Active Learning
+    #     activeLearning = ["true"]
+    #     selfLearning = ["false"]
+    #     setLearnFromNeighbors = ["false"]
+    #     launch()
+    #
+    #
+    #     # Self Learning
+    #     activeLearning = ["false"]
+    #     selfLearning = ["true"]
+    #     setLearnFromNeighbors = ["true"]
+    #
+    #     launch()
+    #
+    # regressionPerformances = ["1.0"]
+    # probabilityOfRangeAmbiguity = ["0.1"]
+    #
+    # for pb in listOfProbabilityOfRangeAmbiguity:
+    #     probabilityOfRangeAmbiguity = [pb]
+    #
+    #     # Active Learning
+    #     activeLearning = ["true"]
+    #     selfLearning = ["false"]
+    #     setLearnFromNeighbors = ["false"]
+    #     launch()
+    #
+    #     # Self Learning
+    #     activeLearning = ["false"]
+    #     selfLearning = ["true"]
+    #     setLearnFromNeighbors = ["true"]
+    #
+    #     launch()

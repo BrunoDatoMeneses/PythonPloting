@@ -18,7 +18,7 @@ yStringLong ="Volumes"
 figVaryingParamString = "probabilityOfRangeAmbiguity"
 varyingParamStringValues = ["0.01","0.05","0.1"]
 varyingParamStrings = []
-paramlabelString = "PBdisc "
+paramlabelString = r'$pb^{disc} = $'
 PARAMETERS.probabilityOfRangeAmbiguity= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
@@ -57,7 +57,7 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
-figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+figName = PARAMETERS.figPrefix + "_pbDics"+ PARAMETERS.probabilityOfRangeAmbiguity+  yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
 constrains = []

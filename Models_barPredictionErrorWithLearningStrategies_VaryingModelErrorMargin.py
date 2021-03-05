@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -77,6 +78,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("AL "+lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
+
+PLOTTING.LEGEND_IN=False
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

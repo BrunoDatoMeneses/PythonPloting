@@ -10,7 +10,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-#xlabel = 'Learning Cycles (#)'
+
 ylabel = 'Volumes (%)'
 yStringLong ="Volumes"
 
@@ -29,7 +29,7 @@ yStringLong ="Volumes"
 #
 # PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (3.5, 3.75)
+PARAMETERS.figSize = (4.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -86,7 +86,7 @@ for val in varyingParamValues[1:]:
     PARAMETERS.activeExploitationCycles = val
     constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
-PLOTTING.ROTATION = 22.5
+PLOTTING.ROTATION = 0
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

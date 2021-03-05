@@ -99,7 +99,8 @@ for lbl in varyingParamStrings:
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
 
-PLOTTING.LEGEND_IN=False
+PLOTTING.LEGEND_IN = False
+PLOTTING.LEGEND_OUT = True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

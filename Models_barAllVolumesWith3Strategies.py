@@ -14,7 +14,7 @@ figEndName = "-AllNCS"
 ylabel = 'Volumes (%)'
 yStringLong ="Volumes"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
+
 
 # figVaryingParamString = "learningCycles"
 # varyingParamStringValues = ["500","1000","1500","2000"]
@@ -29,7 +29,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #
 # PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (3.5, 3.75)
+PARAMETERS.figSize = (4.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -86,7 +86,7 @@ PARAMETERS.isLearnFromNeighbors = "true"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 
-PLOTTING.ROTATION = 22.5
+PLOTTING.ROTATION = 0
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

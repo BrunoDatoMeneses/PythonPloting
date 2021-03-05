@@ -18,7 +18,7 @@ yStringLong ="Volumes"
 figVaryingParamString = "errorMargin"
 varyingParamStringValues = ["0.5","1.0","1.5"]
 varyingParamStrings = []
-paramlabelString = "Merr "
+paramlabelString = r'$m_{err}^{f} = $'
 PARAMETERS.errorMargin= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"

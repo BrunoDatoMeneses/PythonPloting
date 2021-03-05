@@ -68,6 +68,7 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
     else:
         XYDevMinMax.append([y, yDev, min, max])
 
+PARAMETERS.figSize = (12, 3.75)
 PARAMETERS.learningCycles = "2000"
 figName = "lifelongSL_Var_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -94,7 +95,7 @@ for val in varyingParamValues[1:]:
     PARAMETERS.activeExploitationCycles = val
     constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
-PLOTTING.ROTATION = 45
+PLOTTING.ROTATION = 22.5
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,

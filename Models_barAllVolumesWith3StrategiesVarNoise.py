@@ -29,7 +29,7 @@ for value in varyingParamStringValues:
 
 PARAMETERS.noise += ")"
 
-PARAMETERS.figSize = (3.5, 3.75)
+
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -60,7 +60,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 
-
+PARAMETERS.figSize = (4.5, 3.75)
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
@@ -98,9 +98,9 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
 
 
-PLOTTING.ROTATION = 22.5
+PLOTTING.ROTATION = 0
 PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
+PLOTTING.LEGEND_OUT = False
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

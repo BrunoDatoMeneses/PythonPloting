@@ -10,7 +10,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-#xlabel = 'Learning Cycles (#)'
+
 ylabel = 'Generalization Score (%)'
 yStringLong ="GeneralizationScore"
 

@@ -17,7 +17,7 @@ yStringLong ="predictionError"
 
 
 figVaryingParamString = "endogenousLearningWeight"
-varyingParamStringValues = ["0.1", "0.25","0.5"]
+varyingParamStringValues = ["0.05","0.1", "0.25","0.5"]
 varyingParamStrings = []
 paramlabelString = r'$\omega_{lrn}^{endo} = $'
 PARAMETERS.endogenousLearningWeight= "("
@@ -61,7 +61,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
 
 
 PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "500"
+PARAMETERS.learningCycles = "200"
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 

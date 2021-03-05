@@ -4,7 +4,7 @@ from Utils import transpose
 import os
 import csv
 
-# transpose.transposeFiles()
+
 from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
@@ -29,7 +29,7 @@ for value in varyingParamStringValues:
 
 PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (3.5, 3.75)
+PARAMETERS.figSize = (4.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -96,9 +96,8 @@ for lbl in varyingParamStrings:
 
 
 
-PLOTTING.ROTATION = 22.5
-PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
+PLOTTING.ROTATION = 0
+PLOTTING.LEGEND_IN = True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

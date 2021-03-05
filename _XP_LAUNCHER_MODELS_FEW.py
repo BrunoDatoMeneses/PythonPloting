@@ -92,12 +92,12 @@ if __name__ == "__main__":
     # NCS
 
     setSelfModelRequest = ["true"]
-    setConflictDetection = ["true"]
-    setConcurrenceDetection = ["true"]
+    setConflictDetection = ["false"]
+    setConcurrenceDetection = ["false"]
     setVoidDetection = ["false"]
-    setFusionResolution = ["true"]
-    setRestructureResolution = ["true"]
-    setFrontierRequest = ["true"]
+    setFusionResolution = ["false"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
 
 
 
@@ -119,7 +119,7 @@ if __name__ == "__main__":
 
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]
-    setCreationFromNeighbor = ["true"]
+    setCreationFromNeighbor = ["false"]
 
     # Other
 # squareFixed, triangle, disc, squareDiag, squareDiagCircle
@@ -182,9 +182,13 @@ if __name__ == "__main__":
     listOfNeighboords = ["10", "12", "14", "16"]
     # listOfInfluences = ["1.0", "2.0", "4.0" ,"6.0"]
     listOfInfluences = ["8.0", "10.0", "12.0", "14.0"]
-    listOfEndogenousLearningW = ["0.1", "0.25","0.5"]
+    # listOfEndogenousLearningW = ["0.1", "0.25","0.5"]
+    # listOfEndogenousLearningW = ["0.05","0.1", "0.25","0.5"]
+    listOfEndogenousLearningW = ["0.1"]
 
-    listOfLearningCycles = ["25","50","75","100","150","200","250","350","500"]
+    # listOfLearningCycles = ["25","50","75","100","150","200","250","350","500"]
+    # listOfLearningCycles = ["200"]
+    listOfLearningCycles = ["75", "150",  "250", "500"]
 
     listOfModels = ["gaussianCos2","cosSinX"]
     listOfRegressionPerf = ["1.0","0.05"]
@@ -199,36 +203,6 @@ if __name__ == "__main__":
         regressionPerformances = [perf]
 
 
-        neighborhoodMultiplicators = ["2"]
-        externalInfluenceRatios = ["0.5"]
-        endogenousLearningWeight = ["0.1"]
-
-        for prRg in listOfPrecisionRanges:
-            precisionRanges=[prRg]
-
-            for nei in listOfNeighboords:
-                neighborhoodMultiplicators = [nei]
-
-                for lrnCl in listOfLearningCycles:
-                    learningCycles = [lrnCl]
-
-                    launch()
-
-        neighborhoodMultiplicators = ["2"]
-        externalInfluenceRatios = ["0.5"]
-        endogenousLearningWeight = ["0.1"]
-
-        for prRg in listOfPrecisionRanges:
-            precisionRanges=[prRg]
-
-            for infl in listOfInfluences:
-                externalInfluenceRatios = [infl]
-
-                for lrnCl in listOfLearningCycles:
-                    learningCycles = [lrnCl]
-
-                    launch()
-
         # neighborhoodMultiplicators = ["2"]
         # externalInfluenceRatios = ["0.5"]
         # endogenousLearningWeight = ["0.1"]
@@ -236,12 +210,42 @@ if __name__ == "__main__":
         # for prRg in listOfPrecisionRanges:
         #     precisionRanges=[prRg]
         #
-        #     for endoW in listOfEndogenousLearningW:
-        #         endogenousLearningWeight = [endoW]
+        #     for nei in listOfNeighboords:
+        #         neighborhoodMultiplicators = [nei]
         #
         #         for lrnCl in listOfLearningCycles:
         #             learningCycles = [lrnCl]
         #
         #             launch()
+        #
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        #
+        # for prRg in listOfPrecisionRanges:
+        #     precisionRanges=[prRg]
+        #
+        #     for infl in listOfInfluences:
+        #         externalInfluenceRatios = [infl]
+        #
+        #         for lrnCl in listOfLearningCycles:
+        #             learningCycles = [lrnCl]
+        #
+        #             launch()
+
+        neighborhoodMultiplicators = ["2"]
+        externalInfluenceRatios = ["0.5"]
+        endogenousLearningWeight = ["0.1"]
+
+        for prRg in listOfPrecisionRanges:
+            precisionRanges=[prRg]
+
+            for endoW in listOfEndogenousLearningW:
+                endogenousLearningWeight = [endoW]
+
+                for lrnCl in listOfLearningCycles:
+                    learningCycles = [lrnCl]
+
+                    launch()
 
 

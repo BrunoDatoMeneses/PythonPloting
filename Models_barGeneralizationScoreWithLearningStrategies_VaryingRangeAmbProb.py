@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -18,7 +19,7 @@ yStringLong ="GeneralizationScore"
 figVaryingParamString = "probabilityOfRangeAmbiguity"
 varyingParamStringValues = ["0.01","0.05","0.1"]
 varyingParamStrings = []
-paramlabelString = "PBdisc "
+paramlabelString = r'$pb^{disc} = $'
 PARAMETERS.probabilityOfRangeAmbiguity= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
@@ -57,7 +58,7 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
-figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+figName = PARAMETERS.figPrefix + "_pbDics"+ PARAMETERS.probabilityOfRangeAmbiguity+  yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
 constrains = []
@@ -77,6 +78,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("AL "+lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
+
+PLOTTING.LEGEND_IN = False
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

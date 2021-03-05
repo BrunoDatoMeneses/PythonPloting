@@ -29,7 +29,7 @@ for value in varyingParamStringValues:
 
 PARAMETERS.validityRangesPrecision += ")"
 
-PARAMETERS.figSize = (3.5, 3.75)
+PARAMETERS.figSize = (4.5, 3.75)
 yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -99,8 +99,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
 
 PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
-PLOTTING.ROTATION = 22.5
+PLOTTING.LEGEND_OUT = False
+PLOTTING.ROTATION = 0
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,

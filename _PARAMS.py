@@ -6,12 +6,12 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "squareFixed"
-    learningCycles = "500"
+    model = "cosSinX"
+    learningCycles = "2000"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.1"
+    validityRangesPrecision = "0.02"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "1.0"
+    errorMargin = "0.05"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"
@@ -43,7 +43,7 @@ class PARAMETERS:
 
     isConflictNCS = "true"
     isConcurenceNCS = "true"
-    isIncompetenceNCS = "true"
+    isIncompetenceNCS = "false"
     isSubVoidDetection = "false"
     isAmbiguityNCS = "true"
     isModelNCS = "true"
@@ -63,9 +63,9 @@ class PARAMETERS:
     probabilityOfRangeAmbiguity = "0.1"
 
     isActiveExploitation = "false"
-    activeExploitationCycles = "1000"
+    activeExploitationCycles = "0"
 
-    noise = "0.0"
+    noise = "1.0"
 
     figPrefix = model + "_"
 
@@ -111,7 +111,7 @@ class PARAMETERS:
     # colors = ['tab:gray', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
     #           'tab:olive', 'tab:cyan']
 
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
@@ -125,6 +125,10 @@ class PARAMETERS:
     #           'lightgreen', 'limegreen' ,'tab:green', 'darkgreen',
     #           'gold','tab:orange', 'sienna', 'tab:red']
 
+    # colors = ['lightsteelblue', 'tab:blue', 'midnightblue',
+    #           'lightgreen' ,'tab:green', 'darkgreen',
+    #           'gold','tab:orange', 'tab:red']
+
     # colors = ['lavender','lightsteelblue', 'tab:blue', 'mediumblue','midnightblue',
     #           'bisque','gold','tab:orange','peru', 'sienna',
     #           'darkseagreen','lightgreen', 'limegreen' ,'tab:green', 'darkgreen']
@@ -133,8 +137,8 @@ class PARAMETERS:
     #             'tab:orange', 'peru', 'sienna',
     #            'limegreen', 'tab:green', 'darkgreen']
 
-    # colors = ['lightcoral','tab:red', 'orangered', 'darkred',
-    #           'thistle', 'violet' ,'tab:purple', 'indigo']
+    colors = ['lightcoral','tab:red', 'orangered', 'darkred',
+              'thistle', 'violet' ,'tab:purple', 'indigo']
     # colors = ['tab:red', 'orangered', 'darkred',
     #           'violet', 'tab:purple', 'indigo']
 
@@ -201,7 +205,7 @@ class PARAMETERS:
                 "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
                 "isActiveExploitation": cls.isActiveExploitation,
                 "activeExploitationCycles" : cls.activeExploitationCycles,
-                "noise": cls.noise,
+                # "noise": cls.noise,
                 }
 
     @classmethod

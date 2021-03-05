@@ -10,7 +10,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-#xlabel = 'Learning Cycles (#)'
+
 ylabel = 'Number of Agents (#)'
 yStringLong ="NBAgent"
 
@@ -31,7 +31,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 # PARAMETERS.learningCycles += ")"
 
 
-PARAMETERS.figSize = (2.5, 3.75)
+PARAMETERS.figSize = (1.5, 3.75)
 yStrings = ["nbAgents"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []

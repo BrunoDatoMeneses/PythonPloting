@@ -461,6 +461,7 @@ def getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef):
 
                     test = True
                     for constrainString, constrainValue in dicoConstrains[1].items():
+
                         test = test and (row[constrainString]==constrainValue)
 
                     if(test):

@@ -12,28 +12,25 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Situations (#)'
-yStringLong ="RequestsAllNCSwithNeighbors"
+yStringLong ="Situations"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
 
-# figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["500","1000","1500","2000"]
+
+# figVaryingParamString = "activeExploitationCycles"
+# varyingParamStringValues = ["0","1000","10000","20000","100000"]
 # varyingParamStrings = []
-# paramlabelString = " Learning Cycles"
-# PARAMETERS.learningCycles= "("
+# paramlabelString = r'$\mathcal{E}^N_{lifelong} = $'
+# PARAMETERS.activeExploitationCycles= "("
 # for value in varyingParamStringValues:
 #     # precisionRange+=  str(int(100*float(label))) + "_"
 #     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-#     PARAMETERS.learningCycles += value + "_"
+#     PARAMETERS.activeExploitationCycles += value + "_"
 #     varyingParamStrings.append(value + paramlabelString)
 #
-# PARAMETERS.learningCycles += ")"
+# PARAMETERS.activeExploitationCycles += ")"
 
 
-yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests","neighborsRequest"]
-# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests"]
+yStrings = ["rdmLearning","rdmExploitation","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -44,10 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Amb.", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redund.", "Partial Redund.","Range Amb.","Coop. Neighbors /10"]
-# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
-# xLabelStrings = ["Passive","Active","Self-Generated"]
-# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
+xLabelStrings = ["Passive Learning","Passive Exploitation","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
 
 
 
@@ -60,40 +54,41 @@ logYScale = False
 # for label in labelStrings:
 #     yStringLong += label  + "_"
 
-
-
 XYDevMinMax = []
 for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "neighborsRequest"):
+    if(yString == "endogenousLearning"):
         XYDevMinMax.append([y, yDev, min, max,0.1])
     else:
         XYDevMinMax.append([y, yDev, min, max, 1])
 
-varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
 
-PARAMETERS.figSize = (12, 3.75)
-figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+
+PARAMETERS.figSize = (10, 3.75)
+PARAMETERS.learningCycles = "2000"
+figName = "lifelongSL_Var_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
+varyingParamValues = ["0","1000","10000","20000","100000"]
+# varyingParamValues = ["0","500","1000","2000","4000","6000","10000","20000","50000","100000"]
 
-constrains = []
 
-PARAMETERS.isActiveLearning = "true"
-PARAMETERS.isSelfLearning = "false"
-PARAMETERS.isLearnFromNeighbors = "false"
+varyingParamStrings = []
+for val in varyingParamValues:
+    varyingParamStrings.append(r'$\mathcal{E}^N_{lifelong} = $' + val)
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isActiveLearning = "true"
-PARAMETERS.isSelfLearning = "false"
-PARAMETERS.isLearnFromNeighbors = "true"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.isActiveExploitation = "false"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+constrains = []
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
+
+PARAMETERS.isActiveExploitation = "true"
+
+for val in varyingParamValues[1:]:
+    PARAMETERS.activeExploitationCycles = val
+    constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
 
 PLOTTING.ROTATION = 22.5

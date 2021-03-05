@@ -10,7 +10,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-#xlabel = 'Learning Cycles (#)'
+
 ylabel = 'Generalization Score (%)'
 yStringLong ="generalizationScore"
 
@@ -29,7 +29,7 @@ for value in varyingParamStringValues:
 
 PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (2.5, 3.75)
+PARAMETERS.figSize = (1.5, 3.75)
 yStrings = ["generalizationScore"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []

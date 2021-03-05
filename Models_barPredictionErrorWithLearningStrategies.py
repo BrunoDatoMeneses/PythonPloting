@@ -10,7 +10,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-#xlabel = 'Learning Cycles (#)'
+
 ylabel = 'Prediction Error (%)'
 yStringLong ="predictionError"
 
@@ -28,7 +28,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 #     varyingParamStrings.append(value + paramlabelString)
 #
 # PARAMETERS.learningCycles += ")"
-PARAMETERS.figSize = (2.5, 3.75)
+PARAMETERS.figSize = (1.5, 3.75)
 yStrings = ["predictionError"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []

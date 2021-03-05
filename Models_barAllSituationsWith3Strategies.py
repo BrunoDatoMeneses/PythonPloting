@@ -12,9 +12,9 @@ figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
 ylabel = 'Situations (#)'
-yStringLong ="RequestsAllNCSwithNeighbors"
+yStringLong ="Situations"
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
+
 
 # figVaryingParamString = "learningCycles"
 # varyingParamStringValues = ["500","1000","1500","2000"]
@@ -30,10 +30,7 @@ varyingParamStrings = ["Active Learning","Self-Learning"]
 # PARAMETERS.learningCycles += ")"
 
 
-yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","frontierRequests","neighborsRequest"]
-# yStrings = ["modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests","endogenousLearningSituations"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests","modelRequests","conflictRequests","concurrenceRequests","voidRequests","fusionRequests","restructureRequests"]
-# yStrings = ["rdmRequests","activeRequests","selfRequests"]
+yStrings = ["rdmLearning","activeLearning","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -44,10 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Amb.", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redund.", "Partial Redund.","Range Amb.","Coop. Neighbors /10"]
-# xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
-# xLabelStrings = ["Passive","Active","Self-Generated"]
-# xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
+xLabelStrings = ["Passive Learning","Active Learning","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
 
 
 
@@ -60,20 +54,19 @@ logYScale = False
 # for label in labelStrings:
 #     yStringLong += label  + "_"
 
-
-
 XYDevMinMax = []
 for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "neighborsRequest"):
+    if(yString == "endogenousLearning"):
         XYDevMinMax.append([y, yDev, min, max,0.1])
     else:
         XYDevMinMax.append([y, yDev, min, max, 1])
 
-varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
 
-PARAMETERS.figSize = (12, 3.75)
+varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
+PARAMETERS.figSize = (10, 3.75)
 figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
+
 
 constrains = []
 

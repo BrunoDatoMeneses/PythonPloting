@@ -5,6 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
+from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
@@ -18,7 +19,7 @@ yStringLong ="NBAgent"
 figVaryingParamString = "errorMargin"
 varyingParamStringValues = ["0.5","1.0","1.5"]
 varyingParamStrings = []
-paramlabelString = "Merr "
+paramlabelString = r'$m_{err}^{f} = $'
 PARAMETERS.errorMargin= "("
 for value in varyingParamStringValues:
     # precisionRange+=  str(int(100*float(label))) + "_"
@@ -78,6 +79,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("AL "+lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("SL "+lbl)
+
+PLOTTING.LEGEND_IN=False
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
