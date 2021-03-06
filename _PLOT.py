@@ -223,7 +223,10 @@ def barWithDeviationConstrained(XLabels, legendLabels, colors, intervalColors, m
         yAllDeviationValues.append(yDeviationValues)
 
 
-
+    del yAllValues[3]
+    del yAllDeviationValues[3]
+    del legendLabels[3]
+    del colors[3]
 
 
     _FIG.barWithDeviation(yAllValues, yAllDeviationValues, XLabels, ylabel, legendLabels, colors, intervalColors, figName + "-D", logXScale, logYScale, size)
@@ -231,6 +234,7 @@ def barWithDeviationConstrained(XLabels, legendLabels, colors, intervalColors, m
 
 def barWithDeviationConstrainedModded(XLabels, legendLabels, colors, intervalColors, markers, figName, ylabel, logXScale,
                                 logYScale, allConstrains, xModificationCoef, yModificationCoef, size):
+
     yAllValues = []
     yAllDeviationValues = []
 
@@ -255,14 +259,17 @@ def barWithDeviationConstrainedModded(XLabels, legendLabels, colors, intervalCol
         yAllDeviationValuesModed.append([])
         for j in range( len(yAllValues[0])):
 
-            if (i >= 3):
+            if (i == 1 or i==3 or i==4):
                 yAllValuesModed[i].append( yAllValues[i][j] - yAllValues[i - 1][j])
                 yAllDeviationValuesModed[i].append( min(yAllDeviationValues[i][j], yAllDeviationValues[i - 1][j]))
             else:
                 yAllValuesModed[i].append(yAllValues[i][j])
                 yAllDeviationValuesModed[i].append(yAllDeviationValues[i][j])
 
-
+    del yAllValuesModed[3]
+    del yAllDeviationValuesModed[3]
+    del legendLabels[3]
+    del colors[3]
 
 
     _FIG.barWithDeviation(yAllValuesModed, yAllDeviationValuesModed, XLabels, ylabel, legendLabels, colors, intervalColors,

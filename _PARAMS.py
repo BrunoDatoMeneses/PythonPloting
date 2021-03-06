@@ -6,12 +6,12 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "cosSinX"
+    model = "squareFixed"
     learningCycles = "2000"
-    exploitatingCycles = "250"
-    episodes = "15"
+    exploitatingCycles = "500"
+    episodes = "50"
 
-    validityRangesPrecision = "0.04"
+    validityRangesPrecision = "0.05"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -25,7 +25,7 @@ class PARAMETERS:
     EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
     EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
-    errorMargin = "0.05"
+    errorMargin = "1.0"
 
     exogenousLearningWeight = "0.1"
     endogenousLearningWeight = "0.1"
@@ -43,7 +43,7 @@ class PARAMETERS:
 
     isConflictNCS = "true"
     isConcurenceNCS = "true"
-    isIncompetenceNCS = "false"
+    isIncompetenceNCS = "true"
     isSubVoidDetection = "false"
     isAmbiguityNCS = "true"
     isModelNCS = "true"
@@ -111,6 +111,8 @@ class PARAMETERS:
     # colors = ['tab:gray', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
     #           'tab:olive', 'tab:cyan']
 
+    colors = ['tab:blue', 'tab:orange', 'tab:green',  'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
+              'tab:olive', 'tab:cyan'] #TF
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
@@ -118,7 +120,7 @@ class PARAMETERS:
     # colors = ['tab:blue', 'tab:orange', 'tab:green']
     # colors = ['tab:red', 'tab:purple']
 
-    colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
+    # colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
@@ -218,8 +220,8 @@ class PARAMETERS:
                 "isAllContextSearchAllowedForLearning": cls.isAllContextSearchAllowedForLearning,
                 "isAllContextSearchAllowedForExploitation": cls.isAllContextSearchAllowedForExploitation,
                 "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
-                "isActiveExploitation": cls.isActiveExploitation,
-                "activeExploitationCycles" : cls.activeExploitationCycles,
+                # "isActiveExploitation": cls.isActiveExploitation,
+                # "activeExploitationCycles" : cls.activeExploitationCycles,
                 # "noise": cls.noise,
                 }
 

@@ -174,8 +174,12 @@ if __name__ == "__main__":
     listOfModels = ["squareFixed"]
     listOfRegressionPerf = ["1.0"]
 
-    listOfdimensions = ['2','3','5','10']
-    listOfconfigFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+    # listOfdimensions = ['2','3','5','10']
+    # listOfconfigFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+
+    listOfdimensions = ['5', '10']
+    listOfconfigFiles = ["fiveDimensionsLauncher",
+                         "tenDimensionsLauncher"]
 
     listOfBoostrapCycles = ["10", "50", "100"]
 

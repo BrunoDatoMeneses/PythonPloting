@@ -58,19 +58,20 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
-figName = "transferSL_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
-print(figName)
-
-
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
 
+PARAMETERS.figSize = (1.5, 3.75)
+PLOTTING.ROTATION = 22.5
+figName = "transfer_"  + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+print(figName)
+
 constrains = []
-varyingParamStrings = ["Rhombus","Disc","Square","Square, Disc","Square, Disc, Rhombus"]
-listOfModels = ["los", "disc", "squareFixed", "squareDisc", "squareDiscLos"]
-listOfLearningCycles = ["2000", "2000", "2000", "3500", "5000"]
+varyingParamStrings = ["Disc",r'$\mathrm{Square} \rightarrow \mathrm{Disc}$',"Rhombus",r'$\mathrm{Square} \rightarrow \mathrm{Disc}$',r'$\mathrm{Square} \rightarrow \mathrm{Disc} \rightarrow \mathrm{Rhombus}$']
+listOfModels = ["disc", "squareDisc","los", "squareDisc", "squareDiscLos"]
 # listOfLearningCycles = ["1000", "1000", "1000", "1750", "2500"]
+listOfLearningCycles = [ "2000", "3500","2000", "3500", "5000"]
 
 for mod,cycl in zip(listOfModels,listOfLearningCycles):
     PARAMETERS.model = mod
@@ -79,9 +80,9 @@ for mod,cycl in zip(listOfModels,listOfLearningCycles):
 
 PLOTTING.LEGEND_IN=False
 
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, logYScale,
-                                  constrains, 1, 100, PARAMETERS.figSize)
+# _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+#                                   figName, ylabel, False, logYScale,
+#                                   constrains, 1, 100, PARAMETERS.figSize)
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,

@@ -75,7 +75,7 @@ if __name__ == "__main__":
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
     learningCycles = ["4000"]
     exploitationCycles = ["500"]
-    episodes = ["15"]
+    episodes = ["100"]
 
     # Neighborhood
     precisionRanges = ["0.05"]
@@ -184,13 +184,13 @@ if __name__ == "__main__":
 
     #Other Params
     # Learning
-    activeLearning = ["false"]
-    selfLearning = ["true"]
-    setLearnFromNeighbors = ["true"]
-
-    for mod,cycl,tfr in zip(listOfModels,listOfLearningCycles,listOfTransferRatios):
-        print(mod,cycl)
-        models = [mod]
-        learningCycles = [cycl]
-        transferRatio = [tfr]
-        launch()
+    # activeLearning = ["false"]
+    # selfLearning = ["true"]
+    # setLearnFromNeighbors = ["true"]
+    #
+    # for mod,cycl,tfr in zip(listOfModels,listOfLearningCycles,listOfTransferRatios):
+    #     print(mod,cycl)
+    #     models = [mod]
+    #     learningCycles = [cycl]
+    #     transferRatio = [tfr]
+    #     launch()
