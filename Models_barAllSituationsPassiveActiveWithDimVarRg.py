@@ -17,7 +17,7 @@ yStringLong ="SituationsPassAct"
 
 
 figVaryingParamString = "validityRangesPrecision"
-varyingParamStringValues = ["0.02", "0.04", "0.06", "0.08", "0.1"]
+varyingParamStringValues = ["0.02", "0.06", "0.1"]
 varyingParamStrings = []
 paramlabelString = r'$p^\mathcal{R} = $'
 PARAMETERS.validityRangesPrecision= "("
@@ -29,8 +29,8 @@ for value in varyingParamStringValues:
 
 PARAMETERS.validityRangesPrecision += ")"
 
-PARAMETERS.figSize = (4.5, 3.75)
-yStrings = ["rdmLearning","rdmExploitation","activeLearning","activeExploitation"]
+PARAMETERS.figSize = (10, 3.75)
+yStrings = ["rdmLearning","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -41,7 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Passive Exploitation","Active Learning","Active Exploitation"]
+xLabelStrings = ["Passive Learning","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
 
 
 
@@ -84,11 +84,11 @@ for varyingValue in varyingParamStringValues:
     constrains.append(
         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
                                                                varyingValue))
-# PARAMETERS.dimension = "10"
-# for varyingValue in varyingParamStringValues:
-#     constrains.append(
-#         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
-#                                                                varyingValue))
+PARAMETERS.dimension = "10"
+for varyingValue in varyingParamStringValues:
+    constrains.append(
+        PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
+                                                               varyingValue))
 
 
 varyingParamStringsFinal=[]
@@ -98,8 +98,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 3"+ " " +lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 5" + " " + lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("n = 10" + " " + lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("n = 10" + " " + lbl)
 
 PLOTTING.LEGEND_IN = False
 PLOTTING.LEGEND_OUT = True

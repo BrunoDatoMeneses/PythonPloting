@@ -4,7 +4,7 @@ from Utils import transpose
 import os
 import csv
 
-# transpose.transposeFiles()
+
 from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
@@ -84,11 +84,11 @@ for varyingValue in varyingParamStringValues:
     constrains.append(
         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
                                                                varyingValue))
-# PARAMETERS.dimension = "10"
-# for varyingValue in varyingParamStringValues:
-#     constrains.append(
-#         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
-#                                                                varyingValue))
+PARAMETERS.dimension = "10"
+for varyingValue in varyingParamStringValues:
+    constrains.append(
+        PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
+                                                               varyingValue))
 
 
 varyingParamStringsFinal=[]
@@ -98,8 +98,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 3"+ " " +lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 5" + " " + lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("n = 10" + " " + lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("n = 10" + " " + lbl)
 
 PLOTTING.ROTATION = 0
 PLOTTING.LEGEND_IN = False

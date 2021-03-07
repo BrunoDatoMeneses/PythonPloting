@@ -8,10 +8,10 @@ class PARAMETERS:
     dimension = "2"
     model = "squareFixed"
     learningCycles = "2000"
-    exploitatingCycles = "500"
-    episodes = "50"
+    exploitatingCycles = "250"
+    episodes = "15"
 
-    validityRangesPrecision = "0.05"
+    validityRangesPrecision = "0.06"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -111,8 +111,8 @@ class PARAMETERS:
     # colors = ['tab:gray', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
     #           'tab:olive', 'tab:cyan']
 
-    colors = ['tab:blue', 'tab:orange', 'tab:green',  'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
-              'tab:olive', 'tab:cyan'] #TF
+    # colors = ['tab:blue', 'tab:orange', 'tab:green',  'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
+    #           'tab:olive', 'tab:cyan'] #TF
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
@@ -140,6 +140,27 @@ class PARAMETERS:
     # colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
     #             'tab:orange', 'peru', 'sienna',
     #            'limegreen', 'tab:green', 'darkgreen']
+
+    colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
+               'limegreen', 'tab:green', 'darkgreen',
+               'tab:red', 'brown', 'darkred',
+               'violet', 'tab:purple', 'indigo'
+               ]
+
+    # colors = ['lavender','lightsteelblue', 'tab:blue', 'mediumblue','darkblue',
+    #           'lightgreen','limegreen', 'tab:green','green', 'darkgreen',
+    #           'lightcoral','indianred','tab:red', 'brown', 'darkred',
+    #           'thistle','plum','violet', 'tab:purple', 'indigo'
+    #
+    #           ]
+
+    # colors = ['lightsteelblue', 'tab:blue', 'mediumblue',
+    #           'tab:orange', 'peru', 'sienna',
+    #           'limegreen', 'tab:green', 'darkgreen',
+    #           'tab:red', 'orangered', 'darkred',
+    #           'violet', 'tab:purple', 'indigo'
+    #
+    #           ]
 
     # colors = [ 'sandybrown', 'tab:brown', 'saddlebrown',
     #            'tab:red', 'orangered', 'darkred',

@@ -17,7 +17,7 @@ yStringLong ="RequestsAllNCSwithNeighbors"
 
 
 figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["500", "1000", "2000", "4000", "10000"]
+varyingParamStringValues = ["500", "2000", "10000"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("
@@ -44,7 +44,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Range Ambiguity","Coop. Neighbors /10"]
+xLabelStrings = ["Model Amb.", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redund.", "Partial Redund.","Range Amb.","Coop. Neighbors /10"]
 # xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
 # xLabelStrings = ["Passive","Active","Self-Generated"]
 # xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
@@ -89,11 +89,11 @@ for varyingValue in varyingParamStringValues:
     constrains.append(
         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
                                                                varyingValue))
-# PARAMETERS.dimension = "10"
-# for varyingValue in varyingParamStringValues:
-#     constrains.append(
-#         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
-#                                                                varyingValue))
+PARAMETERS.dimension = "10"
+for varyingValue in varyingParamStringValues:
+    constrains.append(
+        PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
+                                                               varyingValue))
 
 
 varyingParamStringsFinal=[]
@@ -103,8 +103,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 3"+ " " +lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 5" + " " + lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("n = 10" + " " + lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("n = 10" + " " + lbl)
 
 PLOTTING.LEGEND_IN = False
 PLOTTING.LEGEND_OUT = True

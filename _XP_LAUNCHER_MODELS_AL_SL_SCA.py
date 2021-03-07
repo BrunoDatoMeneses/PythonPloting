@@ -168,8 +168,9 @@ if __name__ == "__main__":
     isActiveExploitation = ["false"]
     noiseRange = ["0.0"]
 
-    listOfPrecisionRanges = ["0.02", "0.04", "0.06", "0.08", "0.1"]
-    listOfLearningCycles = ["500", "1000", "2000", "4000", "10000"]
+    # listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
+    listOfPrecisionRanges = ["0.1"]
+    listOfLearningCycles = ["500", "2000", "10000"]
 
     listOfModels = ["squareFixed"]
     listOfRegressionPerf = ["1.0"]
@@ -177,9 +178,12 @@ if __name__ == "__main__":
     # listOfdimensions = ['2','3','5','10']
     # listOfconfigFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
-    listOfdimensions = ['5', '10']
-    listOfconfigFiles = ["fiveDimensionsLauncher",
-                         "tenDimensionsLauncher"]
+    # listOfdimensions = ['5', '10']
+    # listOfconfigFiles = ["fiveDimensionsLauncher",
+    #                      "tenDimensionsLauncher"]
+
+    listOfdimensions = ['5']
+    listOfconfigFiles = ["fiveDimensionsLauncher"]
 
     listOfBoostrapCycles = ["10", "50", "100"]
 

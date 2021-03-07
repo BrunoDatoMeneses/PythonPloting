@@ -223,10 +223,10 @@ def barWithDeviationConstrained(XLabels, legendLabels, colors, intervalColors, m
         yAllDeviationValues.append(yDeviationValues)
 
 
-    del yAllValues[3]
-    del yAllDeviationValues[3]
-    del legendLabels[3]
-    del colors[3]
+    # del yAllValues[3]
+    # del yAllDeviationValues[3]
+    # del legendLabels[3]
+    # del colors[3]
 
 
     _FIG.barWithDeviation(yAllValues, yAllDeviationValues, XLabels, ylabel, legendLabels, colors, intervalColors, figName + "-D", logXScale, logYScale, size)
@@ -266,10 +266,10 @@ def barWithDeviationConstrainedModded(XLabels, legendLabels, colors, intervalCol
                 yAllValuesModed[i].append(yAllValues[i][j])
                 yAllDeviationValuesModed[i].append(yAllDeviationValues[i][j])
 
-    del yAllValuesModed[3]
-    del yAllDeviationValuesModed[3]
-    del legendLabels[3]
-    del colors[3]
+    # del yAllValuesModed[3]
+    # del yAllDeviationValuesModed[3]
+    # del legendLabels[3]
+    # del colors[3]
 
 
     _FIG.barWithDeviation(yAllValuesModed, yAllDeviationValuesModed, XLabels, ylabel, legendLabels, colors, intervalColors,

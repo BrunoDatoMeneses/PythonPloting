@@ -17,7 +17,7 @@ yStringLong ="generalizationScore"
 
 
 figVaryingParamString = "learningCycles"
-varyingParamStringValues = ["500", "1000", "2000", "4000", "10000"]
+varyingParamStringValues = ["500", "2000",  "10000"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("
@@ -29,7 +29,7 @@ for value in varyingParamStringValues:
 
 PARAMETERS.learningCycles += ")"
 
-PARAMETERS.figSize = (2.5, 3.75)
+PARAMETERS.figSize = (3.5, 3.75)
 yStrings = ["generalizationScore"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
@@ -60,7 +60,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 
-PARAMETERS.figSize = (6, 3.75)
+PARAMETERS.figSize = (3.5, 3.75)
 
 figName = "sca_23510_ELLSA_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
@@ -81,11 +81,11 @@ for varyingValue in varyingParamStringValues:
     constrains.append(
         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
                                                                varyingValue))
-# PARAMETERS.dimension = "10"
-# for varyingValue in varyingParamStringValues:
-#     constrains.append(
-#         PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
-#                                                                varyingValue))
+PARAMETERS.dimension = "10"
+for varyingValue in varyingParamStringValues:
+    constrains.append(
+        PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings, figVaryingParamString, XYDevMinMax,
+                                                               varyingValue))
 
 
 varyingParamStringsFinal=[]
@@ -95,8 +95,8 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 3"+ " " +lbl)
 for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 5" + " " + lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("n = 10" + " " + lbl)
+for lbl in varyingParamStrings:
+    varyingParamStringsFinal.append("n = 10" + " " + lbl)
 
 PLOTTING.LEGEND_IN = False
 PLOTTING.LEGEND_OUT = True
