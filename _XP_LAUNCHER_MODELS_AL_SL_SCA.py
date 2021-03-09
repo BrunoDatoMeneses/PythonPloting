@@ -168,8 +168,8 @@ if __name__ == "__main__":
     isActiveExploitation = ["false"]
     noiseRange = ["0.0"]
 
-    # listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
-    listOfPrecisionRanges = ["0.1"]
+    listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
+    # listOfPrecisionRanges = ["0.1"]
     listOfLearningCycles = ["500", "2000", "10000"]
 
     listOfModels = ["squareFixed"]
@@ -182,8 +182,8 @@ if __name__ == "__main__":
     # listOfconfigFiles = ["fiveDimensionsLauncher",
     #                      "tenDimensionsLauncher"]
 
-    listOfdimensions = ['5']
-    listOfconfigFiles = ["fiveDimensionsLauncher"]
+    listOfdimensions = ['10']
+    listOfconfigFiles = ["tenDimensionsLauncher"]
 
     listOfBoostrapCycles = ["10", "50", "100"]
 
