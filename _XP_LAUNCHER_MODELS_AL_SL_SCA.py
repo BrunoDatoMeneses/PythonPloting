@@ -168,9 +168,10 @@ if __name__ == "__main__":
     isActiveExploitation = ["false"]
     noiseRange = ["0.0"]
 
-    listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
+    # listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
+    listOfPrecisionRanges = ["0.06", "0.1"]
     # listOfPrecisionRanges = ["0.1"]
-    listOfLearningCycles = ["500", "2000", "10000"]
+    listOfLearningCycles = ["500", "2000"]
 
     listOfModels = ["squareFixed"]
     listOfRegressionPerf = ["1.0"]
@@ -185,7 +186,8 @@ if __name__ == "__main__":
     listOfdimensions = ['10']
     listOfconfigFiles = ["tenDimensionsLauncher"]
 
-    listOfBoostrapCycles = ["10", "50", "100"]
+    # listOfBoostrapCycles = ["10", "50", "100"]
+    listOfBoostrapCycles = ["10"]
 
 
 
