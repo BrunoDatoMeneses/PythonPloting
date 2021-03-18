@@ -216,26 +216,29 @@ if __name__ == "__main__":
     #     isAllContextSearchAllowedForLearning = [allCtxtLrn]
     #     isAllContextSearchAllowedForExploitation = [allCtxtExpl]
 
-    episodes = ["5"]
+    listOfEpisodes = ["1","2","3","4","5","7","10"]
 
-    for d, conf in zip(listOfdimensions, listOfconfigFiles):
-        dimensions = [d]
-        configFiles = [conf]
+    for eps in listOfEpisodes:
+        episodes =[eps]
 
-        for mod, perf in zip(listOfModels, listOfRegressionPerf):
-            models = [mod]
-            regressionPerformances = [perf]
+        for d, conf in zip(listOfdimensions, listOfconfigFiles):
+            dimensions = [d]
+            configFiles = [conf]
 
-            for prRg in listOfPrecisionRanges:
-                precisionRanges = [prRg]
+            for mod, perf in zip(listOfModels, listOfRegressionPerf):
+                models = [mod]
+                regressionPerformances = [perf]
 
-                for lrnCl in listOfLearningCycles:
-                    learningCycles = [lrnCl]
+                for prRg in listOfPrecisionRanges:
+                    precisionRanges = [prRg]
 
-                    for boot in listOfBoostrapCycles:
-                        setbootstrapCycles = [boot]
+                    for lrnCl in listOfLearningCycles:
+                        learningCycles = [lrnCl]
 
-                        launch()
+                        for boot in listOfBoostrapCycles:
+                            setbootstrapCycles = [boot]
+
+                            launch()
 
 
 
