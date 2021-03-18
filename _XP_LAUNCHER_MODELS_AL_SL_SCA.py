@@ -75,7 +75,7 @@ if __name__ == "__main__":
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
     learningCycles = ["4000"]
     exploitationCycles = ["250"]
-    episodes = ["15"]
+
 
     # Neighborhood
     precisionRanges = ["0.03"]
@@ -169,9 +169,9 @@ if __name__ == "__main__":
     noiseRange = ["0.0"]
 
     # listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
-    listOfPrecisionRanges = ["0.06", "0.1"]
+    listOfPrecisionRanges = [ "0.1"]
     # listOfPrecisionRanges = ["0.1"]
-    listOfLearningCycles = ["500", "2000"]
+    listOfLearningCycles = [ "2000"]
 
     listOfModels = ["squareFixed"]
     listOfRegressionPerf = ["1.0"]
@@ -215,6 +215,8 @@ if __name__ == "__main__":
     # for allCtxtLrn, allCtxtExpl in zip(listOfisAllContextSearchAllowedForLearning,listOfisAllContextSearchAllowedForExploitation):
     #     isAllContextSearchAllowedForLearning = [allCtxtLrn]
     #     isAllContextSearchAllowedForExploitation = [allCtxtExpl]
+
+    episodes = ["5"]
 
     for d, conf in zip(listOfdimensions, listOfconfigFiles):
         dimensions = [d]

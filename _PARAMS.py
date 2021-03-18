@@ -11,10 +11,15 @@ class PARAMETERS:
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.06"
+    validityRangesPrecision = "0.1"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
+    isLearnFromNeighbors = "false"
+
+    # isActiveLearning = "false"
+    # isSelfLearning = "true"
+    # isLearnFromNeighbors = "true"
 
     LEARNING_WEIGHT_ACCURACY = "1.0"
     LEARNING_WEIGHT_PROXIMITY = "0.0"
@@ -48,7 +53,7 @@ class PARAMETERS:
     isAmbiguityNCS = "true"
     isModelNCS = "true"
 
-    isLearnFromNeighbors = "false"
+
     isDream = "false"
     isFusionResolution = "true"
     isRetructureResolution = "true"
@@ -63,11 +68,13 @@ class PARAMETERS:
     probabilityOfRangeAmbiguity = "0.1"
 
     isActiveExploitation = "false"
-    activeExploitationCycles = "0"
+    activeExploitationCycles = "1000"
 
     noise = "1.0"
 
     figPrefix = model + "_"
+
+    nbAgents = ""
 
 
 
@@ -107,6 +114,9 @@ class PARAMETERS:
                       "activeExploitationCycles",
                       "noise"
                       ]
+
+    # colors = ['tab:blue', 'tab:green', 'tab:red', 'tab:purple']
+    # colors = ['tab:blue', 'tab:green', 'tab:red']
 
     # colors = ['tab:gray', 'tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink',
     #           'tab:olive', 'tab:cyan']
@@ -186,10 +196,15 @@ class PARAMETERS:
     # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon', 'lightpink']
     # intervalColors = ['lightsteelblue', 'lightgreen', 'lightsalmon', 'lightcoral', 'thistle', 'wheat', 'lemonchiffon',
     #                   'lightpink']
-    intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle']
+    # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral', 'thistle']
+
+
     # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen', 'lightcoral']
     # intervalColors = ['lightsteelblue', 'lightsalmon', 'lightgreen']
     # intervalColors = ['lightcoral', 'thistle']
+
+    # intervalColors = ['lightsteelblue', 'lightgreen', 'lightcoral', 'thistle']
+    intervalColors = ['lightsteelblue', 'lightgreen', 'lightcoral']
 
     # markers = ['o', 'D', 'v', 's', 'P', 'p','*']
     markers = ['o', 'D', 'v', 's', 'P']
@@ -199,7 +214,8 @@ class PARAMETERS:
 
     @classmethod
     def getPARAMS(cls):
-        return {"dimension": cls.dimension, "learningCycles": cls.learningCycles,
+        return {"dimension": cls.dimension,
+                "learningCycles": cls.learningCycles,
                 "exploitatingCycles": cls.exploitatingCycles,
                 "episodes": cls.episodes,
                 "validityRangesPrecision": cls.validityRangesPrecision,
@@ -244,6 +260,7 @@ class PARAMETERS:
                 # "isActiveExploitation": cls.isActiveExploitation,
                 # "activeExploitationCycles" : cls.activeExploitationCycles,
                 # "noise": cls.noise,
+                # "nbAgents_Average" : cls.nbAgents,
                 }
 
     @classmethod
