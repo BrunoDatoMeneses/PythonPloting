@@ -186,8 +186,7 @@ if __name__ == "__main__":
 
 
 
-    noiseRange = ["1.0"]
-    precisionRanges = ["0.04"]
+
     perceptionsGenerationCoefficient = ["0.1"]
 
     # SELF LEARNING
