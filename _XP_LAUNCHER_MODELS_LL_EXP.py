@@ -194,12 +194,12 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    for endoXP in listOfEndoExploitationCycles:
-        endoExploitationCycles = [endoXP]
-
-        for rg in listOfPrecisionRanges:
-            precisionRanges = [rg]
-            launch()
+    # for endoXP in listOfEndoExploitationCycles:
+    #     endoExploitationCycles = [endoXP]
+    #
+    #     for rg in listOfPrecisionRanges:
+    #         precisionRanges = [rg]
+    #         launch()
 
 
     endoExploitationCycles = ["10000"]
@@ -214,7 +214,7 @@ if __name__ == "__main__":
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
 
-    for endoW in endogenousLearningWeight:
+    for endoW in ListOfEndoLeanringWeight:
         endogenousLearningWeight = [endoW]
         launch()
 
@@ -222,7 +222,7 @@ if __name__ == "__main__":
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
 
-    for nh in neighborhoodMultiplicators:
+    for nh in listOfNeighboords:
         neighborhoodMultiplicators = [nh]
         launch()
 
@@ -230,7 +230,7 @@ if __name__ == "__main__":
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
 
-    for infl in externalInfluenceRatios:
+    for infl in listOfInfluences:
         externalInfluenceRatios = [infl]
         launch()
 
