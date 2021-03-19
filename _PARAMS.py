@@ -6,12 +6,12 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "squareFixed"
-    learningCycles = "2000"
-    exploitatingCycles = "250"
+    model = "multi"
+    learningCycles = "4000"
+    exploitatingCycles = "500"
     episodes = "15"
 
-    validityRangesPrecision = "0.1"
+    validityRangesPrecision = "0.03"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -123,7 +123,7 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green',  'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
     #           'tab:olive', 'tab:cyan'] #TF
-    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
@@ -151,11 +151,12 @@ class PARAMETERS:
     #             'tab:orange', 'peru', 'sienna',
     #            'limegreen', 'tab:green', 'darkgreen']
 
-    colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
-               'limegreen', 'tab:green', 'darkgreen',
-               'tab:red', 'brown', 'darkred',
-               'violet', 'tab:purple', 'indigo'
-               ]
+    # SCA
+    # colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
+    #            'limegreen', 'tab:green', 'darkgreen',
+    #            'tab:red', 'brown', 'darkred',
+    #            'violet', 'tab:purple', 'indigo'
+    #            ]
 
     # colors = ['lavender','lightsteelblue', 'tab:blue', 'mediumblue','darkblue',
     #           'lightgreen','limegreen', 'tab:green','green', 'darkgreen',
