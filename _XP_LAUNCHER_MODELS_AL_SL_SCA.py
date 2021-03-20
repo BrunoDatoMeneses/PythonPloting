@@ -171,20 +171,19 @@ if __name__ == "__main__":
     # listOfPrecisionRanges = ["0.02", "0.06", "0.1"]
     listOfPrecisionRanges = [ "0.1"]
     # listOfPrecisionRanges = ["0.1"]
-    listOfLearningCycles = [ "2000"]
+
 
     listOfModels = ["squareFixed"]
     listOfRegressionPerf = ["1.0"]
 
-    # listOfdimensions = ['2','3','5','10']
-    # listOfconfigFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
+
 
     # listOfdimensions = ['5', '10']
     # listOfconfigFiles = ["fiveDimensionsLauncher",
     #                      "tenDimensionsLauncher"]
 
-    listOfdimensions = ['10']
-    listOfconfigFiles = ["tenDimensionsLauncher"]
+    # listOfdimensions = ['10']
+    # listOfconfigFiles = ["tenDimensionsLauncher"]
 
     # listOfBoostrapCycles = ["10", "50", "100"]
     listOfBoostrapCycles = ["10"]
@@ -202,43 +201,63 @@ if __name__ == "__main__":
     listOfisAllContextSearchAllowedForLearning = ["true","false"]
     listOfisAllContextSearchAllowedForExploitation = ["true","false"]
 
-    # # SELF LEARNING
-    # activeLearning = ["false"]
-    # selfLearning = ["true"]
-    # setLearnFromNeighbors = ["true"]
+    # SELF LEARNING
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
+
+    listOfdimensions = ['2', '3', '5', '10']
+    listOfconfigFiles = ["twoDimensionsLauncher", "threeDimensionsLauncher", "fiveDimensionsLauncher",
+                         "tenDimensionsLauncher"]
+
+    listOfLearningCycles = ["500","2000","10000"]
+    precisionRanges = ["0.06"]
+    episodes = ["15"]
+
+
+    for d, conf in zip(listOfdimensions, listOfconfigFiles):
+        dimensions = [d]
+        configFiles = [conf]
+
+        for lrnCl in listOfLearningCycles:
+            learningCycles = [lrnCl]
+
+            launch()
+
 
     # ACTIVE LEARNING
     activeLearning = ["true"]
     selfLearning = ["false"]
     setLearnFromNeighbors = ["false"]
 
-    # for allCtxtLrn, allCtxtExpl in zip(listOfisAllContextSearchAllowedForLearning,listOfisAllContextSearchAllowedForExploitation):
-    #     isAllContextSearchAllowedForLearning = [allCtxtLrn]
-    #     isAllContextSearchAllowedForExploitation = [allCtxtExpl]
+    listOfdimensions = ['2', '3', '5']
+    listOfconfigFiles = ["twoDimensionsLauncher", "threeDimensionsLauncher", "fiveDimensionsLauncher"]
 
-    listOfEpisodes = ["1","2","3","4","5","7","10"]
+    listOfLearningCycles = ["500", "2000", "10000"]
+    precisionRanges = ["0.1"]
+    episodes = ["15"]
+
+    for d, conf in zip(listOfdimensions, listOfconfigFiles):
+        dimensions = [d]
+        configFiles = [conf]
+
+        for lrnCl in listOfLearningCycles:
+            learningCycles = [lrnCl]
+
+            launch()
+
+    dimensions = ["10"]
+    configFiles = ["tenDimensionsLauncher"]
+    learningCycles = ["10000"]
+    listOfEpisodes = ["5","6","7","8","9","10"]
 
     for eps in listOfEpisodes:
         episodes =[eps]
+        launch()
 
-        for d, conf in zip(listOfdimensions, listOfconfigFiles):
-            dimensions = [d]
-            configFiles = [conf]
 
-            for mod, perf in zip(listOfModels, listOfRegressionPerf):
-                models = [mod]
-                regressionPerformances = [perf]
 
-                for prRg in listOfPrecisionRanges:
-                    precisionRanges = [prRg]
 
-                    for lrnCl in listOfLearningCycles:
-                        learningCycles = [lrnCl]
-
-                        for boot in listOfBoostrapCycles:
-                            setbootstrapCycles = [boot]
-
-                            launch()
 
 
 
