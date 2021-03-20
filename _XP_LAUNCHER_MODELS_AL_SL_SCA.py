@@ -136,7 +136,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["cosSinX"]
+    models = ["squareFixed"]
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]
