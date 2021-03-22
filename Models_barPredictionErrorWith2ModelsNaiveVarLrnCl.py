@@ -10,7 +10,7 @@ from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
-#xlabel = 'Learning Cycles (#)'
+
 ylabel = 'Prediction Error (%)'
 yStringLong ="predictionError"
 
@@ -19,7 +19,7 @@ yStringLong ="predictionError"
 figVaryingParamString = "learningCycles"
 # varyingParamStringValues = ["75","150","250","500"]
 # varyingParamStringValues = ["50","75","150"]
-varyingParamStringValues = ["50"]
+varyingParamStringValues = ["200"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("

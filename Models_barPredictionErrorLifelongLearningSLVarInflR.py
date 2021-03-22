@@ -59,8 +59,8 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 PARAMETERS.learningCycles = "2000"
-PARAMETERS.activeExploitationCycles = "2000" # ["500","1000","2000","4000","6000","10000"]
-PARAMETERS.validityRangesPrecision = "0.06"
+PARAMETERS.activeExploitationCycles = "10000" # ["500","1000","2000","4000","6000","10000"]
+PARAMETERS.validityRangesPrecision = "0.02"
 PARAMETERS.isActiveExploitation = "true"
 
 PARAMETERS.isActiveLearning = "false"

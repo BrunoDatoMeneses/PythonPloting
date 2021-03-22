@@ -75,9 +75,10 @@ for val in varyingParamValues:
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.isActiveExploitation = "false"
+
 
 constrains = []
+PARAMETERS.activeExploitationCycles = "0"
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
 PARAMETERS.isActiveExploitation = "true"

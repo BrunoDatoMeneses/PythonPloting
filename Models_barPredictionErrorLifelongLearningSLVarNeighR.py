@@ -59,8 +59,8 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 PARAMETERS.learningCycles = "2000"
-PARAMETERS.activeExploitationCycles = "2000" # ["500","1000","2000","4000","6000","10000"]
-PARAMETERS.validityRangesPrecision = "0.06"
+PARAMETERS.activeExploitationCycles = "10000" # ["500","1000","2000","4000","6000","10000"]
+PARAMETERS.validityRangesPrecision = "0.02"
 PARAMETERS.isActiveExploitation = "true"
 
 PARAMETERS.isActiveLearning = "false"
@@ -70,7 +70,7 @@ PARAMETERS.isLearnFromNeighbors = "true"
 
 figName = "lifelongSL_VarNeighR_Expl" + PARAMETERS.activeExploitationCycles +"_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
-varyingParamValues = ["2.0","4.0","8.0"]
+varyingParamValues = ["2.0","4.0","6.0","8.0"]
 
 varyingParamStrings = []
 for val in varyingParamValues:

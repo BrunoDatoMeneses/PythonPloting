@@ -85,6 +85,10 @@ _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAM
                                   figName, ylabel, False, logYScale,
                                   constrains, 1, 100, PARAMETERS.figSize)
 
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+                                  figName, ylabel, False, True,
+                                  constrains, 1, 100, PARAMETERS.figSize)
+
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,
 #                                    constrains, 1, 1, PARAMETERS.figSize)

@@ -44,7 +44,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Model Amb.", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redund.", "Partial Redund.","Range Amb.","Coop. Neighbors /10"]
+xLabelStrings = ["Model Amb. /50", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redund.", "Partial Redund.","Range Amb.","Coop. Neighbors /50"]
 # xLabelStrings = ["Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy","Neighbors"]
 # xLabelStrings = ["Passive","Active","Self-Generated"]
 # xLabelStrings = ["Passive","Active","Self-Generated","Model Ambiguities", "Conflicts", "Concurrencies", "Incompetencies", "Complete Redundancy", "Partial Redundancy"]
@@ -63,8 +63,8 @@ logYScale = False
 
 XYDevMinMax = []
 for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "neighborsRequest"):
-        XYDevMinMax.append([y, yDev, min, max,0.1])
+    if(yString == "neighborsRequest" or yString == "modelRequests"):
+        XYDevMinMax.append([y, yDev, min, max,0.02])
     else:
         XYDevMinMax.append([y, yDev, min, max, 1])
 
@@ -110,7 +110,7 @@ PLOTTING.LEGEND_IN = False
 PLOTTING.LEGEND_OUT = True
 
 
-PLOTTING.ROTATION = 22.5
+PLOTTING.ROTATION = 0
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, False,

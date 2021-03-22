@@ -61,7 +61,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
 
 
 # PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "500"
+PARAMETERS.learningCycles = "200"
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 

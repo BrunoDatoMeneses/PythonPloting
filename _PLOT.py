@@ -204,6 +204,25 @@ def plotWithDeviationWithFillBetweenConstrained(labels, colors, intervalColors, 
 
     _FIG.figWithDeviationFillBetween(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName +"-D", logXScale, logYScale, size)
 
+
+def plotSimple(labels, colors, intervalColors, markers, figName, xlabel, ylabel, logXScale, logYScale, constrains, xModificationCoef, yModificationCoef, size):
+
+    xValues = []
+    yValues = []
+    yDeviationValues = []
+
+
+
+    for dicoConstrains in constrains:
+        print(dicoConstrains)
+        xValueList, yDeviationValueList, yValueList = getValuesFromFilesAndConstrains(dicoConstrains, xModificationCoef, yModificationCoef)
+        xValues.append(np.array(xValueList))
+        yValues.append(np.array(yValueList))
+        yDeviationValues.append(np.array(yDeviationValueList))
+
+
+    _FIG.figSimple(xValues, yValues, yDeviationValues, labels, xlabel, ylabel, colors, intervalColors, markers, figName +"-D", logXScale, logYScale, size)
+
 def barWithDeviationConstrained(XLabels, legendLabels, colors, intervalColors, markers, figName, ylabel, logXScale, logYScale, allConstrains, xModificationCoef, yModificationCoef, size):
 
     yAllValues = []
@@ -434,7 +453,7 @@ def getValuesFromFilesAndConstrains(dicoConstrains, xModificationCoef, yModifica
                     for constrainString, constrainValue in dicoConstrains[1].items():
                         if(constrainString==dicoConstrains[0][0]):
 
-                            if(constrainString=="neighborhoodRadiusCoefficient" or constrainString=="influenceRadiusCoefficient"):
+                            if(constrainString=="neighborhoodRadiusCoefficient" or constrainString=="influenceRadiusCoefficient" or constrainString=="nbAgents_Average"):
                                 test = test and (constrainValue[0] <= float(row[constrainString]) <= constrainValue[1])
                             else:
                                 test = test and (constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])
@@ -453,8 +472,15 @@ def getValuesFromFilesAndConstrains(dicoConstrains, xModificationCoef, yModifica
                 csv_reader = csv.DictReader(csvfile, delimiter=';')
                 for row in csv_reader:
                     xValueList.append(float(row[dicoConstrains[0][0]])*xModificationCoef)
-                    yValueList.append(float(row[dicoConstrains[0][1]])*yModificationCoef)
-                    yDeviationValueList.append(float(row[dicoConstrains[0][2]])*yModificationCoef)
+                    # yValueList.append(float(row[dicoConstrains[0][1]])*yModificationCoef)
+                    # yDeviationValueList.append(float(row[dicoConstrains[0][2]])*yModificationCoef)
+
+                    if len(dicoConstrains[0]) == 6:
+                        yValueList.append( (float(row[dicoConstrains[0][1]]) * dicoConstrains[0][5]))
+                        yDeviationValueList.append( (float(row[dicoConstrains[0][2]]) * dicoConstrains[0][5]))
+                    else:
+                        yValueList.append( (float(row[dicoConstrains[0][1]]) * yModificationCoef))
+                        yDeviationValueList.append( (float(row[dicoConstrains[0][2]]) * yModificationCoef))
     return xValueList, yDeviationValueList, yValueList
 
 def getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef):
@@ -540,7 +566,7 @@ def getValuesFromFilesMinMaxConstrained(dicoConstrains, xModificationCoef, yModi
                     test = True
                     for constrainString, constrainValue in dicoConstrains[1].items():
                         if (constrainString == dicoConstrains[0][0]):
-                            if(constrainString=="neighborhoodRadiusCoefficient" or constrainString=="influenceRadiusCoefficient"):
+                            if(constrainString=="neighborhoodRadiusCoefficient" or constrainString=="influenceRadiusCoefficient" or constrainString=="nbAgents_Average"):
                                 test = test and (constrainValue[0] <= float(row[constrainString]) <= constrainValue[1])
                             else:
                                 test = test and (constrainValue[0] <= int(row[constrainString]) <= constrainValue[1])

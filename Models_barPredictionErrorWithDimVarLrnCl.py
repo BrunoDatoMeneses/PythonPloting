@@ -100,7 +100,7 @@ for lbl in varyingParamStrings:
     varyingParamStringsFinal.append("n = 10" + " " + lbl)
 
 PLOTTING.LEGEND_IN = False
-PLOTTING.LEGEND_OUT = True
+PLOTTING.LEGEND_OUT = False
 
 PLOTTING.ROTATION = 0
 

@@ -61,7 +61,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
 
-PARAMETERS.figSize = (6, 3.75)
+PARAMETERS.figSize = (3.5, 3.75)
 
 figName = "sca_23510_ELLSA_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)

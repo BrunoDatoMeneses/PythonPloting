@@ -52,8 +52,7 @@ logXScale = False
 logYScale = False
 
 
-# for label in labelStrings:
-#     yStringLong += label  + "_"
+
 
 XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):

@@ -73,31 +73,38 @@ if __name__ == "__main__":
     #     learningCycles.append(""+ str(i*500))
     # print(learningCycles)
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
-    learningCycles = ["2000"]
+    learningCycles = ["200"]
     exploitationCycles = ["250"]
     episodes = ["15"]
 
     # Neighborhood
-    precisionRanges = ["0.04"]
+    precisionRanges = ["0.02"]
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["0.05"]
 
-    # Learning
-    activeLearning = ["false"]
-    selfLearning = ["true"]
-    setLearnFromNeighbors = ["false"]
+
 
 
     # NCS
 
     setSelfModelRequest = ["true"]
-    setConflictDetection = ["false"]
-    setConcurrenceDetection = ["false"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
     setVoidDetection = ["false"]
-    setFusionResolution = ["false"]
-    setRestructureResolution = ["false"]
-    setFrontierRequest = ["false"]
+    setFusionResolution = ["true"]
+    setRestructureResolution = ["true"]
+    setFrontierRequest = ["true"]
+
+    # NCS
+
+    # setSelfModelRequest = ["true"]
+    # setConflictDetection = ["false"]
+    # setConcurrenceDetection = ["false"]
+    # setVoidDetection = ["false"]
+    # setFusionResolution = ["false"]
+    # setRestructureResolution = ["false"]
+    # setFrontierRequest = ["false"]
 
 
 
@@ -119,7 +126,7 @@ if __name__ == "__main__":
 
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]
-    setCreationFromNeighbor = ["false"]
+    setCreationFromNeighbor = ["true"]
 
     # Other
 # squareFixed, triangle, disc, squareDiag, squareDiagCircle
@@ -170,83 +177,162 @@ if __name__ == "__main__":
 
     noiseRange = ["0.0"]
 
+    listOfPrecisionRg = ["0.02","0.04","0.06"]
+    listOfNeighboords = ["2", "6", "8","10" ]
+    listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+    listOfEndogenousLearningW = ["0.05","0.1", "0.25","0.5"]
+    listOfExogenousLearningW = ["0.05", "0.1", "0.15", "0.2"]
 
 
-    # listOfLearningCycles = ["500", "1000","2000"]
-    # ListOfPrecisionRanges = ["0.03", "0.04","0.05"]
-    # listOfEndoExploitationCycles = ["500", "1000", "2000", "4000", "6000"]
-
-    listOfPrecisionRanges = ["0.04"]
-
-    # listOfNeighboords = ["2", "4", "6","8" ]
-    listOfNeighboords = ["10", "12", "14", "16"]
-    # listOfInfluences = ["1.0", "2.0", "4.0" ,"6.0"]
-    listOfInfluences = ["8.0", "10.0", "12.0", "14.0"]
-    # listOfEndogenousLearningW = ["0.1", "0.25","0.5"]
-    # listOfEndogenousLearningW = ["0.05","0.1", "0.25","0.5"]
-    listOfEndogenousLearningW = ["0.1"]
-
-    # listOfLearningCycles = ["25","50","75","100","150","200","250","350","500"]
-    # listOfLearningCycles = ["200"]
-    # listOfLearningCycles = ["75", "150",  "250", "500"]
-    listOfLearningCycles = ["25", "50"]
 
     listOfModels = ["gaussianCos2","cosSinX"]
     listOfRegressionPerf = ["1.0","0.05"]
 
-    # SELF LEARNING
-    activeLearning = ["false"]
-    selfLearning = ["true"]
-    setLearnFromNeighbors = ["false"]
+    learningCycles = ["50"]
+    precisionRanges = ["0.02"]
+    neighborhoodMultiplicators = ["2"]
+    externalInfluenceRatios = ["0.5"]
+    endogenousLearningWeight = ["0.1"]
+    exogenousLearningWeight = ["0.1"]
+
 
     for mod,perf in zip(listOfModels,listOfRegressionPerf):
         models = [mod]
         regressionPerformances = [perf]
 
-
-        # neighborhoodMultiplicators = ["2"]
-        # externalInfluenceRatios = ["0.5"]
-        # endogenousLearningWeight = ["0.1"]
-        #
-        # for prRg in listOfPrecisionRanges:
-        #     precisionRanges=[prRg]
-        #
-        #     for nei in listOfNeighboords:
-        #         neighborhoodMultiplicators = [nei]
-        #
-        #         for lrnCl in listOfLearningCycles:
-        #             learningCycles = [lrnCl]
-        #
-        #             launch()
-        #
-        # neighborhoodMultiplicators = ["2"]
-        # externalInfluenceRatios = ["0.5"]
-        # endogenousLearningWeight = ["0.1"]
-        #
-        # for prRg in listOfPrecisionRanges:
-        #     precisionRanges=[prRg]
-        #
-        #     for infl in listOfInfluences:
-        #         externalInfluenceRatios = [infl]
-        #
-        #         for lrnCl in listOfLearningCycles:
-        #             learningCycles = [lrnCl]
-        #
-        #             launch()
-
+        learningCycles = ["200"]
+        precisionRanges = ["0.02"]
         neighborhoodMultiplicators = ["2"]
         externalInfluenceRatios = ["0.5"]
         endogenousLearningWeight = ["0.1"]
+        exogenousLearningWeight = ["0.1"]
 
-        for prRg in listOfPrecisionRanges:
-            precisionRanges=[prRg]
+        # SELF LEARNING
+        activeLearning = ["false"]
+        selfLearning = ["true"]
+        setLearnFromNeighbors = ["true"]
 
-            for endoW in listOfEndogenousLearningW:
-                endogenousLearningWeight = [endoW]
+        setSelfModelRequest = ["true"]
+        setConflictDetection = ["true"]
+        setConcurrenceDetection = ["true"]
+        setVoidDetection = ["false"]
+        setFusionResolution = ["true"]
+        setRestructureResolution = ["true"]
+        setFrontierRequest = ["true"]
 
-                for lrnCl in listOfLearningCycles:
-                    learningCycles = [lrnCl]
+        setCreationFromNeighbor = ["true"]
 
-                    launch()
+        launch()
+
+        # NAIVE LEARNING
+        activeLearning = ["false"]
+        selfLearning = ["true"]
+        setLearnFromNeighbors = ["false"]
+
+        setSelfModelRequest = ["true"]
+        setConflictDetection = ["false"]
+        setConcurrenceDetection = ["false"]
+        setVoidDetection = ["false"]
+        setFusionResolution = ["false"]
+        setRestructureResolution = ["false"]
+        setFrontierRequest = ["false"]
+
+        setCreationFromNeighbor = ["false"]
+
+        launch()
+
+        # # SELF LEARNING
+        # activeLearning = ["false"]
+        # selfLearning = ["true"]
+        # setLearnFromNeighbors = ["true"]
+        #
+        # listOfPrecisionRg = ["0.02", "0.04", "0.06"]
+        # listOfNeighboords = ["2", "6", "8", "10"]
+        # listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+        # listOfEndogenousLearningW = ["0.05", "0.1", "0.25", "0.5"]
+        # listOfExogenousLearningW = ["0.05", "0.1", "0.15", "0.2"]
+        # learningCycles = ["200"]
+        # precisionRanges = ["0.02"]
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        # exogenousLearningWeight = ["0.1"]
+        #
+        # for rg in listOfPrecisionRg:
+        #     precisionRanges = [rg]
+        #     launch()
+        #
+        # listOfPrecisionRg = ["0.02", "0.04", "0.06"]
+        # listOfNeighboords = ["2", "6", "8", "10"]
+        # listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+        # listOfEndogenousLearningW = ["0.05", "0.1", "0.25", "0.5"]
+        # listOfExogenousLearningW = ["0.05", "0.1", "0.15", "0.2"]
+        # learningCycles = ["200"]
+        # precisionRanges = ["0.02"]
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        # exogenousLearningWeight = ["0.1"]
+        #
+        # for nh in listOfNeighboords:
+        #     neighborhoodMultiplicators = [nh]
+        #     launch()
+        #
+        # listOfPrecisionRg = ["0.02", "0.04", "0.06"]
+        # listOfNeighboords = ["2", "6", "8", "10"]
+        # listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+        # listOfEndogenousLearningW = ["0.05", "0.1", "0.25", "0.5"]
+        # listOfExogenousLearningW = ["0.05", "0.1", "0.15", "0.2"]
+        # learningCycles = ["200"]
+        # precisionRanges = ["0.02"]
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        # exogenousLearningWeight = ["0.1"]
+        #
+        # for infl in listOfInfluences:
+        #     externalInfluenceRatios = [infl]
+        #     launch()
+        #
+        # listOfPrecisionRg = ["0.02", "0.04", "0.06"]
+        # listOfNeighboords = ["2", "6", "8", "10"]
+        # listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+        # listOfEndogenousLearningW = ["0.05", "0.1", "0.25", "0.5"]
+        # listOfExogenousLearningW = ["0.05", "0.1", "0.15", "0.2"]
+        # learningCycles = ["200"]
+        # precisionRanges = ["0.02"]
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        # exogenousLearningWeight = ["0.1"]
+        #
+        # for endoW in listOfEndogenousLearningW:
+        #     endogenousLearningWeight = [endoW]
+        #     launch()
+        #
+        # listOfPrecisionRg = ["0.02", "0.04", "0.06"]
+        # listOfNeighboords = ["2", "6", "8", "10"]
+        # listOfInfluences = ["0.5", "1.0", "2.0", "4.0"]
+        # listOfEndogenousLearningW = ["0.05", "0.1", "0.25", "0.5"]
+        # listOfExogenousLearningW = ["0.05", "0.1", "0.15", "0.2"]
+        # learningCycles = ["4000"]
+        # precisionRanges = ["0.02"]
+        # neighborhoodMultiplicators = ["2"]
+        # externalInfluenceRatios = ["0.5"]
+        # endogenousLearningWeight = ["0.1"]
+        # exogenousLearningWeight = ["0.1"]
+        #
+        # for exoW in listOfExogenousLearningW:
+        #     exogenousLearningWeight = [exoW]
+        #     launch()
+
+
+
+
+
+
+
+
+
 
 

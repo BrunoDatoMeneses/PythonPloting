@@ -17,7 +17,7 @@ yStringLong ="predictionError"
 
 
 figVaryingParamString = "neighborhoodRadiusCoefficient"
-varyingParamStringValues = ["2.0", "4.0", "6.0","8.0"]
+varyingParamStringValues = ["2.0", "6.0", "8.0","10.0"]
 varyingParamStrings = []
 paramlabelString = r'$\alpha^\mathcal{N} = $'
 PARAMETERS.neighborhoodRadiusCoefficient= "("
@@ -61,7 +61,7 @@ for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
 
 
 PARAMETERS.validityRangesPrecision = "0.02"
-PARAMETERS.learningCycles = "500"
+PARAMETERS.learningCycles = "200"
 figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 

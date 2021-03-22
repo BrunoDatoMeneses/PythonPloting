@@ -182,13 +182,88 @@ if __name__ == "__main__":
     ListOfEndoLeanringWeight = ["0.1"]
     listOfNeighboords = ["2", "4", "8", "16"]
     listOfInfluences = ["0.5","1.0", "2.0", "4.0"]
-    ListOfPrecisionRanges = ["0.04"]
+
     listOfRegressionPerformances = ["1.0"]
 
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
 
+    # SELF LEARNING
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
 
-    listOfArtificialGenerationRanges = ["0.05", "0.1", "0.5", "1.0", "2.0"]
+    launch()
+
+    # ACT LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["false"]
+
+    launch()
+
+    # ACT NEIGH LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["true"]
+
+    launch()
+
+    listOfPrecisionRanges = ["0.02", "0.04", "0.06"]
+    listOfArtificialGenerationRanges = ["0.1", "0.5", "1.0", "2.0"]
     listOfNoiseRanges = ["0.0", "1.0", "10.0"]
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
+
+    # SELF LEARNING
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
+
+    for noise in listOfNoiseRanges:
+        noiseRange = [noise]
+        launch()
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
+
+    # ACT LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["false"]
+
+    for noise in listOfNoiseRanges:
+        noiseRange = [noise]
+        launch()
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
+
+    # ACT NEIGH LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["true"]
+
+    for noise in listOfNoiseRanges:
+        noiseRange = [noise]
+        launch()
+
+
+
+
+
+
+
+
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
 
 
     # SELF LEARNING
@@ -196,33 +271,83 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["true"]
 
-    for genRg in listOfArtificialGenerationRanges:
-        perceptionsGenerationCoefficient=[genRg]
+    for rg in listOfPrecisionRanges:
+        precisionRanges = [rg]
+        launch()
 
-        for noise in listOfNoiseRanges:
-            noiseRange = [noise]
-            launch()
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
 
     # ACT LEARNING
     activeLearning = ["true"]
     selfLearning = ["false"]
     setLearnFromNeighbors = ["false"]
 
-    for genRg in listOfArtificialGenerationRanges:
-        perceptionsGenerationCoefficient=[genRg]
+    for rg in listOfPrecisionRanges:
+        precisionRanges = [rg]
+        launch()
 
-        for noise in listOfNoiseRanges:
-            noiseRange = [noise]
-            launch()
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
 
     # ACT NEIGH LEARNING
     activeLearning = ["true"]
     selfLearning = ["false"]
     setLearnFromNeighbors = ["true"]
 
-    for genRg in listOfArtificialGenerationRanges:
-        perceptionsGenerationCoefficient=[genRg]
+    for rg in listOfPrecisionRanges:
+        precisionRanges = [rg]
+        launch()
 
-        for noise in listOfNoiseRanges:
-            noiseRange = [noise]
-            launch()
+
+
+
+
+
+
+
+
+
+
+
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
+
+    # SELF LEARNING
+    activeLearning = ["false"]
+    selfLearning = ["true"]
+    setLearnFromNeighbors = ["true"]
+
+    for gen in listOfArtificialGenerationRanges:
+        perceptionsGenerationCoefficient = [gen]
+        launch()
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
+
+    # ACT LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["false"]
+
+    for gen in listOfArtificialGenerationRanges:
+        perceptionsGenerationCoefficient = [gen]
+        launch()
+
+    noiseRange = ["1.0"]
+    precisionRanges = ["0.04"]
+    perceptionsGenerationCoefficient = ["0.1"]
+
+    # ACT NEIGH LEARNING
+    activeLearning = ["true"]
+    selfLearning = ["false"]
+    setLearnFromNeighbors = ["true"]
+
+    for gen in listOfArtificialGenerationRanges:
+        perceptionsGenerationCoefficient = [gen]
+        launch()

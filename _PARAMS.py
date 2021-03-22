@@ -6,12 +6,12 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "multi"
-    learningCycles = "4000"
-    exploitatingCycles = "500"
+    model = "squareFixed"
+    learningCycles = "2000"
+    exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.03"
+    validityRangesPrecision = "0.1"
 
     isActiveLearning = "true"
     isSelfLearning = "false"
@@ -70,7 +70,7 @@ class PARAMETERS:
     isActiveExploitation = "false"
     activeExploitationCycles = "1000"
 
-    noise = "1.0"
+    noise = "0.0"
 
     figPrefix = model + "_"
 
@@ -152,11 +152,11 @@ class PARAMETERS:
     #            'limegreen', 'tab:green', 'darkgreen']
 
     # SCA
-    # colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
-    #            'limegreen', 'tab:green', 'darkgreen',
-    #            'tab:red', 'brown', 'darkred',
-    #            'violet', 'tab:purple', 'indigo'
-    #            ]
+    colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
+               'limegreen', 'tab:green', 'darkgreen',
+               'tab:red', 'brown', 'darkred',
+               'violet', 'tab:purple', 'indigo'
+               ]
 
     # colors = ['lavender','lightsteelblue', 'tab:blue', 'mediumblue','darkblue',
     #           'lightgreen','limegreen', 'tab:green','green', 'darkgreen',
@@ -185,6 +185,9 @@ class PARAMETERS:
 
     # colors = ['tab:red', 'orangered', 'darkred',
     #           'violet', 'tab:purple', 'indigo']
+
+    # colors = ['lightcoral','tab:red', 'orangered', 'darkred',
+    #           'thistle','violet', 'tab:purple', 'indigo']
 
     # colors = ['sandybrown', 'tab:brown',
     #           'lightcoral', 'tab:red',
@@ -258,9 +261,9 @@ class PARAMETERS:
                 "isAllContextSearchAllowedForLearning": cls.isAllContextSearchAllowedForLearning,
                 "isAllContextSearchAllowedForExploitation": cls.isAllContextSearchAllowedForExploitation,
                 "probabilityOfRangeAmbiguity": cls.probabilityOfRangeAmbiguity,
-                # "isActiveExploitation": cls.isActiveExploitation,
-                # "activeExploitationCycles" : cls.activeExploitationCycles,
-                # "noise": cls.noise,
+                "isActiveExploitation": cls.isActiveExploitation,
+                "activeExploitationCycles" : cls.activeExploitationCycles,
+                "noise": cls.noise,
                 # "nbAgents_Average" : cls.nbAgents,
                 }
 

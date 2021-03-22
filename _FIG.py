@@ -103,6 +103,51 @@ def figWithDeviationFillBetween(xArrays, yArrays, errorArrays, labelsString, xla
     plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
     # plt.show()
 
+def figSimple(xArrays, yArrays, errorArrays, labelsString, xlabelString, yLabelString, colors, intervalColors, markers, figureName, logXScale, logYScale, size):
+
+    # ls = 'dotted'
+    ls = (0,(1,5))
+    fig, ax = plt.subplots(figsize=(size[0], size[1]))
+
+
+
+    for x,y,error,labelString,color, intervalColor, marker in zip(xArrays,yArrays,errorArrays,labelsString, colors, intervalColors, markers):
+
+
+        ax.errorbar(x, y, marker=marker, markersize=8, linestyle=ls, label=labelString, color = color)
+        # ax.fill_between(x, (y - error), (y + error), color=intervalColor, alpha=PLOTTING.ALPHA_FILL)
+        #ax.errorbar(x, y + error, marker='_', markersize=12, color=color, linestyle='none')
+        #ax.errorbar(x, y - error, marker='_', markersize=12, color=color, linestyle='none')
+
+
+
+
+    # tidy up the figure
+    # ax.set_xlim((0, 5.5))
+    #ax.set_ylim((-1.5, 10))
+    # ax.set_title(figureName)
+    plt.grid()
+
+
+
+    ax.set_xlabel(xlabelString)  # Add an x-label to the axes.
+    ax.set_ylabel(yLabelString)  # Add a y-label to the axes.
+
+    if PLOTTING.LEGEND_IN:
+        plt.legend()
+    elif PLOTTING.LEGEND_OUT:
+        plt.legend(bbox_to_anchor=(1.05, 1.0), loc='upper left')
+
+    if (logXScale):
+        plt.xscale("log")
+        figureName+="_xlog"
+    if (logYScale):
+        plt.yscale("log")
+        figureName+="_ylog"
+
+    plt.savefig("Figures/" + formatFigName(figureName) + ".png", bbox_inches='tight')
+    # plt.show()
+
 def figWithMinMax(xArrays, yArrays, minArrays, maxArrays, labelsString, xlabelString, yLabelString, colors, intervalColors, markers, figureName, logXScale, logYScale, size):
 
     # ls = 'dotted'

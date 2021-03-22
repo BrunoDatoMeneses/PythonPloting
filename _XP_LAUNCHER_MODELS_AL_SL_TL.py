@@ -75,7 +75,7 @@ if __name__ == "__main__":
     # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
     learningCycles = ["4000"]
     exploitationCycles = ["500"]
-    episodes = ["100"]
+    episodes = ["50"]
 
     # Neighborhood
     precisionRanges = ["0.05"]
@@ -138,7 +138,7 @@ if __name__ == "__main__":
 # // PARAMS.model = "squareSplitTriangle";
 # // PARAMS.model = "squareSplitFixed";
 
-    models = ["multi"]
+
     setbootstrapCycles = ["10"]
 
     exogenousLearningWeight= ["0.1"]

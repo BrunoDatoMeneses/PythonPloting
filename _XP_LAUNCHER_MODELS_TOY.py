@@ -173,11 +173,131 @@ if __name__ == "__main__":
     selfLearning = ["false"]
     setLearnFromNeighbors = ["false"]
 
-    listOfValaidityRanges = ["0.02","0.05","0.1","0.15","0.2"]
+    # listOfValaidityRanges = ["0.02","0.05","0.1","0.15","0.2"]
+    listOfValaidityRanges = [ "0.05", "0.1", "0.15", "0.2"]
+    # listOfValaidityRanges = ["0.1"]
+
+    # NCS
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
+    setVoidDetection = ["true"]
+    setFusionResolution = ["true"]
+    setRestructureResolution = ["true"]
+    setFrontierRequest = ["true"]
 
     for rg in listOfValaidityRanges:
         precisionRanges = [rg]
         launch()
+
+    listOfValaidityRanges = ["0.1"]
+
+    # NCS
+
+    setSelfModelRequest = ["false"]
+    setConflictDetection = ["false"]
+    setConcurrenceDetection = ["false"]
+    setVoidDetection = ["false"]
+    setFusionResolution = ["false"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+    # NCS
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["false"]
+    setConcurrenceDetection = ["false"]
+    setVoidDetection = ["false"]
+    setFusionResolution = ["false"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+
+    # NCS
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["false"]
+    setVoidDetection = ["false"]
+    setFusionResolution = ["false"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+
+    # NCS
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
+    setVoidDetection = ["false"]
+    setFusionResolution = ["false"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+
+    # NCS
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
+    setVoidDetection = ["true"]
+    setFusionResolution = ["false"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+
+
+    # NCS
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
+    setVoidDetection = ["true"]
+    setFusionResolution = ["true"]
+    setRestructureResolution = ["false"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+
+
+    setSelfModelRequest = ["true"]
+    setConflictDetection = ["true"]
+    setConcurrenceDetection = ["true"]
+    setVoidDetection = ["true"]
+    setFusionResolution = ["true"]
+    setRestructureResolution = ["true"]
+    setFrontierRequest = ["false"]
+
+    for rg in listOfValaidityRanges:
+        precisionRanges = [rg]
+        launch()
+
+
+
 
 
 
