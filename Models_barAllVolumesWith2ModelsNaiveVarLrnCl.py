@@ -18,7 +18,7 @@ yStringLong ="Volumes"
 
 figVaryingParamString = "learningCycles"
 # varyingParamStringValues = ["50","75","150"]
-varyingParamStringValues = ["50"]
+varyingParamStringValues = ["200"]
 varyingParamStrings = []
 paramlabelString = r'$\mathcal{L}^N = $'
 PARAMETERS.learningCycles= "("
@@ -77,7 +77,7 @@ PARAMETERS.errorMargin = "1.0"
 PARAMETERS.isLearnFromNeighbors = "false"
 PARAMETERS.isCreationFromNeighbor = "false"
 
-PARAMETERS.isModelNCS = "true"
+PARAMETERS.isModelNCS = "false"
 PARAMETERS.isConflictNCS = "false"
 PARAMETERS.isConcurenceNCS = "false"
 PARAMETERS.isIncompetenceNCS = "false"
@@ -111,7 +111,7 @@ PARAMETERS.errorMargin = "0.05" # "0.05"
 PARAMETERS.isLearnFromNeighbors = "false"
 PARAMETERS.isCreationFromNeighbor = "false"
 
-PARAMETERS.isModelNCS = "true"
+PARAMETERS.isModelNCS = "false"
 PARAMETERS.isConflictNCS = "false"
 PARAMETERS.isConcurenceNCS = "false"
 PARAMETERS.isIncompetenceNCS = "false"

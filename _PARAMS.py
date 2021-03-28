@@ -6,20 +6,20 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "squareFixed"
-    learningCycles = "2000"
+    model = "gaussianCos2"
+    learningCycles = "50"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.1"
+    validityRangesPrecision = "0.02"
 
-    isActiveLearning = "true"
-    isSelfLearning = "false"
-    isLearnFromNeighbors = "false"
+    # isActiveLearning = "true"
+    # isSelfLearning = "false"
+    # isLearnFromNeighbors = "false"
 
-    # isActiveLearning = "false"
-    # isSelfLearning = "true"
-    # isLearnFromNeighbors = "true"
+    isActiveLearning = "false"
+    isSelfLearning = "true"
+    isLearnFromNeighbors = "true"
 
     LEARNING_WEIGHT_ACCURACY = "1.0"
     LEARNING_WEIGHT_PROXIMITY = "0.0"
@@ -68,7 +68,7 @@ class PARAMETERS:
     probabilityOfRangeAmbiguity = "0.1"
 
     isActiveExploitation = "false"
-    activeExploitationCycles = "1000"
+    activeExploitationCycles = "0"
 
     noise = "0.0"
 
@@ -123,14 +123,14 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green',  'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
     #           'tab:olive', 'tab:cyan'] #TF
-    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
     # colors = ['tab:blue', 'tab:orange', 'tab:green']
     # colors = ['tab:red', 'tab:purple']
 
-    # colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
+    colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']
@@ -152,11 +152,11 @@ class PARAMETERS:
     #            'limegreen', 'tab:green', 'darkgreen']
 
     # SCA
-    colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
-               'limegreen', 'tab:green', 'darkgreen',
-               'tab:red', 'brown', 'darkred',
-               'violet', 'tab:purple', 'indigo'
-               ]
+    # colors = [ 'lightsteelblue', 'tab:blue', 'mediumblue',
+    #            'limegreen', 'tab:green', 'darkgreen',
+    #            'tab:red', 'brown', 'darkred',
+    #            'violet', 'tab:purple', 'indigo'
+    #            ]
 
     # colors = ['lavender','lightsteelblue', 'tab:blue', 'mediumblue','darkblue',
     #           'lightgreen','limegreen', 'tab:green','green', 'darkgreen',

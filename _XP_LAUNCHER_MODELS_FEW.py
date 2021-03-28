@@ -200,36 +200,36 @@ if __name__ == "__main__":
         models = [mod]
         regressionPerformances = [perf]
 
-        learningCycles = ["200"]
+        learningCycles = ["50"]
         precisionRanges = ["0.02"]
         neighborhoodMultiplicators = ["2"]
         externalInfluenceRatios = ["0.5"]
         endogenousLearningWeight = ["0.1"]
         exogenousLearningWeight = ["0.1"]
 
-        # SELF LEARNING
-        activeLearning = ["false"]
-        selfLearning = ["true"]
-        setLearnFromNeighbors = ["true"]
-
-        setSelfModelRequest = ["true"]
-        setConflictDetection = ["true"]
-        setConcurrenceDetection = ["true"]
-        setVoidDetection = ["false"]
-        setFusionResolution = ["true"]
-        setRestructureResolution = ["true"]
-        setFrontierRequest = ["true"]
-
-        setCreationFromNeighbor = ["true"]
-
-        launch()
+        # # SELF LEARNING
+        # activeLearning = ["false"]
+        # selfLearning = ["true"]
+        # setLearnFromNeighbors = ["true"]
+        #
+        # setSelfModelRequest = ["true"]
+        # setConflictDetection = ["true"]
+        # setConcurrenceDetection = ["true"]
+        # setVoidDetection = ["false"]
+        # setFusionResolution = ["true"]
+        # setRestructureResolution = ["true"]
+        # setFrontierRequest = ["true"]
+        #
+        # setCreationFromNeighbor = ["true"]
+        #
+        # launch()
 
         # NAIVE LEARNING
         activeLearning = ["false"]
         selfLearning = ["true"]
         setLearnFromNeighbors = ["false"]
 
-        setSelfModelRequest = ["true"]
+        setSelfModelRequest = ["false"]
         setConflictDetection = ["false"]
         setConcurrenceDetection = ["false"]
         setVoidDetection = ["false"]

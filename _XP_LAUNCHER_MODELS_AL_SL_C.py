@@ -236,7 +236,7 @@ if __name__ == "__main__":
     selfLearning = ["true"]
     setLearnFromNeighbors = ["false"]
 
-    setSelfModelRequest = ["true"]
+    setSelfModelRequest = ["false"]
     setConflictDetection = ["false"]
     setConcurrenceDetection = ["false"]
     setVoidDetection = ["false"]

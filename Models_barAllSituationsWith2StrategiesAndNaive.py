@@ -66,16 +66,59 @@ for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yString
 figName = PARAMETERS.model + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
 
-varyingParamStrings = ["Active Learning","Self-Learning"]
+varyingParamStrings = ["Naive Learning","Active Learning","Self-Learning"]
 
 constrains = []
+
+# NAIVE
+PARAMETERS.isActiveLearning = "false"
+PARAMETERS.isSelfLearning = "true"
+PARAMETERS.isLearnFromNeighbors = "false"
+
+PARAMETERS.isCreationFromNeighbor = "false"
+
+PARAMETERS.isModelNCS = "false"
+PARAMETERS.isConflictNCS = "false"
+PARAMETERS.isConcurenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isFusionResolution = "false"
+PARAMETERS.isRetructureResolution = "false"
+PARAMETERS.isAmbiguityNCS = "false"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+# ACTIVE
 PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "false"
+
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "true"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
+
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+# SELF
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
+
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "true"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
+
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 

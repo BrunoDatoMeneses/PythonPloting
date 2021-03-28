@@ -11,27 +11,26 @@ from _PARAMS import PARAMETERS
 figEndName = "-AllNCS"
 
 
-ylabel = 'Generalization Score (%)'
-yStringLong ="generalizationScore"
+ylabel = 'Volumes (%)'
+yStringLong ="Volumes"
 
+varyingParamStrings = ["Active Learning","Self-Learning"]
 
+# figVaryingParamString = "learningCycles"
+# varyingParamStringValues = ["500","1000","1500","2000"]
+# varyingParamStrings = []
+# paramlabelString = " Learning Cycles"
+# PARAMETERS.learningCycles= "("
+# for value in varyingParamStringValues:
+#     # precisionRange+=  str(int(100*float(label))) + "_"
+#     # labelStrings.append(labelString + str(int(100*float(label))) + " %")
+#     PARAMETERS.learningCycles += value + "_"
+#     varyingParamStrings.append(value + paramlabelString)
+#
+# PARAMETERS.learningCycles += ")"
 
-figVaryingParamString = "learningCycles"
-# varyingParamStringValues = ["50","75","150"]
-varyingParamStringValues = ["200"]
-varyingParamStrings = []
-paramlabelString = r'$\mathcal{L}^N = $'
-PARAMETERS.learningCycles= "("
-for value in varyingParamStringValues:
-    # precisionRange+=  str(int(100*float(label))) + "_"
-    # labelStrings.append(labelString + str(int(100*float(label))) + " %")
-    PARAMETERS.learningCycles += value + "_"
-    varyingParamStrings.append(paramlabelString + value)
-
-PARAMETERS.learningCycles += ")"
-
-PARAMETERS.figSize = (1.5, 3.75)
-yStrings = ["generalizationScore"]
+PARAMETERS.figSize = (4.5, 3.75)
+yStrings = ["conflictVol","concurrenceVol","voidVol"]
 # yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
@@ -43,7 +42,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = [""]
+xLabelStrings = ["Conflicts", "Concurrencies", "Incompetencies"]
 # xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
@@ -60,21 +59,18 @@ XYDevMinMax = []
 for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
     XYDevMinMax.append([y, yDev, min, max])
 
-
-
-figName = "few_2Mod_" + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+figName = PARAMETERS.figPrefix + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
+
+varyingParamStrings = ["Naive Learning","Active Learning","Self-Learning"]
 
 constrains = []
 
-
+# NAIVE
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
-
-PARAMETERS.model = "gaussianCos2"
-PARAMETERS.errorMargin = "1.0"
-
 PARAMETERS.isLearnFromNeighbors = "false"
+
 PARAMETERS.isCreationFromNeighbor = "false"
 
 PARAMETERS.isModelNCS = "false"
@@ -85,79 +81,46 @@ PARAMETERS.isFusionResolution = "false"
 PARAMETERS.isRetructureResolution = "false"
 PARAMETERS.isAmbiguityNCS = "false"
 
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
-for varyingValue in varyingParamStringValues:
-    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
-
-
-PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.isCreationFromNeighbor = "true"
-
-PARAMETERS.isModelNCS = "true"
-PARAMETERS.isConflictNCS = "true"
-PARAMETERS.isConcurenceNCS = "true"
-PARAMETERS.isIncompetenceNCS = "false"
-PARAMETERS.isFusionResolution = "true"
-PARAMETERS.isRetructureResolution = "true"
-PARAMETERS.isAmbiguityNCS = "true"
-
-for varyingValue in varyingParamStringValues:
-    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
-
-
-PARAMETERS.model = "cosSinX" # "cosSinX"
-PARAMETERS.errorMargin = "0.05" # "0.05"
-
+# ACTIVE
+PARAMETERS.isActiveLearning = "true"
+PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "false"
-PARAMETERS.isCreationFromNeighbor = "false"
 
-PARAMETERS.isModelNCS = "false"
-PARAMETERS.isConflictNCS = "false"
-PARAMETERS.isConcurenceNCS = "false"
-PARAMETERS.isIncompetenceNCS = "false"
-PARAMETERS.isFusionResolution = "false"
-PARAMETERS.isRetructureResolution = "false"
-PARAMETERS.isAmbiguityNCS = "false"
-
-for varyingValue in varyingParamStringValues:
-    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
-
-
-
-PARAMETERS.isLearnFromNeighbors = "true"
 PARAMETERS.isCreationFromNeighbor = "true"
 
 PARAMETERS.isModelNCS = "true"
 PARAMETERS.isConflictNCS = "true"
 PARAMETERS.isConcurenceNCS = "true"
-PARAMETERS.isIncompetenceNCS = "false"
+PARAMETERS.isIncompetenceNCS = "true"
 PARAMETERS.isFusionResolution = "true"
 PARAMETERS.isRetructureResolution = "true"
 PARAMETERS.isAmbiguityNCS = "true"
 
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+# SELF
+PARAMETERS.isActiveLearning = "false"
+PARAMETERS.isSelfLearning = "true"
+PARAMETERS.isLearnFromNeighbors = "true"
+
+PARAMETERS.isCreationFromNeighbor = "true"
+
+PARAMETERS.isModelNCS = "true"
+PARAMETERS.isConflictNCS = "true"
+PARAMETERS.isConcurenceNCS = "true"
+PARAMETERS.isIncompetenceNCS = "true"
+PARAMETERS.isFusionResolution = "true"
+PARAMETERS.isRetructureResolution = "true"
+PARAMETERS.isAmbiguityNCS = "true"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
 
-for varyingValue in varyingParamStringValues:
-    constrains.append(PARAMETERS.getConstainsLabelsAreParamsWithVaryingParam(xLabelStrings,figVaryingParamString, XYDevMinMax,varyingValue))
+PLOTTING.ROTATION = 0
 
-
-# varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
-varyingParamStringsFinal=["NLC Naive","NLC SL","NLD Naive","NLD SL"]
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("NLC naive "+lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("NLC SL "+lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("NLD naive "+lbl)
-# for lbl in varyingParamStrings:
-#     varyingParamStringsFinal.append("NLD SL "+lbl)
-
-
-
-PLOTTING.ROTATION = 22.5
-
-PLOTTING.LEGEND_IN=False
-_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStringsFinal, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
+_PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, logYScale,
                                   constrains, 1, 100, PARAMETERS.figSize)
 
