@@ -6,20 +6,20 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
-    model = "gaussianCos2"
-    learningCycles = "50"
+    model = "squareFixed"
+    learningCycles = "500"
     exploitatingCycles = "250"
     episodes = "15"
 
-    validityRangesPrecision = "0.02"
+    validityRangesPrecision = "0.1"
 
-    # isActiveLearning = "true"
-    # isSelfLearning = "false"
-    # isLearnFromNeighbors = "false"
+    isActiveLearning = "true"
+    isSelfLearning = "false"
+    isLearnFromNeighbors = "false"
 
-    isActiveLearning = "false"
-    isSelfLearning = "true"
-    isLearnFromNeighbors = "true"
+    # isActiveLearning = "false"
+    # isSelfLearning = "true"
+    # isLearnFromNeighbors = "true"
 
     LEARNING_WEIGHT_ACCURACY = "1.0"
     LEARNING_WEIGHT_PROXIMITY = "0.0"
@@ -123,14 +123,14 @@ class PARAMETERS:
 
     # colors = ['tab:blue', 'tab:orange', 'tab:green',  'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink', 'tab:gray',
     #           'tab:olive', 'tab:cyan'] #TF
-    # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
+    colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:green', 'tab:orange', 'tab:red', 'tab:purple', 'tab:brown', 'tab:pink','tab:gray','tab:olive','tab:cyan']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple']
     # colors = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red']
     # colors = ['tab:blue', 'tab:orange', 'tab:green']
     # colors = ['tab:red', 'tab:purple']
 
-    colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
+    # colors = [ 'tab:brown', 'tab:red', 'tab:gray', 'tab:purple']
 
     # colors = ['lightsteelblue', 'tab:blue', 'midnightblue', 'gold', 'tab:orange', 'tab:red', 'lightgreen', 'tab:green', 'darkgreen']
     # colors = ['lightsteelblue', 'tab:blue', 'gold', 'tab:orange', 'lightgreen', 'tab:green']

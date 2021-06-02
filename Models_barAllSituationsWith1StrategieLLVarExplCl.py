@@ -30,7 +30,7 @@ yStringLong ="Situations"
 # PARAMETERS.activeExploitationCycles += ")"
 
 
-yStrings = ["rdmLearning","rdmExploitation","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
+yStrings = ["rdmLearning","rdmExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -41,7 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Passive Exploitation","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
+xLabelStrings = ["Passive Learning","Passive Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
 
 
 
@@ -73,18 +73,20 @@ varyingParamValues = ["0","1000","10000","20000","100000"]
 
 varyingParamStrings = []
 for val in varyingParamValues:
-    varyingParamStrings.append(r'$\mathcal{E}^N_{lifelong} = $' + val)
+    varyingParamStrings.append(r'$\mathcal{E}_{\#}^{lifelong} = $' + val)
+
 
 
 PARAMETERS.isActiveLearning = "false"
 PARAMETERS.isSelfLearning = "true"
 PARAMETERS.isLearnFromNeighbors = "true"
-PARAMETERS.isActiveExploitation = "false"
+PARAMETERS.isActiveExploitation = "true"
+PARAMETERS.activeExploitationCycles = "0"
 
 constrains = []
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax));
 
-PARAMETERS.isActiveExploitation = "true"
+
 
 for val in varyingParamValues[1:]:
     PARAMETERS.activeExploitationCycles = val

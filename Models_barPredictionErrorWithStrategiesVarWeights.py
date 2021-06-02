@@ -4,15 +4,15 @@ from Utils import transpose
 import os
 import csv
 
-# transpose.transposeFiles()
+
 from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
 figEndName = "-AllNCS"
 
 #xlabel = 'Learning Cycles (#)'
-ylabel = 'Situations (#)'
-yStringLong ="Situations"
+ylabel = 'Prediction Error (%)'
+yStringLong ="predictionError"
 
 
 
@@ -28,21 +28,21 @@ yStringLong ="Situations"
 #     varyingParamStrings.append(value + paramlabelString)
 #
 # PARAMETERS.learningCycles += ")"
-
-
-yStrings = ["rdmLearning","activeLearning","exogenousLearning","endogenousLearning","endogenousExploitation"]
+PARAMETERS.figSize = (1.5, 3.75)
+yStrings = ["predictionError"]
+# yStrings = ["mappingScore","imprecisionScore","conflictVol","concurrenceVol","voidVol"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
 yStringsMax = []
 for string in yStrings:
     yStringsAvg.append(string+"_Average")
-    yStringsDev.append(string+"_Deviation")
+    yStringsDev.append(string+"Deviation_Average")
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Active Learning","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
-
+xLabelStrings = [""]
+# xLabelStrings = ["Agents", "Innacuracies", "Conflicts", "Concurrencies", "Incompetencies"]
 
 
 
@@ -55,18 +55,14 @@ logYScale = False
 #     yStringLong += label  + "_"
 
 XYDevMinMax = []
-for y,yDev,min,max,yString in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax,yStrings):
-    if(yString == "endogenousLearning"):
-        XYDevMinMax.append([y, yDev, min, max,0.1])
-    else:
-        XYDevMinMax.append([y, yDev, min, max, 1])
+for y,yDev,min,max in zip(yStringsAvg, yStringsDev, yStringsMin, yStringsMax):
+    XYDevMinMax.append([y, yDev, min, max])
+
+varyingParamStrings = ["All","Performance","Generalization","Experience"]
 
 
-varyingParamStrings = ["Active Learning","Active Cooperative Learning","Self-Learning"]
-PARAMETERS.figSize = (10, 3.75)
-figName = "noise_3Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
+figName = "weight_Strat_" + PARAMETERS.noise + "_" + yStringLong + "-" + PARAMETERS.getFigName() + figEndName
 print(figName)
-
 
 constrains = []
 
@@ -74,30 +70,60 @@ PARAMETERS.isActiveLearning = "true"
 PARAMETERS.isSelfLearning = "false"
 PARAMETERS.isLearnFromNeighbors = "false"
 
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+PARAMETERS.LEARNING_WEIGHT_ACCURACY = "1.0"
+PARAMETERS.LEARNING_WEIGHT_EXPERIENCE = "1.0"
+PARAMETERS.LEARNING_WEIGHT_GENERALIZATION = "1.0"
 
-PARAMETERS.isActiveLearning = "true"
-PARAMETERS.isSelfLearning = "false"
-PARAMETERS.isLearnFromNeighbors = "true"
-
-constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
-
-PARAMETERS.isActiveLearning = "false"
-PARAMETERS.isSelfLearning = "true"
-PARAMETERS.isLearnFromNeighbors = "true"
+PARAMETERS.EXPLOITATION_WEIGHT_PROXIMITY = "1.0"
+PARAMETERS.EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
+PARAMETERS.EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
 
 constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
 
+PARAMETERS.LEARNING_WEIGHT_ACCURACY = "1.0"
+PARAMETERS.LEARNING_WEIGHT_EXPERIENCE = "0.5"
+PARAMETERS.LEARNING_WEIGHT_GENERALIZATION = "0.5"
 
-PLOTTING.ROTATION = 22.5
+PARAMETERS.EXPLOITATION_WEIGHT_PROXIMITY = "1.0"
+PARAMETERS.EXPLOITATION_WEIGHT_EXPERIENCE = "0.5"
+PARAMETERS.EXPLOITATION_WEIGHT_GENERALIZATION = "0.5"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+PARAMETERS.LEARNING_WEIGHT_ACCURACY = "0.5"
+PARAMETERS.LEARNING_WEIGHT_EXPERIENCE = "1.0"
+PARAMETERS.LEARNING_WEIGHT_GENERALIZATION = "0.5"
+
+PARAMETERS.EXPLOITATION_WEIGHT_PROXIMITY = "0.5"
+PARAMETERS.EXPLOITATION_WEIGHT_EXPERIENCE = "1.0"
+PARAMETERS.EXPLOITATION_WEIGHT_GENERALIZATION = "0.5"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+PARAMETERS.LEARNING_WEIGHT_ACCURACY = "0.5"
+PARAMETERS.LEARNING_WEIGHT_EXPERIENCE = "0.5"
+PARAMETERS.LEARNING_WEIGHT_GENERALIZATION = "1.0"
+
+PARAMETERS.EXPLOITATION_WEIGHT_PROXIMITY = "0.5"
+PARAMETERS.EXPLOITATION_WEIGHT_EXPERIENCE = "0.5"
+PARAMETERS.EXPLOITATION_WEIGHT_GENERALIZATION = "1.0"
+
+constrains.append(PARAMETERS.getConstainsLabelsAreYStrings(xLabelStrings, XYDevMinMax))
+
+
+
+
+
+PLOTTING.LEGEND_IN=False
+# PLOTTING.LEGEND_OUT=True
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
-                                  figName, ylabel, False, False,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  figName, ylabel, False, logYScale,
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 _PLOT.barWithDeviationConstrained(xLabelStrings, varyingParamStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
                                   figName, ylabel, False, True,
-                                  constrains, 1, 1, PARAMETERS.figSize)
+                                  constrains, 1, 100, PARAMETERS.figSize)
 
 # _PLOT.plotWitMinMaxWithFillBetweenConstrained(labelStrings, PARAMETERS.colors, PARAMETERS.intervalColors, PARAMETERS.markers,
 #                                    figName, xlabel, ylabel, False, logYScale,

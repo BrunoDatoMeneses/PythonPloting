@@ -4,7 +4,7 @@ from Utils import transpose
 import os
 import csv
 
-# transpose.transposeFiles()
+
 from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
 
@@ -31,7 +31,7 @@ for value in varyingParamStringValues:
 PARAMETERS.learningCycles += ")"
 
 PARAMETERS.figSize = (10, 3.75)
-yStrings = ["rdmLearning","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
+yStrings = ["rdmLearning","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -42,7 +42,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
+xLabelStrings = ["Passive Learning","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
 
 
 

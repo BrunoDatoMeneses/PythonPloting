@@ -30,7 +30,7 @@ yStringLong ="Situations"
 # PARAMETERS.learningCycles += ")"
 
 PARAMETERS.figSize = (8, 3.75)
-yStrings = ["rdmLearning","activeLearning","activeExploitation","exogenousLearning","endogenousLearning","endogenousExploitation"]
+yStrings = ["rdmLearning","activeLearning","exogenousLearning","endogenousLearning","endogenousExploitation"]
 yStringsAvg = []
 yStringsDev = []
 yStringsMin = []
@@ -41,7 +41,7 @@ for string in yStrings:
     yStringsMin.append(string+"_Min")
     yStringsMax.append(string+"_Max")
 
-xLabelStrings = ["Passive Learning","Active Learning","Active Exploitation","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
+xLabelStrings = ["Passive Learning","Active Learning","Exo. Learning","Endo. Learning /10","Endo. Exploitation"]
 
 
 

@@ -2,8 +2,6 @@ import _PLOT
 from Utils import transpose
 
 import os
-import csv
-
 
 from _FIG import PLOTTING
 from _PARAMS import PARAMETERS
