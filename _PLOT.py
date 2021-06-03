@@ -4,6 +4,7 @@ import csv
 
 import _FIG
 
+"""Methods for the exploitation of the transpose XP files"""
 
 def plotWithDeviation2(labels, colors, markers, figName, xlabel, ylabel, logXScale, logYScale, xString, yString, deviationString, constraints1, constraints2, xModificationCoef, yModificationCoef):
 
@@ -488,20 +489,20 @@ def getBarValuesFromFilesAndConstrains(dicoConstrains, yModificationCoef):
     for root, dirs, files in os.walk("TFiles"):
 
         for filename in files:
-            with open("TFILES/" + filename) as csvfile:
-                csv_reader = csv.DictReader(csvfile, delimiter=';')
-                for row in csv_reader:
+            if(filename!="info.md"):
+                with open("TFiles/" + filename) as csvfile:
+                    csv_reader = csv.DictReader(csvfile, delimiter=';')
+                    for row in csv_reader:
 
-                    test = True
-                    for constrainString, constrainValue in dicoConstrains[1].items():
+                        test = True
+                        for constrainString, constrainValue in dicoConstrains[1].items():
 
-                        test = test and (row[constrainString]==constrainValue)
+                            test = test and (row[constrainString]==constrainValue)
 
-                    if(test):
-                        file = filename
+                        if(test):
+                            file = filename
 
-
-    with open("TFILES/" + file) as csvfile:
+    with open("TFiles/" + file) as csvfile:
         csv_reader = csv.DictReader(csvfile, delimiter=';')
         for row in csv_reader:
             print(dicoConstrains[0])

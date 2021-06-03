@@ -1,3 +1,5 @@
+"""Class to set the fixed parameters and transform the parameters into constrain lists for the generation of the plots"""
+
 class PARAMETERS:
     """PARAMETERS"""
 
@@ -6,6 +8,7 @@ class PARAMETERS:
     # figSize = (16,9)
 
     dimension = "2"
+    configFile = "twoDimensionsLauncher"
     model = "squareFixed"
     learningCycles = "500"
     exploitatingCycles = "250"
@@ -17,9 +20,6 @@ class PARAMETERS:
     isSelfLearning = "false"
     isLearnFromNeighbors = "false"
 
-    # isActiveLearning = "false"
-    # isSelfLearning = "true"
-    # isLearnFromNeighbors = "true"
 
     LEARNING_WEIGHT_ACCURACY = "1.0"
     LEARNING_WEIGHT_PROXIMITY = "0.0"
@@ -67,8 +67,10 @@ class PARAMETERS:
     isAllContextSearchAllowedForExploitation = "true"
     probabilityOfRangeAmbiguity = "0.1"
 
+    transferRatio = "0.0"
+
     isActiveExploitation = "false"
-    activeExploitationCycles = "0"
+    activeExploitationCycles = "1000"
 
     noise = "0.0"
 

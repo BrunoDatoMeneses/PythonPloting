@@ -10,6 +10,16 @@ def transposeFiles():
             with open("Files/"+filename) as f, open("TFiles/T_"+filename, 'w') as fw:
                 writer(fw, delimiter=';').writerows(zip(*reader(f, delimiter=';')))
 
+def transposeFilesWithPaths(sourceDirectoryPath,targetDirectoryPath):
+
+
+    for root, dirs, files in os.walk(sourceDirectoryPath):
+        for filename in files:
+            if(filename != "info.md"):
+                print(filename)
+                with open(sourceDirectoryPath+"/"+filename) as f, open(targetDirectoryPath+"/T_"+filename, 'w') as fw:
+                    writer(fw, delimiter=';').writerows(zip(*reader(f, delimiter=';')))
+
 def rename():
 
     for file in os.listdir("Files"):

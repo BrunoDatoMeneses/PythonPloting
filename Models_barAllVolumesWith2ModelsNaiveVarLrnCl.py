@@ -4,7 +4,7 @@ from Utils import transpose
 import os
 
 from _FIG import PLOTTING
-from _PARAMS import PARAMETERS
+from _paramsManager import PARAMETERS
 
 figEndName = "-AllNCS"
 

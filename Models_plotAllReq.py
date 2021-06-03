@@ -5,7 +5,7 @@ import os
 import csv
 
 # transpose.transposeFiles()
-from _PARAMS import PARAMETERS
+from _paramsManager import PARAMETERS
 
 figEndName = "-AllNCS"
 yStringLong ="ActiveRequests"

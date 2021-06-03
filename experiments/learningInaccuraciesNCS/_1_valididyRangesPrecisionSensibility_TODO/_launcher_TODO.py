@@ -58,21 +58,11 @@ def launch():
 
 if __name__ == "__main__":
 
-    # dimensions = ['2', '3', '4', '5']
-    # configFiles = ["twoDimensionsLauncher", "threeDimensionsLauncher", "fourDimensionsLauncher",
-    #                "fiveDimensionsLauncher"]
 
-    # dimensions = ['2','3','4','5','10']
-    # configFiles = ["twoDimensionsLauncher","threeDimensionsLauncher","fourDimensionsLauncher","fiveDimensionsLauncher","tenDimensionsLauncher"]
 
     dimensions = ['2']
     configFiles = ["twoDimensionsLauncher"]
 
-    # learningCycles = []
-    # for i in range(1,5):
-    #     learningCycles.append(""+ str(i*500))
-    # print(learningCycles)
-    # learningCycles = ["50","100","150","500","1000","2000","5000","10000"]
     learningCycles = ["500"]
     exploitationCycles = ["250"]
     episodes = ["15"]
@@ -82,11 +72,6 @@ if __name__ == "__main__":
     neighborhoodMultiplicators = ["2"]
     externalInfluenceRatios = ["0.5"]
     regressionPerformances = ["1.0"]
-
-    # Learning
-    activeLearning = ["true"]
-    selfLearning = ["false"]
-
 
     # NCS
 
@@ -98,43 +83,15 @@ if __name__ == "__main__":
     setRestructureResolution = ["true"]
     setFrontierRequest = ["true"]
 
-
-
     setSubVoidDetection = ["false"]
-
-    # setConflictDetection = ["true","false"]
-    # setConcurrenceDetection = ["true","false"]
-    # setVoidDetection = ["true","false"]
-    # setSubVoidDetection = ["false"]
-    # setFrontierRequest = ["true","false"]
-    # setSelfModelRequest = ["true","false"]
-    # setFusionResolution = ["true","false"]
-    # setRestructureResolution = ["true","false"]
 
     setDream = ["false"]
     setDreamCycleLaunch = ["1500"]
 
-    setLearnFromNeighbors = ["false"]
 
     nbOfNeighborForLearningFromNeighbors = ["1"]
     nbOfNeighborForContexCreationWithouOracle = ["7"]
     setCreationFromNeighbor = ["true"]
-
-    # Other
-# squareFixed, triangle, disc, squareDiag, squareDiagCircle
-# // PARAMS.model = "multi";
-# // PARAMS.model = "disc";
-# // PARAMS.model = "square";
-# // PARAMS.model = "squareFixed";
-# // PARAMS.model = "triangle";
-# // PARAMS.model = "gaussian";
-# // PARAMS.model = "polynomial";
-# // PARAMS.model = "gaussianCos2";
-# // PARAMS.model = "cosX";
-# // PARAMS.model = "cosSinX";
-# // PARAMS.model = "rosenbrock";
-# // PARAMS.model = "squareSplitTriangle";
-# // PARAMS.model = "squareSplitFixed";
 
     models = ["squareFixed"]
     setbootstrapCycles = ["10"]
@@ -175,7 +132,7 @@ if __name__ == "__main__":
 
     # listOfValaidityRanges = ["0.02","0.05","0.1","0.15","0.2"]
     listOfValaidityRanges = [ "0.05", "0.1", "0.15", "0.2"]
-    # listOfValaidityRanges = ["0.1"]
+    listOfValaidityRanges = ["0.1"]
 
     # NCS
 
