@@ -207,8 +207,6 @@ if __name__ == "__main__":
 
     launch()
 
-
-
     # add Complete Redundancy NCS
 
     setSelfModelRequest = ["true"]
@@ -246,6 +244,7 @@ if __name__ == "__main__":
     launch()
 
     transpose.transposeFilesWithPaths("XP", "TFiles")
+
 
     a_barPlot_passiveAndActiveLearningSituations.generateFigures()
     b_barplot_inaccuraciesVolumes.generateFigures()
