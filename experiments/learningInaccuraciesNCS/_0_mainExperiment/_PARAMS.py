@@ -12,7 +12,7 @@ class PARAMETERS:
     model = "squareFixed"
     learningCycles = "500"
     exploitatingCycles = "250"
-    episodes = "15"
+    episodes = "2"
 
     validityRangesPrecision = "0.1"
 

@@ -2,6 +2,12 @@
 import itertools
 import os
 
+import experiments
+from Utils import transpose
+from experiments.learningInaccuraciesNCS._0_mainExperiment import a_barPlot_passiveAndActiveLearningSituations, \
+    b_barplot_inaccuraciesVolumes, c_barPlot_nbAgents, d_barPlot_generalizationScore, e_barPlot_predictionError, \
+    f_barPlot_learningInaccuraciesNCSCounts
+
 from experiments.learningInaccuraciesNCS._0_mainExperiment._PARAMS import PARAMETERS
 
 
@@ -60,7 +66,7 @@ def launch():
             arguments += fileName
             argumentsList.append(fileName)
 
-            os.system("java -jar ../../../Jars/ELLSA.jar " + arguments)
+            os.system("java -jar ../../../Jars/_ELLSA.jar " + arguments)
             print("")
 
 
@@ -238,6 +244,16 @@ if __name__ == "__main__":
     setFrontierRequest = ["true"]
 
     launch()
+
+    transpose.transposeFilesWithPaths("XP", "TFiles")
+
+    a_barPlot_passiveAndActiveLearningSituations.generateFigures()
+    b_barplot_inaccuraciesVolumes.generateFigures()
+    c_barPlot_nbAgents.generateFigures()
+    d_barPlot_generalizationScore.generateFigures()
+    e_barPlot_predictionError.generateFigures()
+    f_barPlot_learningInaccuraciesNCSCounts.generateFigures()
+
 
 
 
