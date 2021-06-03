@@ -66,7 +66,7 @@ def launch():
             arguments += fileName
             argumentsList.append(fileName)
 
-            os.system("java -jar ../../../Jars/_ELLSA.jar " + arguments)
+            os.system("java -jar ../../../Jars/ELLSA.jar " + arguments)
             print("")
 
 
